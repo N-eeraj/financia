@@ -1,9 +1,7 @@
 export default defineNuxtConfig({
+  app: {
+    baseURL: process.env.NODE_ENV === 'production' ? '/financia/' : '/'
+  },
   modules: ['@pinia/nuxt'],
-  routeRules: {
-    '/': { prerender: true },
-    '/login': { prerender: true },
-    '/sign-up': { prerender: true },
-    '/dashboard/**': { ssr: false },
-  }
+  ssr: false
 })
