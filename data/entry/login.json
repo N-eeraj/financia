@@ -1,0 +1,10 @@
+{
+  "image": "/entry-form-illustrations/login.svg",
+  "title": "Welcome Back",
+  "subtitle": "Login to your account",
+  "segue": "Don't have an account?",
+  "link": {
+    "text": "Sign Up",
+    "to": "/sign-up"
+  }
+}

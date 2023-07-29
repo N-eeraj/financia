@@ -1,5 +1,8 @@
 <template>
-  <h2>
-    Sign Up
-  </h2>
+  <EntryForm :image="image" :title="title" :subtitle="subtitle" :segue="segue" :link="link">
+  </EntryForm>
 </template>
+
+<script setup>
+const { image, title, subtitle, segue, link } = signUpData
+</script>

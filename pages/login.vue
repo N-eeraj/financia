@@ -1,11 +1,8 @@
 <template>
-  <button @click="handleLogin">
-    Login
-  </button>
+  <EntryForm :image="image" :title="title" :subtitle="subtitle" :segue="segue" :link="link">
+  </EntryForm>
 </template>
 
 <script setup>
-const { updateAuthentication } = useMainStore()
-
-const handleLogin = () => updateAuthentication(true)
+const { image, title, subtitle, segue, link } = loginData
 </script>

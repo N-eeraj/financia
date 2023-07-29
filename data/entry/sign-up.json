@@ -1,0 +1,10 @@
+{
+  "image": "/entry-form-illustrations/sign-up.svg",
+  "title": "Welcome to Financia",
+  "subtitle": "Register your account",
+  "segue": "Already have an account?",
+  "link": {
+    "text": "Login",
+    "to": "/login"
+  }
+}
