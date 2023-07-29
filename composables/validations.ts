@@ -13,14 +13,21 @@ const validationError = (message: string) => {
   }
 }
 
-const requiredValidation = (value: string) => {
+// function to trigger validation of a object of refs & return if all of them are valid
+export const validateForm = (formInputRefs: object) => {
+  const inputFields = Object.values(formInputRefs)
+  inputFields.forEach(input => input.validate())
+  return inputFields.every(input => input.isValid)
+}
+
+export const requiredValidation = (value: string) => {
   if (!value)
     return validationError('This field is required')
 
   return { error: false }
 }
 
-const nameValidation = (name: string) => {
+export const nameValidation = (name: string) => {
   const required = requiredValidation(name)
   if (required.error)
     return required
@@ -31,7 +38,7 @@ const nameValidation = (name: string) => {
   return { error: false }
 }
 
-const emailValidation = (email: string) => {
+export const emailValidation = (email: string) => {
   const required = requiredValidation(email)
   if (required.error)
     return required
@@ -42,7 +49,7 @@ const emailValidation = (email: string) => {
   return { error: false }
 }
 
-const passwordValidation = (password: string) => {
+export const passwordValidation = (password: string) => {
   const required = requiredValidation(password)
   if (required.error)
     return required
@@ -59,9 +66,9 @@ const passwordValidation = (password: string) => {
   return { error: false }
 }
 
-export {
-  requiredValidation,
-  nameValidation,
-  emailValidation,
-  passwordValidation,
+export const confirmValidation = (original: string, confirmation: string, field = 'fields') => {
+  if (original !== confirmation)
+    return validationError(`The ${field} doesn\'t match`)
+
+  return { error: false }
 }

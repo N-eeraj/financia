@@ -1,8 +1,12 @@
 <template>
-  <div class="relative">
+  <div class="relative flex-column">
     <input :value="modelValue" :type="currentType" :placeholder="placeholder" class="w-full px-5 py-3 rounded-md border placeholder:text-theme-grey-light focus:border-2" :class="componentClasses" @input="handleInput" @keypress="handleKeyPress" @keydown="handleKeyDown" @keyup="handleKeyUp" @keypress.enter="handleEnter" @focus="handleFocus" @blur="handleBlur" />
 
-    <button v-if="type === 'password'" type="button" class="absolute top-1/2 right-2 -translate-y-1/2" @click="togglePasswordVisibility">
+    <span v-if="currentError" class="text-theme-error mt-1">
+      {{ currentError }}
+    </span>
+
+    <button v-if="type === 'password'" type="button" class="absolute top-1/2 right-2" :class="currentError ? '-translate-y-[calc(50%+12px)]' : '-translate-y-1/2'" @click="togglePasswordVisibility">
       <Icon :name="`mdi-eye${showPassword ? '-off' : ''}`" size="24" class="text-theme-grey-light" />
     </button>
   </div>
@@ -31,6 +35,16 @@ const props = defineProps({
       ]
       return validTypes.includes(type)
     },
+  },
+
+  validator: {
+    type: Function,
+    required: false,
+  },
+
+  error: {
+    type: String,
+    required: false,
   },
 
   variant: {
@@ -114,6 +128,16 @@ const currentType = computed(() => {
 const togglePasswordVisibility = () => showPassword.value = !showPassword.value
 
 
+// handling error message
+const errorMessage = ref(null)
+const validate = () => {
+  if (!props.validator) return
+  const validation = props.validator(props.modelValue)
+  errorMessage.value = validation.error ? validation.message : null   
+}
+const currentError = computed(() => props.error || errorMessage.value)
+const isValid = computed(() => !currentError.value)
+
 // event emits
 const handleInput = ({ target }) => {
   emit('update:modelValue', target.value)
@@ -121,8 +145,24 @@ const handleInput = ({ target }) => {
 }
 const handleKeyDown = ({ target }) => emit('keydown', target.value)
 const handleKeyPress = ({ target }) => emit('keypress', target.value)
-const handleKeyUp = ({ target }) => emit('keyup', target.value)
-const handleEnter = ({ target }) => emit('enter', target.value)
+const handleKeyUp = ({ target }) => {
+  if (errorMessage.value)
+    validate()
+  emit('keyup', target.value)
+}
+const handleEnter = ({ target }) => {
+  validate()
+  emit('enter', target.value)
+}
 const handleFocus = ({ target }) => emit('focus', target.value)
-const handleBlur = ({ target }) => emit('blur', target.value)
+const handleBlur = ({ target }) => {
+  validate()
+  emit('blur', target.value)
+}
+
+// exposed functions & values
+defineExpose({
+  validate,
+  isValid,
+})
 </script>
