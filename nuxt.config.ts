@@ -6,6 +6,7 @@ export default defineNuxtConfig({
   modules: [
     '@pinia/nuxt',
     '@nuxtjs/tailwindcss',
+    'nuxt-icon',
   ],
   tailwindcss: {
     configPath: '~/tailwind.js',

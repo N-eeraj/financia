@@ -14,6 +14,9 @@ useHead({
 </script>
 
 <style>
+* {
+  @apply focus:border-base-blue focus:outline-none;
+}
 .flex-column {
   @apply flex flex-col;
 }

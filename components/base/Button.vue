@@ -23,6 +23,7 @@ const props = defineProps({
       return validVariants.includes(variant)
     },
   },
+
   color: {
     type: String,
     required: false,
@@ -39,11 +40,13 @@ const props = defineProps({
       return validColors.includes(color)
     },
   },
+
   dark: {
     type: Boolean,
     required: false,
     default: false,
   },
+
   loading: {
     type: Boolean,
     required: false,

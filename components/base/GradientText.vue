@@ -10,6 +10,7 @@ defineProps({
     type: String,
     required: true,
   },
+
   direction: {
     type: String,
     required: false,
@@ -28,6 +29,7 @@ defineProps({
       return validDirections.includes(direction)
     },
   },
+
   start: {
     type: String,
     required: false,
@@ -36,6 +38,7 @@ defineProps({
       return start.slice(0, 5) === 'from-'
     },
   },
+
   end: {
     type: String,
     required: false,
