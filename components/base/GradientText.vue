@@ -26,7 +26,7 @@ defineProps({
         'bg-gradient-to-tl',
       ]
       return validDirections.includes(direction)
-    }
+    },
   },
   start: {
     type: String,
@@ -34,7 +34,7 @@ defineProps({
     default: 'from-gradient-start',
     validator(start) {
       return start.slice(0, 5) === 'from-'
-    }
+    },
   },
   end: {
     type: String,
@@ -42,7 +42,7 @@ defineProps({
     default: 'to-gradient-end',
     validator(end) {
       return end.slice(0, 3) === 'to-'
-    }
+    },
   },
 })
 </script>

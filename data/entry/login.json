@@ -6,5 +6,10 @@
   "link": {
     "text": "Sign Up",
     "to": "/sign-up"
-  }
+  },
+  "placeholder": {
+    "email" : "Enter Email",
+    "password" : "Enter Password"
+  },
+  "button": "Login"
 }

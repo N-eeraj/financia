@@ -13,6 +13,10 @@ export default {
                 light: '#AAAAAA',
                 dark: '#444444',
             },
+            succes: '#0C9',
+            error: '#F55',
+            info: '#0CF',
+            warning: '#FA0',
         },
         gradient: {
             start: '#003344', 

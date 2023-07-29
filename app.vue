@@ -12,3 +12,12 @@ useHead({
   ],
 })
 </script>
+
+<style>
+.flex-column {
+  @apply flex flex-col;
+}
+.place-center {
+  @apply grid place-items-center;
+}
+</style>

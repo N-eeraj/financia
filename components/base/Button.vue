@@ -1,5 +1,5 @@
 <template>
-  <button class="inline-grid place-items-center rounded-md" :class="[componentClasses]">
+  <button class="inline-grid place-items-center rounded-md" :class="componentClasses">
     <!-- loading spinner -->
     <div v-if="loading" class="w-6 aspect-square border-2 border-theme-light border-t-transparent rounded-full animate-spin" />
 
@@ -12,7 +12,7 @@ const props = defineProps({
   variant: {
     type: String,
     required: false,
-    default: `flat`,
+    default: 'flat',
     validator(variant) {
       const validVariants = [
         'flat',
@@ -21,12 +21,12 @@ const props = defineProps({
         'gradient',
       ]
       return validVariants.includes(variant)
-    }
+    },
   },
   color: {
     type: String,
     required: false,
-    default: `light`,
+    default: 'light',
     validator(color) {
       const validColors = [
         'green',
@@ -37,7 +37,12 @@ const props = defineProps({
         'end',
       ]
       return validColors.includes(color)
-    }
+    },
+  },
+  dark: {
+    type: Boolean,
+    required: false,
+    default: false,
   },
   loading: {
     type: Boolean,
@@ -45,7 +50,6 @@ const props = defineProps({
     default: false,
   },
 })
-
 
 const componentClasses = computed(() => {
   const width = 'min-w-[150px]'
@@ -103,12 +107,15 @@ const componentClasses = computed(() => {
     },
   }
 
+  const textColor = props.dark ? 'text-theme-light' : 'text-theme-dark'
+
   if (props.variant !== 'gradient' && ['start', 'end'].includes(props.color))
     console.warn(`Cannot use color ${props.color} with variant ${props.variant}`)
 
   return [
     buttonClassLibrary[props.variant].classes,
     buttonClassLibrary[props.variant].colors[props.color],
+    textColor,
   ]
 })
 </script>
