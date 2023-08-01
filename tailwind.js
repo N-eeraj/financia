@@ -22,7 +22,20 @@ export default {
             start: '#003344', 
             end: '#000710', 
         },
-      }
+      },
+      animation: {
+        'error': 'shiver 100ms linear 5 alternate',
+      },
+      keyframes: {
+        shiver: {
+          from: {
+            transform: 'translateX(3px)'
+          },
+          to: {
+            transform: 'translateX(-3px)'
+          },
+        },
+      },
     },
   }
 }

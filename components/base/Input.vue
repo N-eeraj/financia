@@ -1,12 +1,12 @@
 <template>
   <div class="relative flex-column">
-    <input :value="modelValue" :type="currentType" :placeholder="placeholder" class="w-full px-5 py-3 rounded-md border placeholder:text-theme-grey-light focus:border-2" :class="componentClasses" @input="handleInput" @keypress="handleKeyPress" @keydown="handleKeyDown" @keyup="handleKeyUp" @keypress.enter="handleEnter" @focus="handleFocus" @blur="handleBlur" />
+    <input :value="modelValue" :type="currentType" :placeholder="placeholder" class="w-full px-5 py-3 rounded-md border placeholder:text-theme-grey-light focus:border-2" :class="[componentClasses, !isValid && 'border-theme-error animate-error']" @input="handleInput" @keypress="handleKeyPress" @keydown="handleKeyDown" @keyup="handleKeyUp" @keypress.enter="handleEnter" @focus="handleFocus" @blur="handleBlur" />
 
-    <span v-if="currentError" class="text-theme-error mt-1">
+    <span v-if="!isValid" class="text-theme-error mt-1">
       {{ currentError }}
     </span>
 
-    <button v-if="type === 'password'" type="button" class="absolute top-1/2 right-2" :class="currentError ? '-translate-y-[calc(50%+12px)]' : '-translate-y-1/2'" @click="togglePasswordVisibility">
+    <button v-if="type === 'password'" type="button" class="absolute top-1/2 right-2" :class="isValid ? '-translate-y-1/2' : '-translate-y-[calc(50%+14px)]'" @click="togglePasswordVisibility">
       <Icon :name="`mdi-eye${showPassword ? '-off' : ''}`" size="24" class="text-theme-grey-light" />
     </button>
   </div>
