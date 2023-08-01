@@ -1,5 +1,5 @@
 {
-  "image": "/entry-form-illustrations/login.svg",
+  "image": "entry-form-illustrations/login.svg",
   "title": "Welcome Back",
   "subtitle": "Login to your account",
   "segue": "Don't have an account?",
