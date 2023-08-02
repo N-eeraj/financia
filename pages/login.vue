@@ -24,6 +24,13 @@ const form = reactive({
 
 const handleSubmit = () => {
   if (!validateForm(formInput)) return
+  try {
+    const user = validateUserLogin(form)
+    console.log(user)
+  }
+  catch (error) {
+    console.warn(error)
+  }
   console.log(form)
 }
 </script>
