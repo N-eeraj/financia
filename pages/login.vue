@@ -1,7 +1,7 @@
 <template>
-  <EntryForm :image="image" :title="title" :subtitle="subtitle" :segue="segue" :link="link" @submit="handleSubmit">
-    <BaseInput :placeholder="placeholder.email"  variant="clear" dark class="w-full" />
-    <BaseInput :placeholder="placeholder.password"  variant="clear" dark class="w-full" />
+  <EntryForm :image="image" :title="title" :subtitle="subtitle" :segue="segue" :link="link" class="flex-row-reverse" @submit="handleSubmit">
+    <BaseInput v-model="form.email" :ref="el => formInput.email = el" type="email" :validator="emailValidation" :placeholder="placeholder.email" variant="clear" dark class="w-full" />
+    <BaseInput v-model="form.password" :ref="el => formInput.password = el" type="password" :validator="requiredValidation" :placeholder="placeholder.password" variant="clear" dark class="w-full" />
     <BaseButton variant="gradient" color="blue" dark>
       {{ button }}
     </BaseButton>
@@ -11,7 +11,19 @@
 <script setup>
 const { image, title, subtitle, segue, link, placeholder, button } = loginData
 
+// form field references
+const formInput = reactive({
+  email: null,
+  password: null,
+})
+
+const form = reactive({
+  email: '',
+  password: '',
+})
+
 const handleSubmit = () => {
-  console.log('login')
+  if (!validateForm(formInput)) return
+  console.log(form)
 }
 </script>
