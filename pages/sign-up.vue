@@ -33,6 +33,12 @@ const handlePasswordConfirmation = value => confirmValidation(form.password, val
 
 const handleSubmit = () => {
   if (!validateForm(formInput)) return
-  console.log(form)
+  try {
+    const user = validateUserSignUp(form)
+    console.log(user)
+  }
+  catch (error) {
+    console.warn(error)
+  }
 }
 </script>
