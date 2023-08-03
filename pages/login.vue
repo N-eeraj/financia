@@ -9,6 +9,8 @@
 </template>
 
 <script setup>
+const { setUser } = useUserStore()
+const router = useRouter()
 const { image, title, subtitle, segue, link, placeholder, button } = loginData
 
 // form field references
@@ -25,12 +27,11 @@ const form = reactive({
 const handleSubmit = () => {
   if (!validateForm(formInput)) return
   try {
-    const user = validateUserLogin(form)
-    console.log(user)
+    setUser(validateUserLogin(form))
+    router.push('/dashboard')
   }
   catch (error) {
     console.warn(error)
   }
-  console.log(form)
 }
 </script>

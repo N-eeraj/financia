@@ -11,6 +11,8 @@
 </template>
 
 <script setup>
+const { setUser } = useUserStore()
+const router = useRouter()
 const { image, title, subtitle, segue, link, placeholder, button } = signUpData
 
 // form field references
@@ -34,8 +36,8 @@ const handlePasswordConfirmation = value => confirmValidation(form.password, val
 const handleSubmit = () => {
   if (!validateForm(formInput)) return
   try {
-    const user = validateUserSignUp(form)
-    console.log(user)
+    setUser(validateUserSignUp(form))
+    router.push('/dashboard')
   }
   catch (error) {
     console.warn(error)

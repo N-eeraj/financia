@@ -1,15 +1,22 @@
 <template>
   <NuxtLayout>
     <NuxtPage />
-  </NuxtLayout>
+  </NuxtLayout> 
 </template>
 
-<script setup lang="ts">
+<script setup>
+
 useHead({
   title: 'Financia',
   meta: [
     { name: 'description', content: 'Financia Website.' }
   ],
+})
+
+onMounted(() => {
+  const user = getFromStorage('userId')
+  if (user)
+    setUser(user)
 })
 </script>
 
