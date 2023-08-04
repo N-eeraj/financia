@@ -13,6 +13,11 @@ const { setUser } = useUserStore()
 const router = useRouter()
 const { image, title, subtitle, segue, link, placeholder, button } = loginData
 
+definePageMeta({
+  visitor: true,
+  user: false,
+})
+
 // form field references
 const formInput = reactive({
   email: null,

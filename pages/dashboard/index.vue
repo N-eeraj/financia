@@ -7,5 +7,7 @@
 <script setup>
 definePageMeta({
   layout: "dashboard",
+  visitor: false,
+  user: true,
 })
 </script>

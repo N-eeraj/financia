@@ -23,3 +23,10 @@
     </div>
   </div>
 </template>
+
+<script setup>
+definePageMeta({
+  visitor: true,
+  user: true,
+})
+</script>

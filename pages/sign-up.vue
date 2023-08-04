@@ -15,6 +15,11 @@ const { setUser } = useUserStore()
 const router = useRouter()
 const { image, title, subtitle, segue, link, placeholder, button } = signUpData
 
+definePageMeta({
+  visitor: true,
+  user: false,
+})
+
 // form field references
 const formInput = reactive({
   name: null,
