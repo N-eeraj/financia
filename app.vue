@@ -48,6 +48,9 @@ onMounted(() => {
 .flex-column {
   @apply flex flex-col;
 }
+.flex-center {
+  @apply flex justify-center items-center
+}
 .place-center {
   @apply grid place-items-center;
 }

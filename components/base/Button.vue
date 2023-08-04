@@ -2,7 +2,6 @@
   <button class="inline-grid place-items-center rounded-md" :class="componentClasses">
     <!-- loading spinner -->
     <div v-if="loading" class="w-6 aspect-square border-2 border-theme-light border-t-transparent rounded-full animate-spin" />
-
     <slot v-else />
   </button>
 </template>
