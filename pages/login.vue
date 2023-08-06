@@ -33,10 +33,11 @@ const handleSubmit = () => {
   if (!validateForm(formInput)) return
   try {
     setUser(validateUserLogin(form))
+    toastify('Logged in successfully', 'success')
     router.push('/dashboard')
   }
   catch (error) {
-    console.warn(error)
+    toastify(error, 'error')
   }
 }
 </script>

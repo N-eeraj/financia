@@ -42,10 +42,11 @@ const handleSubmit = () => {
   if (!validateForm(formInput)) return
   try {
     setUser(validateUserSignUp(form))
+    toastify('Signed up successfully', 'success')
     router.push('/dashboard')
   }
   catch (error) {
-    console.warn(error)
+    toastify(error, 'error')
   }
 }
 </script>

@@ -1,11 +1,12 @@
 <template>
-  <NuxtLayout>
+  <NuxtLayout id="main">
     <NuxtPage />
   </NuxtLayout> 
 </template>
 
 <script setup>
 import { storeToRefs } from 'pinia'
+import 'vue3-toastify/dist/index.css'
 
 const route = useRoute()
 const router = useRouter()
