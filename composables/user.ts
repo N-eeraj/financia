@@ -1,17 +1,17 @@
 import usersData from '@/data/users.json'
 
-interface LoginForm {
+interface LoginDetails {
   email: string
   password: string
 }
 
-interface SignUpForm {
+interface SignUpDetails {
   name: string
   email: string
   password: string
 }
 
-export const validateUserLogin = ({ email, password }: LoginForm) => {
+export const validateUserLogin = ({ email, password }: LoginDetails) => {
   for (let user of usersData) {
     if (user.email !== email)
       continue
@@ -25,7 +25,7 @@ export const validateUserLogin = ({ email, password }: LoginForm) => {
   throw 'User Not Found'
 }
 
-export const validateUserSignUp = ({ name, email, password }: SignUpForm) => {
+export const validateUserSignUp = ({ name, email, password }: SignUpDetails) => {
   if (usersData.some(user => user.email === email))
     throw 'Email id already exists'
   const userDetails = {
