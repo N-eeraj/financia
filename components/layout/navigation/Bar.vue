@@ -1,8 +1,8 @@
 <template>
   <div class="flex justify-between w-full">
     <div class="flex items-center gap-x-3">
-      <button class="lg:hidden">
-        <Icon name="eva:menu-outline" class="text-theme-light text-6xl" />
+      <button class="lg:hidden" @click="toggleNavDrawer">
+        <Icon :name="navDrawerVisibility ? 'ion:close' : 'eva:menu-outline'" class="max-md:relative text-theme-light text-6xl" />
       </button>
       <span class="text-theme-grey-light text-3xl max-sm:hidden">
         Dashboard
