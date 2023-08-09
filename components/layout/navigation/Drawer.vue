@@ -1,8 +1,8 @@
 <template>
-  <div class="w-screen h-screen">
-    <nav class="fixed top-0 left-0 w-full h-full before:content-[''] before:absolute before:aspect-square before:bg-base-green before:rounded-full before:blur-2xl before:saturate-150 before:z-40 after:content-[''] after:absolute after:bottom-0 after:right-0 after:aspect-square after:bg-base-blue after:rounded-full after:blur-2xl after:saturate-150 after:z-40 nav-container">
+  <div class="fixed top-0 left-0 w-screen h-screen bg-theme-dark/10 backdrop-blur-sm md:p-8 lg:relative lg:w-min lg:h-full lg:p-0">
+    <nav class="nav-container relative w-full h-full before:content-[''] before:absolute before:aspect-square before:bg-base-green before:rounded-full before:blur-2xl before:saturate-150 before:z-40 after:content-[''] after:absolute after:bottom-0 after:right-0 after:aspect-square after:bg-base-blue after:rounded-full after:blur-2xl after:saturate-150 after:z-40 md:w-96 lg:w-80">
 
-      <div class="relative w-full h-full bg-gradient-to-bl from-theme-grey-dark/90 to-theme-dark/60 backdrop-blur-sm z-50">
+      <div class="relative w-full h-full bg-gradient-to-bl from-theme-grey-dark/90 to-theme-dark/60 backdrop-blur-sm z-50 md:rounded-2xl md:border-[0.25px] md:border-theme-grey-light">
 
         <!-- Financia -->
         <!-- <div class="flex-column items-center">
@@ -28,7 +28,7 @@
     width: 40px;
   }
   to {
-    width: 120px;
+    width: 100px;
   }
 }
 
