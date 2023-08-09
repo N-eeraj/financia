@@ -1,7 +1,8 @@
 <template>
-  <main class="w-full h-screen bg-theme-dark lg:flex lg:p-8 lg:gap-x-8">
+  <main class="w-full h-screen p-8 bg-theme-dark lg:flex lg:gap-x-8">
     <LayoutNavigationDrawer />
-    <section>
+    <section class="w-full">
+      <LayoutNavigationBar />
       <slot />
     </section>
   </main>
