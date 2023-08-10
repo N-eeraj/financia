@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "title": "Money Received",
+    "body": "Alice has paid you ₹12,000",
+    "time": "Just now"
+  },
+  {
+    "id": 2,
+    "title": "Loan Approved",
+    "body": "Axis bank has approved you loan of ₹2,00,000",
+    "time": "20 minutes ago"
+  },
+  {
+    "id": 3,
+    "title": "Loan Approved",
+    "body": "Axis bank has approved you loan of ₹2,00,000",
+    "time": "2 days ago"
+  }
+]

@@ -3,8 +3,27 @@
 - ### Main
   > The main.ts file is used for state management regarding to core states of the project.
 
+    ```
+    Notification {
+      id: number
+      title: string
+      body: string
+      time: string
+    }
+  ```
+
+
   - **navDrawerVisibility** _(boolean)_: Indicates if nav drawer is shown or hidden in screen sizes smaller than large.
-  - **toggleNavDrawer** _(function)_: Used to toggle the _navDrawerVisibility_
+  - **toggleNavDrawer** _(function)_: Used to toggle the _navDrawerVisibility_.
+
+  <br>
+
+  - **allNotifications** _(array)_: An array of _Notification_.
+  - **newNotification** _(function)_: Used to add new notification to _allNotifications_. Expects a single argument of _Notification_ type.
+  `newNotification(notification)`
+  - **readNotification** _(function)_: Used to remove the notification of the given id from _allNotifications_. Expects a single argument of _number_ type.
+  `readNotification(3)`
+  - **readAllNotification** _(function)_: Used to clear _allNotifications_.
 
 <br>
 
