@@ -15,7 +15,7 @@ export const useMainStore = defineStore('main', () => {
   const toggleNavDrawer = () => navDrawerVisibility.value = !navDrawerVisibility.value
   
   // notifications
-  const allNotifications = ref(notificationsData)
+  const allNotifications = ref<Notification[]>(notificationsData)
   
   const newNotification = (notification: Notification) => allNotifications.value.push(notification)
 

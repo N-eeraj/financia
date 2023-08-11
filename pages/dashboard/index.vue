@@ -4,7 +4,7 @@
   </h1>
 </template>
 
-<script setup>
+<script setup lang="ts">
 definePageMeta({
   layout: "dashboard",
   visitor: false,

@@ -1,3 +1,8 @@
+interface ValidationRepsonse {
+  error: boolean
+  message?: string
+}
+
 const regex = {
   email: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,5}$/,
   digit: /\d/,
@@ -6,7 +11,7 @@ const regex = {
 }
 
 // helper function to structure validation errors
-const validationError = (message: string) => {
+const validationError = (message: string): ValidationRepsonse => {
   return {
     error: true,
     message,
@@ -14,20 +19,20 @@ const validationError = (message: string) => {
 }
 
 // function to trigger validation of a object of refs & return if all of them are valid
-export const validateForm = (formInputRefs: object) => {
+export const validateForm = (formInputRefs: object): boolean => {
   const inputFields = Object.values(formInputRefs)
   inputFields.forEach(input => input.validate())
   return inputFields.every(input => input.isValid)
 }
 
-export const requiredValidation = (value: string) => {
+export const requiredValidation = (value: string): ValidationRepsonse => {
   if (!value)
     return validationError('This field is required')
 
   return { error: false }
 }
 
-export const nameValidation = (name: string) => {
+export const nameValidation = (name: string): ValidationRepsonse => {
   const required = requiredValidation(name)
   if (required.error)
     return required
@@ -38,7 +43,7 @@ export const nameValidation = (name: string) => {
   return { error: false }
 }
 
-export const emailValidation = (email: string) => {
+export const emailValidation = (email: string): ValidationRepsonse => {
   const required = requiredValidation(email)
   if (required.error)
     return required
@@ -49,7 +54,7 @@ export const emailValidation = (email: string) => {
   return { error: false }
 }
 
-export const passwordValidation = (password: string) => {
+export const passwordValidation = (password: string): ValidationRepsonse => {
   const required = requiredValidation(password)
   if (required.error)
     return required
@@ -66,7 +71,7 @@ export const passwordValidation = (password: string) => {
   return { error: false }
 }
 
-export const confirmValidation = (original: string, confirmation: string, field = 'fields') => {
+export const confirmValidation = (original: any, confirmation: any, field = 'fields'): ValidationRepsonse => {
   if (original !== confirmation)
     return validationError(`The ${field} doesn\'t match`)
 

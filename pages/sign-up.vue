@@ -10,7 +10,7 @@
   </EntryForm>
 </template>
 
-<script setup>
+<script setup lang="ts">
 const { setUser } = useUserStore()
 const router = useRouter()
 const { image, title, subtitle, segue, link, placeholder, button } = signUpData
@@ -20,8 +20,15 @@ definePageMeta({
   user: false,
 })
 
+type TemplateRef = Element | ComponentPublicInstance | null
+interface LoginFormInput {
+  name: TemplateRef
+  email: TemplateRef
+  password: TemplateRef
+  confirmPassword: TemplateRef
+}
 // form field references
-const formInput = reactive({
+const formInput = reactive<LoginFormInput>({
   name: null,
   email: null,
   password: null,
@@ -36,7 +43,7 @@ const form = reactive({
   confirmPassword: '',
 })
 
-const handlePasswordConfirmation = value => confirmValidation(form.password, value, 'passwords')
+const handlePasswordConfirmation = (value: any) => confirmValidation(form.password, value, 'passwords')
 
 const handleSubmit = () => {
   if (!validateForm(formInput)) return
@@ -46,7 +53,7 @@ const handleSubmit = () => {
     router.push('/dashboard')
   }
   catch (error) {
-    toastify(error, 'error')
+    toastify(String(error), 'error')
   }
 }
 </script>

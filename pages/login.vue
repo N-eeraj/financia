@@ -8,7 +8,7 @@
   </EntryForm>
 </template>
 
-<script setup>
+<script setup lang="ts">
 const { setUser } = useUserStore()
 const router = useRouter()
 const { image, title, subtitle, segue, link, placeholder, button } = loginData
@@ -18,8 +18,13 @@ definePageMeta({
   user: false,
 })
 
+type TemplateRef = Element | ComponentPublicInstance | null
+interface LoginFormInput {
+  email: TemplateRef
+  password: TemplateRef
+}
 // form field references
-const formInput = reactive({
+const formInput = reactive<LoginFormInput>({
   email: null,
   password: null,
 })
@@ -37,7 +42,7 @@ const handleSubmit = () => {
     router.push('/dashboard')
   }
   catch (error) {
-    toastify(error, 'error')
+    toastify(String(error), 'error')
   }
 }
 </script>

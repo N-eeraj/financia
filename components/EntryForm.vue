@@ -33,7 +33,7 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 const props = defineProps({
   image: {
     type: String,
@@ -64,7 +64,7 @@ const emit = defineEmits(['submit'])
 
 const imageUrl = computed(() => `${process.env.NODE_ENV === 'production' ? '/financia/' : '/'}${props.image}`)
 
-const handleSubmit = (event) => {
+const handleSubmit = (event: Event) => {
   event.preventDefault()
   emit('submit')
 }

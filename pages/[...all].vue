@@ -20,7 +20,7 @@
   </main>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { storeToRefs } from 'pinia'
 
 const router = useRouter()
