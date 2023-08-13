@@ -5,6 +5,8 @@
 
   - **toastify**: Function used to make alert toasts. The function expects 2 arguments, _text_ of _string_ type & _type_ of _ToastType_ type.
 
+  - **authDashboard**: _PageMeta_ data that sets the _layout_, _visitor_ & _user_ page meta details.
+
   > The main composable also imports & exports the _storage_ utility functions & make them globally available.
 
 <br>

@@ -1,0 +1,37 @@
+[
+  {
+    "to": "/dashboard",
+    "icon": "ic:round-home",
+    "text": "Dashboard"
+  },
+  {
+    "to": "/dashboard/accounts",
+    "icon": "mdi:cash",
+    "text": "Accounts"
+  },
+  {
+    "to": "/dashboard/investments",
+    "icon": "fluent-mdl2:chart",
+    "text": "Investments"
+  },
+  {
+    "to": "/dashboard/cards/debit",
+    "icon": "uil:atm-card",
+    "text": "Debit Cards"
+  },
+  {
+    "to": "/dashboard/cards/credit",
+    "icon": "bi:credit-card",
+    "text": "Credit Cards"
+  },
+  {
+    "to": "/dashboard/loans",
+    "icon": "bxs:bank",
+    "text": "Loans"
+  },
+  {
+    "to": "/dashboard/transactions",
+    "icon": "ri:exchange-dollar-fill",
+    "text": "Transactions"
+  }
+]

@@ -1,6 +1,6 @@
 <template>
   <div>
-    dashboard
+    debit card
   </div>
 </template>
 

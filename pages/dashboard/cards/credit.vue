@@ -1,6 +1,6 @@
 <template>
   <div>
-    dashboard
+    credit card
   </div>
 </template>
 

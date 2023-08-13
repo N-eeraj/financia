@@ -7,3 +7,7 @@
     </section>
   </main>
 </template>
+
+<script setup lang="ts">
+onMounted(() => setNavDrawer(false))
+</script>

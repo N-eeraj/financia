@@ -1,6 +1,6 @@
 <template>
   <div>
-    dashboard
+    loans
   </div>
 </template>
 

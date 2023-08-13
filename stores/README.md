@@ -15,6 +15,8 @@
 
   - **navDrawerVisibility** _(boolean)_: Indicates if nav drawer is shown or hidden in screen sizes smaller than large.
   - **toggleNavDrawer** _(function)_: Used to toggle the _navDrawerVisibility_.
+  - **setNavDrawer** _(function)_: Used to set the _navDrawerVisibility_ to the single _boolean_ argument passed.
+  `setNavDrawer(true)`
 
   <br>
 

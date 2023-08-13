@@ -12,6 +12,9 @@
           <BaseGradientText text="Financia" start="from-base-green" end="to-base-blue" class="text-4xl font-bold" />
         </NuxtLink>
 
+        <!-- links -->
+        <LayoutNavigationDrawerLink v-for="({to, icon, text}, index) in navDrawerLinksData" :to="to" :icon="icon" :text="text" :key="index" />
+
       </div>
     </nav>
   </div>
