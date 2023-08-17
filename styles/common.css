@@ -1,0 +1,17 @@
+* {
+  @apply focus:border-base-blue focus:outline-none;
+}
+
+/* custom classes */
+.flex-column {
+  @apply flex flex-col;
+}
+.flex-center {
+  @apply flex justify-center items-center
+}
+.place-center {
+  @apply grid place-items-center;
+}
+.glass-bg {
+  @apply from-theme-grey-dark/70 to-theme-dark/30 backdrop-blur-lg;
+}

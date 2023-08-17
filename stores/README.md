@@ -3,7 +3,21 @@
 - ### Main
   > The main.ts file is used for state management regarding to core states of the project.
 
-    ```
+  - **navDrawerVisibility** _(boolean)_: Indicates if nav drawer is shown or hidden in screen sizes smaller than large.
+  - **toggleNavDrawer** _(function)_: Used to toggle the _navDrawerVisibility_.
+  - **setNavDrawer** _(function)_: Used to set the _navDrawerVisibility_ to the single _boolean_ argument passed.
+  `setNavDrawer(true)`
+
+  <br>
+
+  - **notificationListVisibility** _(boolean)_: Indicates if nav drawer is shown or hidden in screen sizes smaller than large.
+  - **toggleNotificationList** _(function)_: Used to toggle the _notificationListVisibility_.
+  - **setNotificationList** _(function)_: Used to set the _notificationListVisibility_ to the single _boolean_ argument passed.
+  `setNotificationList(true)`
+
+  <br>
+
+  ```
     Notification {
       id: number
       title: string
@@ -11,14 +25,6 @@
       time: string
     }
   ```
-
-
-  - **navDrawerVisibility** _(boolean)_: Indicates if nav drawer is shown or hidden in screen sizes smaller than large.
-  - **toggleNavDrawer** _(function)_: Used to toggle the _navDrawerVisibility_.
-  - **setNavDrawer** _(function)_: Used to set the _navDrawerVisibility_ to the single _boolean_ argument passed.
-  `setNavDrawer(true)`
-
-  <br>
 
   - **allNotifications** _(array)_: An array of _Notification_.
   - **newNotification** _(function)_: Used to add new notification to _allNotifications_. Expects a single argument of _Notification_ type.
@@ -35,6 +41,20 @@
   `setProfileMenu(true)`
 
   <br>
+  <br>
+
+  ```
+    VisibilityChange {
+      ref: Ref<boolean>
+      value?: boolean
+      closeRefs?: Ref<boolean>[]
+    }
+  ```
+
+  **changeVisibility** _(function)_: A helper function used to update the variables in the main store. Expects a single argument of _VisibilityChange_.
+  `changeVisibility(VisibilityChangeObject)`
+  <br>
+  > This function is not exported & thus isn't available outside the main store as it is only a helper function.
 
 <br>
 

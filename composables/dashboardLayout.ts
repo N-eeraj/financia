@@ -4,21 +4,27 @@ const mainStore = useMainStore()
 
 const {
   navDrawerVisibility,
-  profileMenuVisibility
+  notificationListVisibility,
+  profileMenuVisibility,
 } = storeToRefs(mainStore)
 
 const {
   toggleNavDrawer,
   setNavDrawer,
+  toggleNotificationList,
+  setNotificationList,
   toggleProfileMenu,
-  setProfileMenu
+  setProfileMenu,
 } = mainStore
 
 export {
   navDrawerVisibility,
+  notificationListVisibility,
   profileMenuVisibility,
   toggleNavDrawer,
   setNavDrawer,
+  toggleNotificationList,
+  setNotificationList,
   toggleProfileMenu,
   setProfileMenu,
 }

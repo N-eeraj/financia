@@ -9,7 +9,10 @@
 </template>
 
 <script setup lang="ts">
-const handleCloseAll = () => setProfileMenu(false)
+const handleCloseAll = () => {
+  setProfileMenu(false)
+  setNotificationList(false)
+}
 
 onMounted(() => setNavDrawer(false))
 </script>

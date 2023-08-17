@@ -19,6 +19,11 @@
     - **toggleNavDrawer** _(function)_: Global reference used to toggle navigation drawer visibility.
     - **setNavDrawer** _(function)_: Global reference used to set navigation drawer visibility to the _boolean_ argument passed.
 
+  - Notifications List
+    - **notificationListVisibility** _(boolean)_: Global reference indicating notification visibility.
+    - **toggleNotificationList** _(function)_: Global reference used to toggle notification list visibility.
+    - **setNotificationList** _(function)_: Global reference used to set notification list visibility to the _boolean_ argument passed.
+
   - Profile Menu
     - **profileMenuVisibility** _(boolean)_: Global reference indicating profile menu visibility.
     - **toggleProfileMenu** _(function)_: Global reference used to toggle profile menu.

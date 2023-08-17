@@ -1,0 +1,72 @@
+
+.nav-container::before {
+  animation: start-from-top 18s infinite ease-in-out, glow 3s infinite ease-in-out alternate;
+}
+.nav-container::after {
+  animation: start-from-bottom 18s infinite ease-in-out, glow 3s infinite ease-in-out alternate;
+}
+
+@keyframes glow {
+  from {
+    width: 20px;
+  }
+  to {
+    width: 80px;
+  }
+}
+
+@keyframes start-from-top {
+  0% {
+    top: 0;
+    left: 0;
+    transform: translate(0, 0);
+  }
+  16.67% {
+    top: 0;
+    left: 100%;
+    transform: translate(-100%, 0);
+  }
+  50% {
+    top: 100%;
+    left: 100%;
+    transform: translate(-100%, -100%);
+  }
+  66.67% {
+    top: 100%;
+    left: 0;
+    transform: translate(0, -100%);
+  }
+  100% {
+    top: 0;
+    left: 0;
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes start-from-bottom {
+  0% {
+    bottom: 0;
+    right: 0;
+    transform: translate(0, 0);
+  }
+  16.67% {
+    bottom: 0;
+    right: 100%;
+    transform: translate(100%, 0);
+  }
+  50% {
+    bottom: 100%;
+    right: 100%;
+    transform: translate(100%, 100%);
+  }
+  66.67% {
+    bottom: 100%;
+    right: 0;
+    transform: translate(0, 100%);
+  }
+  100% {
+    bottom: 0;
+    right: 0;
+    transform: translate(0, 0);
+  }
+}

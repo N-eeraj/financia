@@ -10,8 +10,8 @@
     </div>
 
     <div class="relative flex items-center gap-x-5">
-      <BaseNotifications />
-      <BaseProfile />
+      <LayoutNotificationButton />
+      <LayoutProfile />
     </div>
   </div>
 </template>

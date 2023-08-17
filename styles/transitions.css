@@ -1,0 +1,26 @@
+/* page transition */
+.page-enter-active,
+.page-leave-active {
+  transition-duration: 400ms;
+}
+.page-enter-from,
+.page-leave-to {
+  opacity: 0;
+  transform: scale(1.1);
+}
+
+/* common transitions */
+
+/* slide down */
+.slide-down-enter-active {
+  transition: top 250ms ease-in-out, opacity 400ms ease-in-out;
+}
+.slide-down-leave-active {
+  transition: top 400ms ease-in-out, opacity 250ms ease-in-out;
+}
+
+.slide-down-enter-from,
+.slide-down-leave-to {
+  top: 0;
+  opacity: 0;
+}
