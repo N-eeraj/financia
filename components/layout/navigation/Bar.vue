@@ -9,9 +9,9 @@
       </span>
     </div>
 
-    <div class="flex items-center gap-x-5">
+    <div class="relative flex items-center gap-x-5">
       <BaseNotifications />
-      <BaseUser />
+      <BaseProfile />
     </div>
   </div>
 </template>

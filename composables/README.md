@@ -11,8 +11,8 @@
 
 <br>
 
-- #### NavDrawer
-  > Used to handle navigation drawer visibilty.
+- #### Dashboard Layout
+  > Used to handle changes in the dashboard layout.
   - **navDrawerVisibility** _(boolean)_: Global reference to Vue ref in **main store** indicating navigation drawer visibility.
   - **toggleNavDrawer** _(function)_: Global reference to function in **main store** used to toggle navigation drawer visibility.
 

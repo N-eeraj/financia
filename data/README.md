@@ -15,3 +15,6 @@
 
 - **Nav Drawer Links**
   > Consists of links, text & icons of the navigation drawer.
+
+- **Profile Actions**
+  > Consists of actions for the profile menu, including icon, text, action slug & optional classes.

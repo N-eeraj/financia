@@ -1,0 +1,23 @@
+[
+  {
+    "icon": "clarity:user-solid",
+    "text": "Profile",
+    "action": "viewProfile"
+  },
+  {
+    "icon": "mdi:notifications",
+    "text": "Notifications",
+    "action": "showNotifications",
+    "classes": "md:hidden"
+  },
+  {
+    "icon": "ic:outline-help",
+    "text": "Help",
+    "action": "showHelp"
+  },
+  {
+    "icon": "tabler:logout",
+    "text": "Logout",
+    "action": "logout"
+  }
+]
