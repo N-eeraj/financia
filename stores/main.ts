@@ -28,6 +28,8 @@ export const useMainStore = defineStore('main', () => {
   // profile menu
   const profileMenuVisibility = ref(false)
 
+  const toggleProfileMenu = () => profileMenuVisibility.value = !profileMenuVisibility.value
+
   const setProfileMenu = (value: boolean) => profileMenuVisibility.value = value
 
 
@@ -40,6 +42,7 @@ export const useMainStore = defineStore('main', () => {
     readNotification,
     readAllNotification,
     profileMenuVisibility,
+    toggleProfileMenu,
     setProfileMenu,
   }
 })

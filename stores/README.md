@@ -27,6 +27,15 @@
   `readNotification(3)`
   - **readAllNotification** _(function)_: Used to clear _allNotifications_.
 
+  <br>
+
+  - **profileMenuVisibility** _(boolean)_: Indicates if profile menu is shown or hidden.
+  - **toggleProfileMenu** _(function)_: Used to toggle the profileMenuVisibility.
+  - **setProfileMenu** _(function)_: Used to set the profileMenuVisibility to the single _boolean_ argument passed.
+  `setProfileMenu(true)`
+
+  <br>
+
 <br>
 
 - ### User

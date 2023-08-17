@@ -13,7 +13,7 @@
 
 ---
 
-## ⚡️ Getting Started
+## ✨ Getting Started
 This is a single page app (SPA) built using Nuxt.
 - Fork this repo
 - Install node_modules using the `npm i` command.
@@ -76,7 +76,11 @@ This will start the web app on a port in your local server.
 
 ---
 
-## ⚙️ Features
+##🌐 Web Pages & Features ⚙️
+- Landing Page
+
+  > Home page of web app, the visitor lands on this when visiting the home path (/).
+
 - Login & Sign Up
 
   > <br>

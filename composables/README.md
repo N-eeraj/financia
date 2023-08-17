@@ -13,8 +13,16 @@
 
 - #### Dashboard Layout
   > Used to handle changes in the dashboard layout.
-  - **navDrawerVisibility** _(boolean)_: Global reference to Vue ref in **main store** indicating navigation drawer visibility.
-  - **toggleNavDrawer** _(function)_: Global reference to function in **main store** used to toggle navigation drawer visibility.
+  > Global reference to Vue refs & functions in **main store**.
+  - Nav Drawer
+    - **navDrawerVisibility** _(boolean)_: Global reference indicating navigation drawer visibility.
+    - **toggleNavDrawer** _(function)_: Global reference used to toggle navigation drawer visibility.
+    - **setNavDrawer** _(function)_: Global reference used to set navigation drawer visibility to the _boolean_ argument passed.
+
+  - Profile Menu
+    - **profileMenuVisibility** _(boolean)_: Global reference indicating profile menu visibility.
+    - **toggleProfileMenu** _(function)_: Global reference used to toggle profile menu.
+    - **setProfileMenu** _(function)_: Global reference used to set profile menu to the _boolean_ argument passed.
 
 <br>
 
