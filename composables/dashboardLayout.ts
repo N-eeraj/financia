@@ -1,7 +1,13 @@
 import { storeToRefs } from 'pinia'
 
 const mainStore = useMainStore()
-const { navDrawerVisibility } = storeToRefs(mainStore)
-const { toggleNavDrawer, setNavDrawer } = mainStore
+const { navDrawerVisibility, profileMenuVisibility } = storeToRefs(mainStore)
+const { toggleNavDrawer, setNavDrawer, setProfileMenu } = mainStore
 
-export { navDrawerVisibility, toggleNavDrawer, setNavDrawer }
+export {
+  navDrawerVisibility,
+  toggleNavDrawer,
+  setNavDrawer,
+  profileMenuVisibility,
+  setProfileMenu,
+}

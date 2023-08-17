@@ -1,5 +1,5 @@
 <template>
-  <button class="flex gap-x-3 py-1 text-theme-grey-light">
+  <button class="flex gap-x-3 py-1 text-theme-grey-light hover:text-theme-light">
     <Icon :name="icon" size="24" />
     <span class="text-xl">
       {{ text }}

@@ -11,8 +11,8 @@
 </template>
 
 <script setup lang="ts">
-const { setUser } = useUserStore()
 const router = useRouter()
+const { setUser } = useUserStore()
 const { image, title, subtitle, segue, link, placeholder, button } = signUpData
 
 definePageMeta({

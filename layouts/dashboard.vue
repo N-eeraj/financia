@@ -1,5 +1,5 @@
 <template>
-  <main class="w-full h-screen p-8 bg-theme-dark lg:flex lg:gap-x-8">
+  <main class="w-full h-screen p-8 bg-theme-dark lg:flex lg:gap-x-8" @click="handleCloseAll">
     <LayoutNavigationDrawer class="z-10" />
     <section class="w-full">
       <LayoutNavigationBar />
@@ -9,5 +9,7 @@
 </template>
 
 <script setup lang="ts">
+const handleCloseAll = () => setProfileMenu(false)
+
 onMounted(() => setNavDrawer(false))
 </script>

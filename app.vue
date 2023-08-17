@@ -55,6 +55,9 @@ onMounted(() => {
 .place-center {
   @apply grid place-items-center;
 }
+.glass-bg {
+  @apply from-theme-grey-dark/70 to-theme-dark/30 backdrop-blur-lg;
+}
 
 /* page transitions */
 .page-enter-active,

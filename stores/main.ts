@@ -13,6 +13,7 @@ export const useMainStore = defineStore('main', () => {
   const navDrawerVisibility = ref(false)
 
   const toggleNavDrawer = () => navDrawerVisibility.value = !navDrawerVisibility.value
+
   const setNavDrawer = (value: boolean) => navDrawerVisibility.value = value
   
   // notifications
@@ -24,6 +25,12 @@ export const useMainStore = defineStore('main', () => {
 
   const readAllNotification = () => allNotifications.value = []
 
+  // profile menu
+  const profileMenuVisibility = ref(false)
+
+  const setProfileMenu = (value: boolean) => profileMenuVisibility.value = value
+
+
   return {
     navDrawerVisibility,
     toggleNavDrawer,
@@ -32,5 +39,7 @@ export const useMainStore = defineStore('main', () => {
     newNotification,
     readNotification,
     readAllNotification,
+    profileMenuVisibility,
+    setProfileMenu,
   }
 })
