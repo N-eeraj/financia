@@ -2,19 +2,35 @@
   {
     "id": 1,
     "title": "Money Received",
-    "body": "Alice has paid you ₹12,000",
-    "time": "Just now"
+    "body": "Alice has paid you ₹12,000"
   },
   {
     "id": 2,
     "title": "Loan Approved",
     "body": "Axis bank has approved you loan of ₹2,00,000",
-    "time": "20 minutes ago"
+    "time": "2023-08-19T11:02:25.424Z"
   },
   {
     "id": 3,
     "title": "Loan Approved",
-    "body": "Axis bank has approved you loan of ₹2,00,000",
-    "time": "2 days ago"
+    "body": "ICICI bank has approved you loan of ₹5,00,000",
+    "time": "2023-08-19T08:51:25.424Z"
+  },
+  {
+    "id": 4,
+    "title": "Investment Update",
+    "time": "2023-08-18T06:51:25.424Z"
+  },
+  {
+    "id": 5,
+    "title": "Money Requested",
+    "body": "Bob has requested ₹12,000 from you",
+    "time": "2023-08-15T06:51:25.424Z"
+  },
+  {
+    "id": 6,
+    "title": "Credit Score Change",
+    "body": "Your credit score has been updated by 25 points",
+    "time": "2023-06-25T06:51:25.424Z"
   }
 ]

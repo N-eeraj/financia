@@ -21,3 +21,8 @@
   - **removeFromStorage**: This function is used to clear specified data from the localstorage. This function expects a single string argument.
   `removeFromStorage('keyName')`
   - **resetLocalStorage**: This function can be used to clear all the data related to this project in the localstorage.
+
+- ### Date
+  > The date.ts file contains the functions used to format the date in several way.
+
+  - **timePassed**: This function can be used to format time as time elapsed. Returns a string with time in _minutes_, _hours_, _days_ or _Just Now_ if time elapsed is less than 1 minute.
