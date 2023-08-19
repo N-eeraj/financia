@@ -15,7 +15,7 @@ interface VisibilityChange {
 }
 
 // helper function to update visibilty of dashboard layout components
-const changeVisibility = ({ ref, value, closeRefs }: VisibilityChange) => {
+const changeVisibility = ({ ref, value, closeRefs }: VisibilityChange): void => {
   if (value === undefined)
     ref.value = !ref.value
   else
@@ -23,14 +23,14 @@ const changeVisibility = ({ ref, value, closeRefs }: VisibilityChange) => {
   closeRefs?.forEach(closeRef => closeRef.value = false)
 }
 
-export const useMainStore = defineStore('main', () => {
+export const useMainStore = defineStore('main', (): object => {
 
   // nav drawer
   const navDrawerVisibility = ref(false)
 
-  const toggleNavDrawer = () => changeVisibility({ ref: navDrawerVisibility })
+  const toggleNavDrawer = (): void => changeVisibility({ ref: navDrawerVisibility })
 
-  const setNavDrawer = (value: boolean) => changeVisibility({
+  const setNavDrawer = (value: boolean): void => changeVisibility({
     ref: navDrawerVisibility,
     value,
   })
@@ -38,14 +38,14 @@ export const useMainStore = defineStore('main', () => {
   // notification layout
   const notificationListVisibility = ref(false)
 
-  const toggleNotificationList = () => changeVisibility({
+  const toggleNotificationList = (): void => changeVisibility({
     ref: notificationListVisibility,
     closeRefs: [
       profileMenuVisibility,
     ],
   })
 
-  const setNotificationList = (value: boolean) => changeVisibility({
+  const setNotificationList = (value: boolean): void => changeVisibility({
     ref: notificationListVisibility,
     value,
     closeRefs: [
@@ -65,14 +65,14 @@ export const useMainStore = defineStore('main', () => {
   // profile menu
   const profileMenuVisibility = ref(false)
 
-  const toggleProfileMenu = () => changeVisibility({
+  const toggleProfileMenu = (): void => changeVisibility({
     ref: profileMenuVisibility,
     closeRefs: [
       notificationListVisibility,
     ],
   })
 
-  const setProfileMenu = (value: boolean) => changeVisibility({
+  const setProfileMenu = (value: boolean): void => changeVisibility({
     ref: profileMenuVisibility,
     value,
     closeRefs: [
