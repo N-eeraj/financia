@@ -10,7 +10,9 @@
       {{ formattedDate }}
       <!-- {{ time }} -->
     </small>
-    <Icon name="majesticons:close" size="24" class="absolute top-3 right-3 text-theme-light" />
+    <button class="absolute top-3 right-3" @click="readNotification(id)">
+      <Icon name="majesticons:close" size="24" class="text-theme-light" />
+    </button>
   </div>
 </template>
 
@@ -35,6 +37,8 @@ const props = defineProps({
     default: () => String(new Date().toISOString())
   },
 })
+
+const { readNotification } = useMainStore()
 
 const formattedDate = computed(() => timePassed(new Date(props.time)))
 </script>
