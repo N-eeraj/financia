@@ -74,6 +74,9 @@ This will start the web app on a port in your local server.
   - ### Data
   > This directory consists of files with dummy data & data to be used as the content in the pages.
 
+  - ### cypress
+  > This directory contains test files.
+
 ---
 
 ##🌐 Web Pages & Features ⚙️
