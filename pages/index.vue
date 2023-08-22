@@ -13,10 +13,10 @@
 
       <!-- buttons container -->
       <div class="flex-column md:!flex-row items-center gap-y-4 w-full max-w-xs md:gap-x-6">
-        <BaseButton variant="gradient" color="blue" dark class="w-full" @click="$router.push('/login')">
+        <BaseButton variant="gradient" color="blue" dark class="w-full" data-cy="login-btn" @click="$router.push('/login')">
           Login
         </BaseButton>
-        <BaseButton color="dark" class="w-full" @click="$router.push('/sign-up')">
+        <BaseButton color="dark" class="w-full" data-cy="sign-up-btn" @click="$router.push('/sign-up')">
           Sign Up
         </BaseButton>
       </div>
