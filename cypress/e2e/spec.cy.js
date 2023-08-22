@@ -1,27 +1,46 @@
-const BASE_URL = 'http://localhost:3000'
+const URL = {
+  login: '/login',
+  signUp: '/sign-up',
+}
 
-describe('template spec', () => {
-  it('Checks login click from home & return back', () => {
-    cy.visit(BASE_URL)
-    cy.get('button').first().click()
-    cy.location().should(({ href }) => {
-      expect(href).to.contains(`${BASE_URL}/login`)
-    })
-    cy.go('back')
-    cy.location().should(({ href }) => {
-      expect(href).to.contains(BASE_URL)
-    })
+const navigateFromHomeToLoginThenToSignUp = () => {
+  cy.visit('/')
+  cy.get('button').contains('Login').click()
+  cy.wait(500)
+  cy.location().should(({ href }) => {
+    expect(href).to.contains(URL.login)
   })
+  cy.contains("Don't have an account?").next('button').click()
+  cy.location().should(({ href }) => {
+    expect(href).to.contains(URL.signUp)
+  })
+  cy.wait(500)
+  cy.go('back')
+  cy.location().should(({ href }) => {
+    expect(href).to.contains('/')
+  })
+}
 
-  it('Checks sign up click from home & return back', () => {
-    cy.visit(BASE_URL)
-    cy.get('button').last().click()
-    cy.location().should(({ href }) => {
-      expect(href).to.eq(`${BASE_URL}/sign-up`)
-    })
-    cy.go('back')
-    cy.location().should(({ href }) => {
-      expect(href).to.contains(BASE_URL)
-    })
+const navigateFromHomeToSignUpThenToLogin = () => {
+  cy.visit('/')
+  cy.get('button').contains('Sign Up').click()
+  cy.wait(500)
+  cy.location().should(({ href }) => {
+    expect(href).to.contains(URL.signUp)
   })
+  cy.contains("Already have an account?").next('button').click()
+  cy.location().should(({ href }) => {
+    expect(href).to.contains(URL.login)
+  })
+  cy.wait(500)
+  cy.go('back')
+  cy.location().should(({ href }) => {
+    expect(href).to.contains('/')
+  })
+}
+
+
+describe('Home navigation checks', () => {
+  it('Navigations from Home & Login', navigateFromHomeToLoginThenToSignUp)
+  it('Navigations from Home & Sign Up', navigateFromHomeToSignUpThenToLogin)
 })
