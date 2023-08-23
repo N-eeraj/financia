@@ -8,6 +8,7 @@
 - [Pinia](https://pinia.vuejs.org/)
 - [Tailwind CSS](https://tailwindcss.com/)
 - [TypeScript](https://www.typescriptlang.org/)
+- [Cypress](https://www.cypress.io/)
 - [Nuxt Icon](https://nuxt.com/modules/icon)
 - [Vue3 toastify](https://vue3-toastify.js-bridge.com/)
 
@@ -74,7 +75,7 @@ This will start the web app on a port in your local server.
   - ### Data
   > This directory consists of files with dummy data & data to be used as the content in the pages.
 
-  - ### cypress
+  - ### Cypress
   > This directory contains test files.
 
 ---
@@ -106,3 +107,30 @@ This will start the web app on a port in your local server.
   > The web app has a "page not found" page.
   > The back to home button of this page will redirect based on user login status, if the user is logged in, then they are redirected to the dashboard, else to the home page 
   > <br>
+
+---
+
+## 🧪 E2E Tests
+  - Navigations between home page & entry form pages.
+  - Login form test cases & form validations.
+
+--- 
+
+## 🌿 Branches
+- ### main
+  > This branch **should** always be updated with all the completed code from the **dev** & **test** branches.
+
+- ### dev
+  > The development branch.
+  > Only the development code should exist in this branch.
+  > Must **not** merge code from **main** or **test** branches.
+  > Create a pull request to **main** from **dev** on completing/updating a feature and _rebase_ it to the **main** branch.
+  > Run deployment script only from this branch, when ready to deploy.
+  `npm run deploy`
+
+- ### test
+  > The testing branch.
+  > This branch **should** always be updated with all the code in the **main** branch.
+  > Create a pull request to **main** from **test** on completing/updating a test and _rebase_ it to the **main** branch.
+
+<br>
