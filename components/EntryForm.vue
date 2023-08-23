@@ -25,7 +25,7 @@
         <span class="text-theme-grey-light">
           {{ segue }}
         </span>
-        <BaseButton variant="text" data-cy="segue-link" @click="$router.replace(link.to)">
+        <BaseButton variant="text" @click="$router.replace(link.to)">
           {{ link.text }}
         </BaseButton>
       </div>
