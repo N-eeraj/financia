@@ -20,7 +20,7 @@ export const validateUserLogin = ({ email, password }: LoginDetails) => {
       return userDetails
     }
     else
-      throw 'Incorrect Passsword'
+      throw 'Incorrect Password'
   }
   throw 'User Not Found'
 }
