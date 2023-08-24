@@ -82,7 +82,6 @@ const loginFormValidations = () => {
 
 const checkAllLoginInputCombinations = () => {
   cy.visit(URL.login)
-
   checkEmptyFormSubmit({
     inputSelectors: [
       'email-input',
@@ -96,6 +95,18 @@ const checkAllLoginInputCombinations = () => {
   })
 }
 
+const checkInvalidLogins = () => {
+  cy.visit(URL.login)
+  invalidCredentials.forEach(({ email, password, error }) => {
+    cy.get('[data-cy="email-input"]').find('[data-cy="input"]').type(email)
+    cy.get('[data-cy="password-input"]').find('[data-cy="input"]').type(password)
+    cy.get('button[data-cy="login-button"]').click()
+    cy.get('[data-testid="toast-content"]').last().should('have.text', error)
+    cy.get('[data-cy="email-input"]').find('[data-cy="input"]').clear()
+    cy.get('[data-cy="password-input"]').find('[data-cy="input"]').clear()
+  })
+}
+
 
 describe('Home Navigation Checks', () => {
   it('Checks navigations from Home & Login', navigateFromHomeToLoginThenToSignUp)
@@ -105,4 +116,5 @@ describe('Home Navigation Checks', () => {
 describe('Entry Form Validations', () => {
   it('Checks login form validations', loginFormValidations)
   it('Checks login form validations with all input combinations', checkAllLoginInputCombinations)
+  it('Checks invalid logins', checkInvalidLogins)
 })
