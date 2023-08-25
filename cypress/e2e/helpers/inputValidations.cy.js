@@ -12,6 +12,32 @@ export const checkInvalidInput = ({ selector, input, errorMsg }) => {
   checkEmptyValidation(selector)
 }
 
+export const checkMinMaxInputLength = ({ selector, min, max }) => {
+  if (min) {
+    for (let inputLength = 1; inputLength <= min.length; inputLength++) {
+      cy.get(`[data-cy="${selector}"]`).find('[data-cy="input"]').type('a')
+      cy.get(`[data-cy="${selector}"]`).find('[data-cy="input"]').blur()
+      if (inputLength < min.length)
+        cy.get(`[data-cy="${selector}"]`).find('[data-cy="error-msg"]').should('have.text', min.errorMsg)
+      else
+        cy.get(`[data-cy="${selector}"]`).find('[data-cy="error-msg"]').should('not.exist')
+    }
+  }
+  if (max) {
+    cy.get(`[data-cy="${selector}"]`).find('[data-cy="input"]').clear()
+    const maxInput = Array.from({ length: max.length - 1 }, () => 'a').join('')
+    cy.get(`[data-cy="${selector}"]`).find('[data-cy="input"]').type(maxInput)
+    for (let inputLength = max.length; inputLength <= max.length + 2; inputLength++) {
+      cy.get(`[data-cy="${selector}"]`).find('[data-cy="input"]').type('a')
+      cy.get(`[data-cy="${selector}"]`).find('[data-cy="input"]').blur()
+      if (inputLength > max.length)
+        cy.get(`[data-cy="${selector}"]`).find('[data-cy="error-msg"]').should('have.text', max.errorMsg)
+      else
+        cy.get(`[data-cy="${selector}"]`).find('[data-cy="error-msg"]').should('not.exist')
+    }
+  }
+}
+
 export const checkValidInput = ({ selector, input }) => {
   cy.get(`[data-cy="${selector}"]`).find('[data-cy="input"]').type(input)
   cy.get(`[data-cy="${selector}"]`).find('[data-cy="input"]').blur()

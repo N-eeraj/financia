@@ -10,7 +10,7 @@ import {
   validEmails,
   invalidCredentials,
   validCredentials,
-} from '/cypress/fixtures/entry-form/login.json'
+} from '/cypress/fixtures/entry-form.json'
 
 import { login, dashboard } from '/cypress/fixtures/url.json'
 
