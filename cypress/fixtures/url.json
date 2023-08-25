@@ -1,0 +1,7 @@
+{
+  "login": "/login",
+  "signUp": "/sign-up",
+  "dashboard": {
+    "home": "/dashboard"
+  }
+}
