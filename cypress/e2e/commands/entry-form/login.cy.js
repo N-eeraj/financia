@@ -3,7 +3,7 @@ import {
   checkInvalidInput,
   checkValidInput,
   checkEmptyFormSubmit,
-} from '/cypress/e2e/helper/inputValidations.cy.js'
+} from '/cypress/e2e/helpers/inputValidations.cy.js'
 
 import {
   invalidEmails,
@@ -12,52 +12,10 @@ import {
   validCredentials,
 } from '/cypress/fixtures/entry-form/login.json'
 
-const URL = {
-  login: '/login',
-  signUp: '/sign-up',
-  dashboard: {
-    home: '/dashboard'
-  },
-}
-
-const navigateFromHomeToLoginThenToSignUp = () => {
-  cy.visit('/')
-  cy.get('button[data-cy="login-btn"]').click()
-  cy.wait(500)
-  cy.location().should(({ href }) => {
-    expect(href).to.contains(URL.login)
-  })
-  cy.get('button[data-cy="segue-link"]').click()
-  cy.location().should(({ href }) => {
-    expect(href).to.contains(URL.signUp)
-  })
-  cy.wait(500)
-  cy.go('back')
-  cy.location().should(({ href }) => {
-    expect(href).to.contains('/')
-  })
-}
-
-const navigateFromHomeToSignUpThenToLogin = () => {
-  cy.visit('/')
-  cy.get('button[data-cy="sign-up-btn"]').click()
-  cy.wait(500)
-  cy.location().should(({ href }) => {
-    expect(href).to.contains(URL.signUp)
-  })
-  cy.get('button[data-cy="segue-link"]').click()
-  cy.location().should(({ href }) => {
-    expect(href).to.contains(URL.login)
-  })
-  cy.wait(500)
-  cy.go('back')
-  cy.location().should(({ href }) => {
-    expect(href).to.contains('/')
-  })
-}
+import { login, dashboard } from '/cypress/fixtures/url.json'
 
 const loginFormValidations = () => {
-  cy.visit(URL.login)
+  cy.visit(login)
 
   // empty field validation
   checkEmptyValidation('email-input')
@@ -84,7 +42,7 @@ const loginFormValidations = () => {
 }
 
 const checkAllLoginInputCombinations = () => {
-  cy.visit(URL.login)
+  cy.visit(login)
   checkEmptyFormSubmit({
     inputSelectors: [
       'email-input',
@@ -99,7 +57,7 @@ const checkAllLoginInputCombinations = () => {
 }
 
 const checkInvalidLogins = () => {
-  cy.visit(URL.login)
+  cy.visit(login)
   invalidCredentials.forEach(({ email, password, error }) => {
     cy.get('[data-cy="email-input"]').find('[data-cy="input"]').type(email)
     cy.get('[data-cy="password-input"]').find('[data-cy="input"]').type(password)
@@ -113,27 +71,23 @@ const checkInvalidLogins = () => {
 const checkValidLogins = () => {
   validCredentials.forEach(({ email, password }) => {
     cy.clearLocalStorage()
-    cy.visit(URL.login)
+    cy.visit(login)
     cy.get('[data-cy="email-input"]').find('[data-cy="input"]').type(email)
     cy.get('[data-cy="password-input"]').find('[data-cy="input"]').type(password)
     cy.get('button[data-cy="login-button"]').click()
     cy.get('[data-testid="toast-content"]').last().should('have.text', 'Logged in successfully')
     cy.wait(500)
     cy.location().should(({ href }) => {
-      expect(href).to.contains(URL.dashboard.home)
+      expect(href).to.contains(dashboard.home)
     })
   })
 }
 
-
-describe('Home Navigation Checks', () => {
-  it('Checks navigations from Home & Login', navigateFromHomeToLoginThenToSignUp)
-  it('Checks navigations from Home & Sign Up', navigateFromHomeToSignUpThenToLogin)
-})
-
-describe('Entry Form Validations', () => {
+const loginTests = () => {
   it('Checks login form validations', loginFormValidations)
   it('Checks login form validations with all input combinations', checkAllLoginInputCombinations)
   it('Checks invalid logins', checkInvalidLogins)
   it('Checks valid logins', checkValidLogins)
-})
+}
+
+export default loginTests
