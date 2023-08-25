@@ -15,6 +15,9 @@ import {
 const URL = {
   login: '/login',
   signUp: '/sign-up',
+  dashboard: {
+    home: '/dashboard'
+  },
 }
 
 const navigateFromHomeToLoginThenToSignUp = () => {
@@ -107,6 +110,21 @@ const checkInvalidLogins = () => {
   })
 }
 
+const checkValidLogins = () => {
+  validCredentials.forEach(({ email, password }) => {
+    cy.clearLocalStorage()
+    cy.visit(URL.login)
+    cy.get('[data-cy="email-input"]').find('[data-cy="input"]').type(email)
+    cy.get('[data-cy="password-input"]').find('[data-cy="input"]').type(password)
+    cy.get('button[data-cy="login-button"]').click()
+    cy.get('[data-testid="toast-content"]').last().should('have.text', 'Logged in successfully')
+    cy.wait(500)
+    cy.location().should(({ href }) => {
+      expect(href).to.contains(URL.dashboard.home)
+    })
+  })
+}
+
 
 describe('Home Navigation Checks', () => {
   it('Checks navigations from Home & Login', navigateFromHomeToLoginThenToSignUp)
@@ -117,4 +135,5 @@ describe('Entry Form Validations', () => {
   it('Checks login form validations', loginFormValidations)
   it('Checks login form validations with all input combinations', checkAllLoginInputCombinations)
   it('Checks invalid logins', checkInvalidLogins)
+  it('Checks valid logins', checkValidLogins)
 })
