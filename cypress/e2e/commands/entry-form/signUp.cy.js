@@ -3,6 +3,7 @@ import {
   checkInvalidInput,
   checkValidInput,
   checkMinMaxInputLength,
+  checkMatchingInputs,
   checkEmptyFormSubmit,
 } from '/cypress/e2e/helpers/inputValidations.cy.js'
 
@@ -49,6 +50,12 @@ const signUpFormValidations = () => {
       length: 2,
       errorMsg: 'Name must be atleast 2 characters long',
     },
+  })
+
+  checkMatchingInputs({
+    inputSelector: 'password-input',
+    confirmInputSelector: 'confirm-password-input',
+    missMatchMsg: 'The passwords doesn\'t match',
   })
 }
 

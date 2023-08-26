@@ -46,6 +46,28 @@ export const checkValidInput = ({ selector, input }) => {
   checkEmptyValidation(selector)
 }
 
+export const checkMatchingInputs = ({ inputSelector, confirmInputSelector, missMatchMsg }) => {
+  // check inputs not matching error
+  cy.get(`[data-cy="${inputSelector}"]`).find('[data-cy="input"]').type('12345678')
+  cy.get(`[data-cy="${confirmInputSelector}"]`).find('[data-cy="input"]').type('87654321')
+  cy.get(`[data-cy="${confirmInputSelector}"]`).find('[data-cy="input"]').blur()
+  cy.get(`[data-cy="${confirmInputSelector}"]`).find('[data-cy="error-msg"]').should('have.text', missMatchMsg)
+
+  // check matching inputs
+  cy.get(`[data-cy="${inputSelector}"]`).find('[data-cy="input"]').clear()
+  cy.get(`[data-cy="${confirmInputSelector}"]`).find('[data-cy="input"]').clear()
+  cy.get(`[data-cy="${inputSelector}"]`).find('[data-cy="input"]').type('12345678')
+  cy.get(`[data-cy="${confirmInputSelector}"]`).find('[data-cy="input"]').type('12345678')
+  cy.get(`[data-cy="${confirmInputSelector}"]`).find('[data-cy="input"]').blur()
+  cy.get(`[data-cy="${confirmInputSelector}"]`).then(($el) => {
+    console.log($el.find('[data-cy="error-msg"]').length)
+    if ($el.find('[data-cy="error-msg"]').length)
+      cy.get(`[data-cy="${confirmInputSelector}"]`).find('[data-cy="error-msg"]').should('not.have.text', missMatchMsg)
+    else
+      cy.get(`[data-cy="${confirmInputSelector}"]`).find('[data-cy="error-msg"]').should('not.exist')
+  })
+}
+
 export const checkEmptyFormSubmit = ({ inputSelectors, validInputs, submitSelector }) => {
   if (inputSelectors.length !== validInputs.length)
     throw 'Inputs length mismatch'
