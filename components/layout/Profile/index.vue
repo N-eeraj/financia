@@ -33,6 +33,8 @@ const handleShowHelp = () => {
 
 const handleLogout = () => {
   clearUser()
+  setProfileMenu(false)
+  setNotificationList(false)
   router.push('/login')
 }
 

@@ -1,5 +1,5 @@
 <template>
-  <EntryForm :image="image" :title="title" :subtitle="subtitle" :segue="segue" :link="link" class="flex-row-reverse" @submit="handleSubmit">
+  <EntryForm :image="image" :title="title" :subtitle="subtitle" :segue="segue" :link="link" class="flex-row-reverse" @submit="handleLogin">
     <BaseInput v-model="form.email" :ref="el => formInput.email = el" type="email" :validator="emailValidation" :placeholder="placeholder.email" variant="clear" dark class="w-full" />
     <BaseInput v-model="form.password" :ref="el => formInput.password = el" type="password" :validator="requiredValidation" :placeholder="placeholder.password" variant="clear" dark class="w-full" />
     <BaseButton variant="gradient" color="blue" dark>
@@ -34,7 +34,7 @@ const form = reactive({
   password: '',
 })
 
-const handleSubmit = () => {
+const handleLogin = () => {
   if (!validateForm(formInput)) return
   try {
     setUser(validateUserLogin(form))

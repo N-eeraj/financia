@@ -1,5 +1,5 @@
 <template>
-  <EntryForm :image="image" :title="title" :subtitle="subtitle" :segue="segue" :link="link" @submit="handleSubmit">
+  <EntryForm :image="image" :title="title" :subtitle="subtitle" :segue="segue" :link="link" @submit="handleSignUp">
     <BaseInput v-model="form.name" :ref="el => formInput.name = el" :validator="nameValidation" :placeholder="placeholder.name" variant="clear" dark class="w-full" />
     <BaseInput v-model="form.email" :ref="el => formInput.email = el" type="email" :validator="emailValidation" :placeholder="placeholder.email" variant="clear" dark class="w-full" />
     <BaseInput v-model="form.password" :ref="el => formInput.password = el" type="password" :validator="passwordValidation" :placeholder="placeholder.password" variant="clear" dark class="w-full" />
@@ -45,7 +45,7 @@ const form = reactive({
 
 const handlePasswordConfirmation = (value: any) => confirmValidation(form.password, value, 'passwords')
 
-const handleSubmit = () => {
+const handleSignUp = () => {
   if (!validateForm(formInput)) return
   try {
     setUser(validateUserSignUp(form))

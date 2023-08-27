@@ -1,7 +1,8 @@
 <template>
-  <NuxtLayout id="main">
+  <NuxtLayout>
     <NuxtPage />
   </NuxtLayout> 
+  <div id="toast"></div>
 </template>
 
 <script setup>
