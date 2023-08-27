@@ -8,12 +8,12 @@
         <h1 class="text-theme-light text-6xl font-semibold text-center md:text-8xl">
           Oops!
         </h1>
-        <p class="text-theme-grey-light text-xl text-center md:text-2xl lg:text-start">
+        <p class="text-theme-grey-light text-xl text-center md:text-2xl lg:text-start" data-cy="page-not-found-message">
           We couldn't find the page that you're looking for
         </p>
       </div>
 
-      <BaseButton variant="gradient" color="blue" dark @click="handleGoBack">
+      <BaseButton variant="gradient" color="blue" dark data-cy="back-to-home-button" @click="handleGoBack">
         Back to Home
       </BaseButton>
     </section>

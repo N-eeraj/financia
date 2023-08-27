@@ -83,11 +83,9 @@ const checkValidLogins = () => {
   })
 }
 
-const loginTests = () => {
+describe('Login Form Validations', () => {
   it('Checks login form validations', loginFormValidations)
   it('Checks login form validations with all input combinations', checkAllLoginInputCombinations)
   it('Checks invalid logins', checkInvalidLogins)
   it('Checks valid logins', checkValidLogins)
-}
-
-export default loginTests
+})

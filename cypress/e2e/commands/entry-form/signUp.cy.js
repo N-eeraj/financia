@@ -16,15 +16,15 @@ import {
 
 import { signUp } from '/cypress/fixtures/url.json'
 
-const signUpFormValidations = () => {
+const checkEmptyValidations = () => {
   cy.visit(signUp)
-
-  // empty field validation
   checkEmptyValidation('name-input')
   checkEmptyValidation('email-input')
   checkEmptyValidation('password-input')
+}
 
-  // check invalid email inputs
+const checkInvalidEmailInputs = () => {
+  cy.visit(signUp)
   invalidEmails.forEach(email => {
     cy.reload()
     checkInvalidInput({
@@ -33,8 +33,10 @@ const signUpFormValidations = () => {
       errorMsg: 'Please enter a valid email',
     })
   })
+}
 
-  // check valid inputs
+const checkValidEmailInputs = () => {
+  cy.visit(signUp)
   validEmails.forEach(email => {
     cy.reload()
     checkValidInput({
@@ -42,8 +44,10 @@ const signUpFormValidations = () => {
       input: email,
     })
   })
+}
 
-  // check name length
+const checkNameInputLength = () => {
+  cy.visit(signUp)
   checkMinMaxInputLength({
     selector: 'name-input',
     min: {
@@ -51,7 +55,10 @@ const signUpFormValidations = () => {
       errorMsg: 'Name must be atleast 2 characters long',
     },
   })
+}
 
+const checkPasswordsMatch = () => {
+  cy.visit(signUp)
   checkMatchingInputs({
     inputSelector: 'password-input',
     confirmInputSelector: 'confirm-password-input',
@@ -59,8 +66,10 @@ const signUpFormValidations = () => {
   })
 }
 
-const signUpTests = () => {
-  it('Checks sign up form validations', signUpFormValidations)
-}
-
-export default signUpTests
+describe('Sign Up Form Validations', () => {
+  it('Checks empty input validations', checkEmptyValidations)
+  it('Checks invalid email errors', checkInvalidEmailInputs)
+  it('Checks valid emails', checkValidEmailInputs)
+  it('Checks length requirement for name input', checkNameInputLength)
+  it('Checks passwoed matching', checkPasswordsMatch)
+})

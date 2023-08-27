@@ -60,7 +60,6 @@ export const checkMatchingInputs = ({ inputSelector, confirmInputSelector, missM
   cy.get(`[data-cy="${confirmInputSelector}"]`).find('[data-cy="input"]').type('12345678')
   cy.get(`[data-cy="${confirmInputSelector}"]`).find('[data-cy="input"]').blur()
   cy.get(`[data-cy="${confirmInputSelector}"]`).then(($el) => {
-    console.log($el.find('[data-cy="error-msg"]').length)
     if ($el.find('[data-cy="error-msg"]').length)
       cy.get(`[data-cy="${confirmInputSelector}"]`).find('[data-cy="error-msg"]').should('not.have.text', missMatchMsg)
     else
