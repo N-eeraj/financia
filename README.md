@@ -80,7 +80,7 @@ This will start the web app on a port in your local server.
 
 ---
 
-##🌐 Web Pages & Features ⚙️
+## 🌐 Web Pages & Features ⚙️
 - Landing Page
 
   > Home page of web app, the visitor lands on this when visiting the home path (/).
@@ -118,19 +118,24 @@ This will start the web app on a port in your local server.
 
 ## 🌿 Branches
 - ### main
-  > This branch **should** always be updated with all the completed code from the **dev** & **test** branches.
+  > This branch **should** always be updated with all the code from the **dev** branch after completing the tests in the **test** branch successfully.
 
 - ### dev
   > The development branch.
   > Only the development code should exist in this branch.
   > Must **not** merge code from **main** or **test** branches.
-  > Create a pull request to **main** from **dev** on completing/updating a feature and _rebase_ it to the **main** branch.
-  > Run deployment script only from this branch, when ready to deploy.
+  > Create a pull request to **test** branch from **dev** on completing/updating a feature and _rebase_ it to the **test** branch.
+  > Run deployment script only from this branch, when ready to deploy (The code in **dev** branch successfully completes the tests in the **test** branch).
   `npm run deploy`
 
 - ### test
   > The testing branch.
-  > This branch **should** always be updated with all the code in the **main** branch.
-  > Create a pull request to **main** from **test** on completing/updating a test and _rebase_ it to the **main** branch.
+  > Rebase **dev** branch in to the **test** branch before starting the tests.
+  > Create a pull request to **main** from **test** and _rebase_ it to the **main** branch if the test cases are completed successfully.
+
+- ### gh-pages
+  > The deployment branch.
+  > This branch consists of the built code.
+  > The deployment should be done from the **dev** branch.
 
 <br>
