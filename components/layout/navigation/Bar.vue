@@ -11,7 +11,7 @@
 
     <div class="relative flex items-center gap-x-5">
       <LayoutNotificationButton />
-      <LayoutProfile />
+      <LayoutProfile data-cy="profile-button" />
     </div>
   </div>
 </template>

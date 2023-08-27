@@ -68,10 +68,9 @@ const checkInvalidLogins = () => {
   })
 }
 
-const checkValidLogins = () => {
+const checkLoginLogout = () => {
+  cy.visit(login)
   validCredentials.forEach(({ email, password }) => {
-    cy.clearLocalStorage()
-    cy.visit(login)
     cy.get('[data-cy="email-input"]').find('[data-cy="input"]').type(email)
     cy.get('[data-cy="password-input"]').find('[data-cy="input"]').type(password)
     cy.get('button[data-cy="login-button"]').click()
@@ -80,6 +79,26 @@ const checkValidLogins = () => {
     cy.location().should(({ href }) => {
       expect(href).to.contains(dashboard.home)
     })
+    cy.get('[data-cy="profile-button"]').click({ force: true })
+    cy.get('[data-cy="profile-action"]').contains('Logout').click()
+    cy.wait(500)
+    cy.location().should(({ href }) => {
+      expect(href).to.contains(login)
+    })
+  })
+}
+
+const checkPageNotFound = () => {
+  cy.visit(login)
+  const { email, password } = validCredentials[0]
+  cy.get('[data-cy="email-input"]').find('[data-cy="input"]').type(email)
+  cy.get('[data-cy="password-input"]').find('[data-cy="input"]').type(password)
+  cy.get('button[data-cy="login-button"]').click()
+  cy.visit('/invalid-route')
+  cy.get('[data-cy="back-to-home-button"]').click()
+  cy.wait(500)
+  cy.location().should(({ pathname }) => {
+    expect(pathname).to.equal(dashboard.home)
   })
 }
 
@@ -87,5 +106,6 @@ describe('Login Form Validations', () => {
   it('Checks login form validations', loginFormValidations)
   it('Checks login form validations with all input combinations', checkAllLoginInputCombinations)
   it('Checks invalid logins', checkInvalidLogins)
-  it('Checks valid logins', checkValidLogins)
+  it('Checks valid logins', checkLoginLogout)
+  it('Checks not found page', checkPageNotFound)
 })
