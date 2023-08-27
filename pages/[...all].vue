@@ -27,5 +27,5 @@ const router = useRouter()
 const userStore = useUserStore()
 const { authenticated } = storeToRefs(userStore)
 
-const handleGoBack = () => router.replace(authenticated ? '/dashboard' : '/')
+const handleGoBack = () => router.replace(authenticated.value ? '/dashboard' : '/')
 </script>
