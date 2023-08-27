@@ -133,4 +133,9 @@ This will start the web app on a port in your local server.
   > Rebase **dev** branch in to the **test** branch before starting the tests.
   > Create a pull request to **main** from **test** and _rebase_ it to the **main** branch if the test cases are completed successfully.
 
+- ### gh-pages
+  > The deployment branch.
+  > This branch consists of the built code.
+  > The deployment should be done from the **dev** branch.
+
 <br>
