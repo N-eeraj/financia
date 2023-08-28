@@ -5,7 +5,6 @@ import * as StorageHelpers from '@/utils/storage'
 export const toastify = (text: string, type: ToastType) => {
   toast(text, {
     theme: 'colored',
-    containerId: 'toast',
     type,
   })
 }

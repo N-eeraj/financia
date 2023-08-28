@@ -12,8 +12,11 @@
         </button>
       </template>
 
-      <div v-else class="place-center w-60 h-48">
-        No Notifications
+      <div v-else class="flex-column justify-center items-center gap-y-1 w-60 h-48">
+        <img src="/no-notification-bell.svg" alt="no-notifications" class="w-20">
+        <span class="text-theme-grey-light">
+          You have no notifications
+        </span>
       </div>
     </div>
   </Transition>
