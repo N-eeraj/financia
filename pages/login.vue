@@ -2,7 +2,7 @@
   <EntryForm :image="image" :title="title" :subtitle="subtitle" :segue="segue" :link="link" class="flex-row-reverse" @submit="handleLogin">
     <BaseInput v-model="form.email" :ref="el => formInput.email = el" type="email" :validator="emailValidation" :placeholder="placeholder.email" variant="clear" dark class="w-full" data-cy="email-input" />
     <BaseInput v-model="form.password" :ref="el => formInput.password = el" type="password" :validator="requiredValidation" :placeholder="placeholder.password" variant="clear" dark class="w-full" data-cy="password-input" />
-    <BaseButton variant="gradient" color="blue" da data-cy="login-button"rk>
+    <BaseButton variant="gradient" color="blue" dark data-cy="login-button">
       {{ button }}
     </BaseButton>
   </EntryForm>
