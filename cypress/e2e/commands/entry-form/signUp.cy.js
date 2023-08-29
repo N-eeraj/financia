@@ -71,5 +71,5 @@ describe('Sign Up Form Validations', () => {
   it('Checks invalid email errors', checkInvalidEmailInputs)
   it('Checks valid emails', checkValidEmailInputs)
   it('Checks length requirement for name input', checkNameInputLength)
-  it('Checks passwoed matching', checkPasswordsMatch)
+  it('Checks password matching', checkPasswordsMatch)
 })
