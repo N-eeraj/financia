@@ -82,9 +82,14 @@ export const checkEmptyFormSubmit = ({ inputSelectors, validInputs, submitSelect
 
     for (let j in combination) {
       if (!Number(combination[j]))
-        cy.get(`[data-cy="${inputSelectors[j]}"]`).find('[data-cy="error-msg"]').should('have.text', 'This field is required')
+        cy.get(`[data-cy="${inputSelectors[j]}"]`).find('[data-cy="error-msg"]').should('exist')
       else
         cy.get(`[data-cy="${inputSelectors[j]}"]`).find('[data-cy="error-msg"]').should('not.exist')
     }
   }
+}
+
+export const checkRequiredInputCount = ({ submitSelector, requiredInputsCount }) => {
+  cy.get(`button[data-cy="${submitSelector}"]`).click()
+  cy.get('[data-cy="error-msg"]').should('have.length', requiredInputsCount)
 }

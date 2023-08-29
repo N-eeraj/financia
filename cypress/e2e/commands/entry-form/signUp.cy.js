@@ -4,15 +4,18 @@ import {
   checkValidInput,
   checkMinMaxInputLength,
   checkMatchingInputs,
-  checkEmptyFormSubmit,
+  checkRequiredInputCount,
 } from '/cypress/e2e/helpers/inputValidations.cy.js'
 
 import {
   invalidEmails,
   validEmails,
-  invalidCredentials,
-  validCredentials,
-} from '/cypress/fixtures/entry-form.json'
+} from '/cypress/fixtures/entry-form/emails.json'
+
+import {
+  existingUserDetails,
+  newUserDetails,
+} from '/cypress/fixtures/entry-form/signUp.json'
 
 import { signUp } from '/cypress/fixtures/url.json'
 
@@ -66,10 +69,33 @@ const checkPasswordsMatch = () => {
   })
 }
 
+const checkRequiredInputs = () => {
+  cy.visit(signUp)
+  checkRequiredInputCount({
+    submitSelector: 'sign-up-button',
+    requiredInputsCount: 3,
+  })
+}
+
+const checkInvalidSignUps = () => {
+  cy.visit(signUp)
+}
+
+const checkSignUpLogout = () => {
+  cy.visit(signUp)
+}
+
+
 describe('Sign Up Form Validations', () => {
   it('Checks empty input validations', checkEmptyValidations)
   it('Checks invalid email errors', checkInvalidEmailInputs)
   it('Checks valid emails', checkValidEmailInputs)
   it('Checks length requirement for name input', checkNameInputLength)
   it('Checks password matching', checkPasswordsMatch)
+  it('Checks sign-up form validations with all input combinations', checkRequiredInputs)
 })
+
+// describe('Sign Up Attempts', () => {
+//   it('Checks invalid sign ups', checkInvalidSignUps)
+//   it('Checks valid sign up', checkSignUpLogout)
+// })

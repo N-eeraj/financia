@@ -1,23 +1,4 @@
 {
-  "invalidEmails": [
-    "test",
-    "@.com",
-    "testgmailcom",
-    "testgmail.com",
-    "test@gmailcom",
-    "test@gmail.a",
-    "a@b.c",
-    "a@b.123456"
-  ],
-  "validEmails": [
-    "x@y.co",
-    "a@z.12",
-    "a@z.123",
-    "x@y.com",
-    "test@email.com",
-    "abc@email.1234",
-    "test@email.12345"
-  ],
   "invalidCredentials": [
     {
       "email": "incorrect@email.id",

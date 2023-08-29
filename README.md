@@ -111,8 +111,14 @@ This will start the web app on a port in your local server.
 ---
 
 ## 🧪 E2E Tests
-  - Navigations between home page & entry form pages.
-  - Login form test cases & form validations.
+  - Navigations between home page & entry form pages and 404 page pre login.
+  - Login page
+    - Form Validations.
+    - Invalid login credentials.
+    - Login/Logout.
+    - 404 page redirect post login.
+  - Sign Up Page
+    - Form validations.
 
 --- 
 
@@ -124,7 +130,7 @@ This will start the web app on a port in your local server.
   > The development branch.
   > Only the development code should exist in this branch.
   > Must **not** merge code from **main** or **test** branches.
-  > Create a pull request to **test** branch from **dev** on completing/updating a feature and _rebase_ it to the **test** branch.
+  > Create a pull request to **test** branch from **dev** on completing/updating a feature and merge it to the **test** branch.
   > Run deployment script only from this branch, when ready to deploy (The code in **dev** branch successfully completes the tests in the **test** branch).
   `npm run deploy`
 

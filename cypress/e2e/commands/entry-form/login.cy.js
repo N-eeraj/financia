@@ -8,9 +8,12 @@ import {
 import {
   invalidEmails,
   validEmails,
+} from '/cypress/fixtures/entry-form/emails.json'
+
+import {
   invalidCredentials,
   validCredentials,
-} from '/cypress/fixtures/entry-form.json'
+} from '/cypress/fixtures/entry-form/login.json'
 
 import { login, dashboard } from '/cypress/fixtures/url.json'
 
@@ -100,6 +103,7 @@ const checkPageNotFound = () => {
     expect(pathname).to.equal(dashboard.home)
   })
 }
+
 
 describe('Login Form Validations', () => {
   it('Checks login form validations', loginFormValidations)

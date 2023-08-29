@@ -46,6 +46,7 @@ const checkPageNotFound = () => {
   })
 }
 
+
 describe('Home Navigation Checks', () => {
   it('Checks navigations from Home & Login', navigateFromHomeToLoginThenToSignUp)
   it('Checks navigations from Home & Sign Up', navigateFromHomeToSignUpThenToLogin)

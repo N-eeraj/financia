@@ -4,7 +4,7 @@
     <BaseInput v-model="form.email" :ref="el => formInput.email = el" type="email" :validator="emailValidation" :placeholder="placeholder.email" variant="clear" dark class="w-full" data-cy="email-input" />
     <BaseInput v-model="form.password" :ref="el => formInput.password = el" type="password" :validator="passwordValidation" :placeholder="placeholder.password" variant="clear" dark class="w-full" data-cy="password-input" />
     <BaseInput v-model="form.confirmPassword" :ref="el => formInput.confirmPassword = el" type="password" :validator="handlePasswordConfirmation" :placeholder="placeholder.confirmPassword" variant="clear" dark class="w-full" data-cy="confirm-password-input" />
-    <BaseButton variant="gradient" color="blue" dark>
+    <BaseButton variant="gradient" color="blue" dark data-cy="sign-up-button">
       {{ button }}
     </BaseButton>
   </EntryForm>
