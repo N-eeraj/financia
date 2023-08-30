@@ -61,13 +61,16 @@ const checkAllLoginInputCombinations = () => {
 
 const checkInvalidLogins = () => {
   cy.visit(login)
+  cy.get('[data-cy="email-input"]').find('[data-cy="input"]').as('emailInputField')
+  cy.get('[data-cy="password-input"]').find('[data-cy="input"]').as('passwordInputField')
+
   invalidCredentials.forEach(({ email, password, error }) => {
-    cy.get('[data-cy="email-input"]').find('[data-cy="input"]').type(email)
-    cy.get('[data-cy="password-input"]').find('[data-cy="input"]').type(password)
+    cy.get('@emailInputField').type(email)
+    cy.get('@passwordInputField').type(password)
     cy.get('button[data-cy="login-button"]').click()
     cy.get('[data-testid="toast-content"]').last().should('have.text', error)
-    cy.get('[data-cy="email-input"]').find('[data-cy="input"]').clear()
-    cy.get('[data-cy="password-input"]').find('[data-cy="input"]').clear()
+    cy.get('@emailInputField').clear()
+    cy.get('@passwordInputField').clear()
   })
 }
 

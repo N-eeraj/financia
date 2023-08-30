@@ -79,17 +79,22 @@ const checkRequiredInputs = () => {
 
 const checkInvalidSignUps = () => {
   cy.visit(signUp)
+  cy.get('[data-cy="name-input"]').find('[data-cy="input"]').as('nameInputField')
+  cy.get('[data-cy="email-input"]').find('[data-cy="input"]').as('emailInputField')
+  cy.get('[data-cy="password-input"]').find('[data-cy="input"]').as('passwordInputField')
+  cy.get('[data-cy="confirm-password-input"]').find('[data-cy="input"]').as('confirmPasswordInputField')
+
   existingUserDetails.forEach(({ name, email, password }) => {
-    cy.get('[data-cy="name-input"]').find('[data-cy="input"]').type(name)
-    cy.get('[data-cy="email-input"]').find('[data-cy="input"]').type(email)
-    cy.get('[data-cy="password-input"]').find('[data-cy="input"]').type(password)
-    cy.get('[data-cy="confirm-password-input"]').find('[data-cy="input"]').type(password)
+    cy.get('@nameInputField').type(name)
+    cy.get('@emailInputField').type(email)
+    cy.get('@passwordInputField').type(password)
+    cy.get('@confirmPasswordInputField').type(password)
     cy.get('button[data-cy="sign-up-button"]').click()
     cy.get('[data-testid="toast-content"]').last().should('have.text', "Email id already exists")
-    cy.get('[data-cy="name-input"]').find('[data-cy="input"]').clear()
-    cy.get('[data-cy="email-input"]').find('[data-cy="input"]').clear()
-    cy.get('[data-cy="password-input"]').find('[data-cy="input"]').clear()
-    cy.get('[data-cy="confirm-password-input"]').find('[data-cy="input"]').clear()
+    cy.get('@nameInputField').clear()
+    cy.get('@emailInputField').clear()
+    cy.get('@passwordInputField').clear()
+    cy.get('@confirmPasswordInputField').clear()
   })
 }
 
