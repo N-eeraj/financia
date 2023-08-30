@@ -15,9 +15,9 @@ import {
 import {
   existingUserDetails,
   newUserDetails,
-} from '/cypress/fixtures/entry-form/signUp.json'
+} from '/cypress/fixtures/entry-form/sign-up.json'
 
-import { signUp } from '/cypress/fixtures/url.json'
+import { signUp, login, dashboard } from '/cypress/fixtures/url.json'
 
 const checkEmptyValidations = () => {
   cy.visit(signUp)
@@ -100,6 +100,29 @@ const checkInvalidSignUps = () => {
 
 const checkSignUpLogout = () => {
   cy.visit(signUp)
+  cy.get('[data-cy="name-input"]').find('[data-cy="input"]').as('nameInputField')
+  cy.get('[data-cy="email-input"]').find('[data-cy="input"]').as('emailInputField')
+  cy.get('[data-cy="password-input"]').find('[data-cy="input"]').as('passwordInputField')
+  cy.get('[data-cy="confirm-password-input"]').find('[data-cy="input"]').as('confirmPasswordInputField')
+
+  newUserDetails.forEach(({ name, email, password }) => {
+    cy.get('@nameInputField').type(name)
+    cy.get('@emailInputField').type(email)
+    cy.get('@passwordInputField').type(password)
+    cy.get('@confirmPasswordInputField').type(password)
+    cy.get('button[data-cy="sign-up-button"]').click()
+    cy.wait(500)
+    cy.location().should(({ href }) => {
+      expect(href).to.contains(dashboard.home)
+    })
+    cy.get('[data-cy="profile-button"]').click()
+    cy.get('[data-cy="profile-action"]').contains('Logout').click()
+    cy.wait(500)
+    cy.location().should(({ href }) => {
+      expect(href).to.contains(login)
+    })
+    cy.get('button[data-cy="segue-link"]').click()
+  })
 }
 
 
@@ -114,5 +137,5 @@ describe('Sign Up Form Validations', () => {
 
 describe('Sign Up Attempts', () => {
   it('Checks invalid sign ups', checkInvalidSignUps)
-  // it('Checks valid sign up', checkSignUpLogout)
+  it('Checks valid sign up', checkSignUpLogout)
 })

@@ -17,5 +17,15 @@
     }
   ],
   "newUserDetails": [
+    {
+      "name": "Adam Eve",
+      "email": "adam@eve.com",
+      "password": "AdamEve0"
+    },
+    {
+      "name": "Bruce Wayne",
+      "email": "bruce@wayne.com",
+      "password": "Batman1939"
+    }
   ]
 }
