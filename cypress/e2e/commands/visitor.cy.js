@@ -1,4 +1,4 @@
-import { home, login, signUp } from '/cypress/fixtures/url.json'
+import { home, login, signUp, dashboard } from '/cypress/fixtures/url.json'
 
 const navigateFromHomeToLoginThenToSignUp = () => {
   cy.visit(home)
@@ -46,9 +46,17 @@ const checkPageNotFound = () => {
   })
 }
 
+const checkDashboardEntry = () => {
+  cy.visit(dashboard.home)
+  cy.location().should(({ pathname }) => {
+    expect(pathname).to.equal(login)
+  })
+}
+
 
 describe('Home Navigation Checks', () => {
   it('Checks navigations from Home & Login', navigateFromHomeToLoginThenToSignUp)
   it('Checks navigations from Home & Sign Up', navigateFromHomeToSignUpThenToLogin)
   it('Checks not found page', checkPageNotFound)
+  it('Checks dashboard entry without login', checkDashboardEntry)
 })
