@@ -79,6 +79,18 @@ const checkRequiredInputs = () => {
 
 const checkInvalidSignUps = () => {
   cy.visit(signUp)
+  existingUserDetails.forEach(({ name, email, password }) => {
+    cy.get('[data-cy="name-input"]').find('[data-cy="input"]').type(name)
+    cy.get('[data-cy="email-input"]').find('[data-cy="input"]').type(email)
+    cy.get('[data-cy="password-input"]').find('[data-cy="input"]').type(password)
+    cy.get('[data-cy="confirm-password-input"]').find('[data-cy="input"]').type(password)
+    cy.get('button[data-cy="sign-up-button"]').click()
+    cy.get('[data-testid="toast-content"]').last().should('have.text', "Email id already exists")
+    cy.get('[data-cy="name-input"]').find('[data-cy="input"]').clear()
+    cy.get('[data-cy="email-input"]').find('[data-cy="input"]').clear()
+    cy.get('[data-cy="password-input"]').find('[data-cy="input"]').clear()
+    cy.get('[data-cy="confirm-password-input"]').find('[data-cy="input"]').clear()
+  })
 }
 
 const checkSignUpLogout = () => {
@@ -95,7 +107,7 @@ describe('Sign Up Form Validations', () => {
   it('Checks sign-up form validations with all input combinations', checkRequiredInputs)
 })
 
-// describe('Sign Up Attempts', () => {
-//   it('Checks invalid sign ups', checkInvalidSignUps)
-//   it('Checks valid sign up', checkSignUpLogout)
-// })
+describe('Sign Up Attempts', () => {
+  it('Checks invalid sign ups', checkInvalidSignUps)
+  // it('Checks valid sign up', checkSignUpLogout)
+})

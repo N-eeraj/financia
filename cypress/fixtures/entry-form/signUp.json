@@ -1,5 +1,20 @@
 {
   "existingUserDetails": [
+    {
+      "name": "Admin",
+      "email": "admin@test.com",
+      "password": "Admin@123"
+    },
+    {
+      "name": "Adam",
+      "email": "admin@test.com",
+      "password": "Adam12345"
+    },
+    {
+      "name": "Adam Eve",
+      "email": "admin@test.com",
+      "password": "Admin@123"
+    }
   ],
   "newUserDetails": [
   ]
