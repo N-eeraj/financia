@@ -17,6 +17,7 @@ import {
 
 import { login, dashboard } from '/cypress/fixtures/url.json'
 
+
 const loginFormValidations = () => {
   cy.visit(login)
 

@@ -1,32 +1,41 @@
-export const checkEmptyValidation = (selector) => {
+// function to alias input component & it's input field
+const aliasInput = selector => {
   cy.get(`[data-cy="${selector}"]`).as('inputComponent')
   cy.get('@inputComponent').find('[data-cy="input"]').as('inputField')
+}
+
+// function to check input error message
+const checkErrorMessage = errorMessage => cy.get('@inputComponent').find('[data-cy="error-msg"]').should('have.text', errorMessage)
+
+// function to assert input has no error
+const shouldHaveNoError = () => cy.get('@inputComponent').find('[data-cy="error-msg"]').should('not.exist')
+
+export const checkEmptyValidation = (selector) => {
+  aliasInput(selector)
   cy.get('@inputField').focus()
   cy.get('@inputField').blur()
-  cy.get('@inputComponent').find('[data-cy="error-msg"]').should('have.text', 'This field is required')
+  checkErrorMessage('This field is required')
 }
 
 export const checkInvalidInput = ({ selector, input, errorMsg }) => {
-  cy.get(`[data-cy="${selector}"]`).as('inputComponent')
-  cy.get('@inputComponent').find('[data-cy="input"]').as('inputField')
+  aliasInput(selector)
   cy.get('@inputField').type(input)
   cy.get('@inputField').blur()
-  cy.get('@inputComponent').find('[data-cy="error-msg"]').should('have.text', errorMsg)
+  checkErrorMessage(errorMsg)
   cy.get('@inputField').clear()
   checkEmptyValidation(selector)
 }
 
 export const checkMinMaxInputLength = ({ selector, min, max }) => {
-  cy.get(`[data-cy="${selector}"]`).as('inputComponent')
-  cy.get('@inputComponent').find('[data-cy="input"]').as('inputField')
+  aliasInput(selector)
   if (min) {
     for (let inputLength = 1; inputLength <= min.length; inputLength++) {
       cy.get('@inputField').type('a')
       cy.get('@inputField').blur()
       if (inputLength < min.length)
-        cy.get('@inputComponent').find('[data-cy="error-msg"]').should('have.text', min.errorMsg)
+        checkErrorMessage(min.errorMsg)
       else
-        cy.get('@inputComponent').find('[data-cy="error-msg"]').should('not.exist')
+        shouldHaveNoError()
     }
   }
   if (max) {
@@ -37,19 +46,18 @@ export const checkMinMaxInputLength = ({ selector, min, max }) => {
       cy.get('@inputField').type('a')
       cy.get('@inputField').blur()
       if (inputLength > max.length)
-        cy.get('@inputComponent').find('[data-cy="error-msg"]').should('have.text', max.errorMsg)
+        checkErrorMessage(max.errorMsg)
       else
-        cy.get('@inputComponent').find('[data-cy="error-msg"]').should('not.exist')
+        shouldHaveNoError()
     }
   }
 }
 
 export const checkValidInput = ({ selector, input }) => {
-  cy.get(`[data-cy="${selector}"]`).as('inputComponent')
-  cy.get('@inputComponent').find('[data-cy="input"]').as('inputField')
+  aliasInput(selector)
   cy.get('@inputField').type(input)
   cy.get('@inputField').blur()
-  cy.get('@inputComponent').find('[data-cy="error-msg"]').should('not.exist')
+  shouldHaveNoError()
   cy.get('@inputField').clear()
   checkEmptyValidation(selector)
 }
