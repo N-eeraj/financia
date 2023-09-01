@@ -15,7 +15,7 @@ import {
   validCredentials,
 } from '/cypress/fixtures/entry-form/login.json'
 
-import { login, dashboard } from '/cypress/fixtures/url.json'
+import { home, login, signUp, dashboard } from '/cypress/fixtures/url.json'
 
 
 const loginFormValidations = () => {
@@ -108,6 +108,26 @@ const checkPageNotFound = () => {
   })
 }
 
+const checkVisitorPagesPostLogin = () => {
+  cy.visit(login)
+  const { email, password } = validCredentials[0]
+  cy.get('[data-cy="email-input"]').find('[data-cy="input"]').type(email)
+  cy.get('[data-cy="password-input"]').find('[data-cy="input"]').type(password)
+  cy.get('button[data-cy="login-button"]').click()
+  cy.visit(home)
+  cy.location().should(({ pathname }) => {
+    expect(pathname).to.equal(home)
+  })
+  cy.visit(login)
+  cy.location().should(({ pathname }) => {
+    expect(pathname).to.equal(dashboard.home)
+  })
+  cy.visit(signUp)
+  cy.location().should(({ pathname }) => {
+    expect(pathname).to.equal(dashboard.home)
+  })
+}
+
 
 describe('Login Form Validations', () => {
   it('Checks login form validations', loginFormValidations)
@@ -121,4 +141,5 @@ describe('Login Attempts', () => {
 
 describe('404 Page Redirect After Login', () => {
   it('Checks not found page', checkPageNotFound)
+  it('Check visitor pages post login', checkVisitorPagesPostLogin)
 })
