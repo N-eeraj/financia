@@ -5,6 +5,8 @@ import {
   checkEmptyFormSubmit,
 } from '/cypress/e2e/helpers/inputValidations.cy.js'
 
+import loginUserWithIndex from '/cypress/e2e/helpers/login.cy.js'
+
 import {
   invalidEmails,
   validEmails,
@@ -95,11 +97,7 @@ const checkLoginLogout = () => {
 }
 
 const checkPageNotFound = () => {
-  cy.visit(login)
-  const { email, password } = validCredentials[0]
-  cy.get('[data-cy="email-input"]').find('[data-cy="input"]').type(email)
-  cy.get('[data-cy="password-input"]').find('[data-cy="input"]').type(password)
-  cy.get('button[data-cy="login-button"]').click()
+  loginUserWithIndex()
   cy.visit('/invalid-route')
   cy.get('[data-cy="back-to-home-button"]').click()
   cy.wait(500)
@@ -109,11 +107,7 @@ const checkPageNotFound = () => {
 }
 
 const checkVisitorPagesPostLogin = () => {
-  cy.visit(login)
-  const { email, password } = validCredentials[0]
-  cy.get('[data-cy="email-input"]').find('[data-cy="input"]').type(email)
-  cy.get('[data-cy="password-input"]').find('[data-cy="input"]').type(password)
-  cy.get('button[data-cy="login-button"]').click()
+  loginUserWithIndex()
   cy.visit(home)
   cy.location().should(({ pathname }) => {
     expect(pathname).to.equal(home)
