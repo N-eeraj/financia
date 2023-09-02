@@ -43,14 +43,17 @@
   ],
   "validCredentials": [
     {
+      "name": "Admin",
       "email": "admin@test.com",
       "password": "Admin@123"
     },
     {
+      "name": "John Doe",
       "email": "johndoe@test.com",
       "password": "doeJohn@123"
     },
     {
+      "name": "Alice Snow",
       "email": "alicesnow@test.com",
       "password": "snowAlice@123"
     }

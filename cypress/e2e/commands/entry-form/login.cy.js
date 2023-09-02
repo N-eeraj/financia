@@ -79,7 +79,7 @@ const checkInvalidLogins = () => {
 
 const checkLoginLogout = () => {
   cy.visit(login)
-  validCredentials.forEach(({ email, password }) => {
+  validCredentials.forEach(({ email, password, name }) => {
     cy.get('[data-cy="email-input"]').find('[data-cy="input"]').type(email)
     cy.get('[data-cy="password-input"]').find('[data-cy="input"]').type(password)
     cy.get('button[data-cy="login-button"]').click()
@@ -87,7 +87,9 @@ const checkLoginLogout = () => {
     cy.location().should(({ href }) => {
       expect(href).to.contains(dashboard.home)
     })
-    cy.get('[data-cy="profile-button"]').click()
+    cy.get('[data-cy="profile-button"]').as('profile-button')
+    cy.get('@profile-button').find('[data-cy="user-name"]').should('have.text', name)
+    cy.get('@profile-button').click()
     cy.get('[data-cy="profile-action"]').contains('Logout').click()
     cy.wait(500)
     cy.location().should(({ href }) => {

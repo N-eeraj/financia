@@ -1,6 +1,6 @@
 <template>
   <div class="flex items-center gap-x-3 cursor-pointer" @click.stop="toggleProfileMenu">
-    <span class="text-theme-light text-xl max-md:hidden">
+    <span class="text-theme-light text-xl max-md:hidden" data-cy="user-name">
       {{ user?.name }}
     </span>
     <img src="/users/john-doe.png" class="w-14 rounded-full" />
