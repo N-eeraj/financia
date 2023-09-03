@@ -1,5 +1,5 @@
 <template>
-  <NuxtLink :to="to" class="flex items-center gap-x-3 py-1 text-theme-grey-light duration-300 hover:text-theme-light" active-class="text-theme-light" @click="setNavDrawer(false)">
+  <NuxtLink :to="to" class="flex items-center gap-x-3 py-1 text-theme-grey-light duration-300 hover:text-theme-light" active-class="text-theme-light" data-cy="nav-drawer-link" @click="setNavDrawer(false)">
     <Icon :name="icon" class="w-6 h-6" />
     <span class="text-xl">
       {{ text }}

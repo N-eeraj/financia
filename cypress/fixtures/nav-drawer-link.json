@@ -1,0 +1,30 @@
+[
+  {
+    "text": "Dashboard",
+    "path": "/dashboard"
+  },
+  {
+    "text": "Accounts",
+    "path": "/dashboard/accounts"
+  },
+  {
+    "text": "Investments",
+    "path": "/dashboard/investments"
+  },
+  {
+    "text": "Debit Cards",
+    "path": "/dashboard/cards/debit"
+  },
+  {
+    "text": "Credit Cards",
+    "path": "/dashboard/cards/credit"
+  },
+  {
+    "text": "Loans",
+    "path": "/dashboard/loans"
+  },
+  {
+    "text": "Transactions",
+    "path": "/dashboard/transactions"
+  }
+]
