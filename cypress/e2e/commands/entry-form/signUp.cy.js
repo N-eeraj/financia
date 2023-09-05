@@ -13,6 +13,11 @@ import {
 } from '/cypress/fixtures/entry-form/emails.json'
 
 import {
+  invalidPasswords,
+  validPasswords,
+} from '/cypress/fixtures/entry-form/passwords.json'
+
+import {
   existingUserDetails,
   newUserDetails,
 } from '/cypress/fixtures/entry-form/sign-up.json'
@@ -71,6 +76,29 @@ const checkValidEmailInputs = () => {
     checkValidInput({
       selector: 'email-input',
       input: email,
+    })
+  })
+}
+
+const checkInvalidPasswordInputs = () => {
+  cy.visit(signUp)
+  invalidPasswords.forEach(({ password, error }) => {
+    cy.reload()
+    checkInvalidInput({
+      selector: 'password-input',
+      input: password,
+      errorMsg: error,
+    })
+  })
+}
+
+const checkValidPasswordInputs = () => {
+  cy.visit(signUp)
+  validPasswords.forEach(password => {
+    cy.reload()
+    checkValidInput({
+      selector: 'password-input',
+      input: password,
     })
   })
 }
@@ -162,6 +190,8 @@ describe('Sign Up Form Validations', () => {
   it('Checks empty input validations', checkEmptyValidations)
   it('Checks invalid email errors', checkInvalidEmailInputs)
   it('Checks valid emails', checkValidEmailInputs)
+  it('Checks invalid email errors', checkInvalidPasswordInputs)
+  it('Checks valid emails', checkValidPasswordInputs)
   it('Checks length requirement for name input', checkNameInputLength)
   it('Checks password matching', checkPasswordsMatch)
   it('Checks sign-up form validations with all input combinations', checkRequiredInputs)
