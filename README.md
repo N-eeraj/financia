@@ -131,8 +131,6 @@ This will start the web app on a port in your local server.
   > Only the development code should exist in this branch.
   > Must **not** merge code from **main** or **cypress** branches.
   > Create a pull request to **cypress** branch from **dev** on completing/updating a feature and merge it to the **cypress** branch.
-  > Run deployment script only from this branch, when ready to deploy (The code in **dev** branch successfully completes the tests in the **cypress** branch).
-  `npm run deploy`
 
 - ### cypress
   > The new testing branch.
@@ -146,3 +144,19 @@ This will start the web app on a port in your local server.
 
 - ### test
   > The old test branch.
+
+---
+
+## Commands
+  - ### Deploy 🚀
+    > Command to deploy the project to Github Pages.
+    - Run the E2E tests in the **cypress** branch, if all tests pass only then should you run the deploy command.
+    - Run deployment script only from the **dev** branch.
+    `npm run deploy`
+
+  - ### Publish ⬆️
+    > Command to rebase all the code from **cypress** branch to **main** & push it.
+    - To be run when the **cypress** branch is to be merged with the **main** branch.
+    - Only the code at the **remote origin** _(of cypress branch)_ will be published.
+    - To run this command, your git worktree must be clean.
+    `npm run publish`
