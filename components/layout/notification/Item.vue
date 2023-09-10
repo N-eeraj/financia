@@ -1,5 +1,5 @@
 <template>
-  <div class="relative flex-column items-start gap-y-2 w-full p-3">
+  <div class="relative flex-column items-start gap-y-2 w-full p-3" data-cy="notification-item">
     <strong class="text-theme-light text-xl font-medium">
       {{ title }}
     </strong>
@@ -10,7 +10,7 @@
       {{ formattedDate }}
       <!-- {{ time }} -->
     </small>
-    <button class="absolute top-3 right-3" @click="readNotification(id)">
+    <button class="absolute top-3 right-3" data-cy="close-notification-btn" @click="readNotification(id)">
       <Icon name="majesticons:close" size="24" class="text-theme-light" />
     </button>
   </div>
