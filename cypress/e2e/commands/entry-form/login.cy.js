@@ -5,7 +5,10 @@ import {
   checkEmptyFormSubmit,
 } from '/cypress/e2e/helpers/inputValidations.cy.js'
 
-import loginUserWithIndex from '/cypress/e2e/helpers/login.cy.js'
+import {
+  loginUserWithIndex,
+  logoutUser
+} from '/cypress/e2e/helpers/login.cy.js'
 
 import {
   invalidEmails,
@@ -87,10 +90,7 @@ const checkLoginLogout = () => {
     cy.location().should(({ href }) => {
       expect(href).to.contains(dashboard.home)
     })
-    cy.get('[data-cy="profile-button"]').as('profile-button')
-    cy.get('@profile-button').find('[data-cy="user-name"]').should('have.text', name)
-    cy.get('@profile-button').click()
-    cy.get('[data-cy="profile-action"]').contains('Logout').click()
+    logoutUser(name)
     cy.wait(500)
     cy.location().should(({ href }) => {
       expect(href).to.contains(login)

@@ -1,9 +1,9 @@
-import loginUserWithIndex from '/cypress/e2e/helpers/login.cy.js'
+import { loginUserWithIndex } from '/cypress/e2e/helpers/login.cy.js'
 
 import navDrawerLinks from '/cypress/fixtures/nav-drawer-link.json'
 
-const navDrawerChecker = (hiddenNavDrawer = true) => {
-  loginUserWithIndex(1)
+const navDrawerChecker = (viewport, hiddenNavDrawer) => {
+  cy.viewport(viewport)
   cy.get('[data-cy="nav-drawer-link"]').as('navLink')
 
   navDrawerLinks.forEach(({ text, path }) => {
@@ -18,23 +18,23 @@ const navDrawerChecker = (hiddenNavDrawer = true) => {
   })
 }
 
-const mobileNavDrawer = () => {
-  cy.viewport('iphone-x')
-  navDrawerChecker()
-}
-
-const TabletNavDrawer = () => {
-  cy.viewport('ipad-mini')
-  navDrawerChecker()
+const smallScreenNavDrawer = () => {
+  loginUserWithIndex(1)
+  const smallViewports = [
+    'iphone-x',
+    'ipad-mini',
+  ]
+  smallViewports.forEach(viewport => {
+    navDrawerChecker(viewport, true)
+  })
 }
 
 const largeScreenNavDrawer = () => {
-  cy.viewport('macbook-13')
-  navDrawerChecker(false)
+  loginUserWithIndex(1)
+  navDrawerChecker('macbook-13', false)
 }
 
 describe('Dashboard navigations', () => {
-  it('Checks mobile screen', mobileNavDrawer)
-  it('Checks tablet screen', TabletNavDrawer)
-  it('Checks laptop screen', largeScreenNavDrawer)
+  it('Checks small screen', smallScreenNavDrawer)
+  it('Checks large screen', largeScreenNavDrawer)
 })
