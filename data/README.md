@@ -1,11 +1,11 @@
-### Data
+## Data
 
-- **Users**
+- #### Users
   > This file consists of the dummy user data.
 
 <br>
 
-- **Entry**
+- #### Entry
   - **Login**
     > Consists of content to be shown in the login page.
   - **Sign Up**
@@ -13,8 +13,13 @@
 
 <br>
 
-- **Nav Drawer Links**
+- #### Nav Drawer Links
   > Consists of links, text & icons of the navigation drawer.
 
-- **Profile Actions**
+- #### Profile Actions
   > Consists of actions for the profile menu, including icon, text, action slug & optional classes.
+
+<br>
+
+- #### Banks
+  > Consists of details of banks, including id, name & image

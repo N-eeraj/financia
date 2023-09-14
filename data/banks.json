@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "name": "SBI",
+    "image": "/banks/sbi"
+  },
+  {
+    "id": 2,
+    "name": "Axis",
+    "image": "/banks/axis"
+  },
+  {
+    "id": 3,
+    "name": "Federal",
+    "image": "/banks/federal"
+  },
+  {
+    "id": 4,
+    "name": "ICICI",
+    "image": "/banks/icici"
+  }
+]
