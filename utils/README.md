@@ -26,3 +26,9 @@
   > The date.ts file contains the functions used to format the date in several way.
 
   - **timePassed**: This function can be used to format time as time elapsed. Returns a string with time in _minutes_, _hours_, _days_ or _Just Now_ if time elapsed is less than 1 minute.
+
+- #### Account Number Formatter
+  > The accountNumberFormatter.ts file consists of a functions to represent account number in the UI in different format.
+
+  - **accountNumberFormatter**: This function can be used to format the account number _(a 16 digit number)_ in the format of an account number **XXXX XXXX XXXX 1234**.
+  `accountNumberFormatter(1234123412341234)`

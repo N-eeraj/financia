@@ -10,7 +10,7 @@
           {{ bankId }}
         </small>
         <span class="text-theme-light text-lg">
-          {{ accountNumber }}
+          {{ accountNumberFormatter(accountNumber) }}
         </span>
       </div>
     </div>
@@ -33,8 +33,11 @@ const props = defineProps({
     required: true,
   },
   accountNumber: {
-    type: String,
+    type: Number,
     required: true,
+    validator(accountNumber: number) {
+      return String(accountNumber).length === 16
+    },
   },
   ifsc: {
     type: String,
@@ -44,13 +47,7 @@ const props = defineProps({
     type: Number,
     required: true,
     validator(accountType: number) {
-      const validAccountTypes = [
-        1,
-        2,
-        3,
-        4,
-        5,
-      ]
+      const validAccountTypes = [ 1, 2, 3, 4, 5, ]
       return validAccountTypes.includes(accountType)
     },
   },
