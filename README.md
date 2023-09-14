@@ -111,31 +111,52 @@ This will start the web app on a port in your local server.
 ---
 
 ## 🧪 E2E Tests
-  - Navigations between home page & entry form pages.
-  - Login form test cases & form validations.
+  - Navigations between home page & entry form pages and 404 page pre login.
+  - Login page
+    - Form Validations.
+    - Invalid login credentials.
+    - Login/Logout.
+    - 404 page redirect post login.
+  - Sign Up Page
+    - Form validations.
 
 --- 
 
 ## 🌿 Branches
 - ### main
-  > This branch **should** always be updated with all the code from the **dev** branch after completing the tests in the **test** branch successfully.
+  > This branch **should** always be updated with all the code from the **dev** branch after completing the tests in the **cypress** branch successfully.
 
 - ### dev
   > The development branch.
   > Only the development code should exist in this branch.
-  > Must **not** merge code from **main** or **test** branches.
-  > Create a pull request to **test** branch from **dev** on completing/updating a feature and _rebase_ it to the **test** branch.
-  > Run deployment script only from this branch, when ready to deploy (The code in **dev** branch successfully completes the tests in the **test** branch).
-  `npm run deploy`
+  > Must **not** merge code from **main** or **cypress** branches.
+  > Create a pull request to **cypress** branch from **dev** on completing/updating a feature and merge it to the **cypress** branch.
 
-- ### test
-  > The testing branch.
-  > Rebase **dev** branch in to the **test** branch before starting the tests.
-  > Create a pull request to **main** from **test** and _rebase_ it to the **main** branch if the test cases are completed successfully.
+- ### cypress
+  > The new testing branch.
+  > Rebase **dev** branch in to the **cypress** branch before starting the tests.
+  > Create a pull request to **main** from **cypress** and _rebase_ it to the **main** branch if the test cases are completed successfully.
 
 - ### gh-pages
   > The deployment branch.
   > This branch consists of the built code.
   > The deployment should be done from the **dev** branch.
 
-<br>
+- ### test
+  > The old test branch.
+
+---
+
+## Commands
+  - ### Deploy 🚀
+    > Command to deploy the project to Github Pages.
+    - Run the E2E tests in the **cypress** branch, if all tests pass only then should you run the deploy command.
+    - Run deployment script only from the **dev** branch.
+    `npm run deploy`
+
+  - ### Publish ⬆️
+    > Command to rebase all the code from **cypress** branch to **main** & push it.
+    - To be run when the **cypress** branch is to be merged with the **main** branch.
+    - Only the code at the **remote origin** _(of cypress branch)_ will be published.
+    - To run this command, your git worktree must be clean.
+    `npm run publish`
