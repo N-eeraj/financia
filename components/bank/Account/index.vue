@@ -1,31 +1,27 @@
 <template>
-  <div class="flex-column gap-y-3 w-72 h-44 p-3 bg-theme-grey-dark rounded-md">
-    <div>
-      {{ bankId }}
-      {{ accountNumber }}
+  <div class="relative flex-column gap-y-3 w-72 h-44 p-3 bg-theme-grey-dark rounded-md">
+    <div class="flex gap-x-3">
+      <div class="w-12 aspect-square bg-theme-light rounded-md">
+        <img src="" alt="" />
+      </div>
+
+      <div class="flex-column">
+        <small class="text-theme-grey-light text-sm">
+          {{ bankId }}
+        </small>
+        <span class="text-theme-light text-lg">
+          {{ accountNumber }}
+        </span>
+      </div>
     </div>
 
-    <strong>
-      {{ balance }}
+    <strong class="text-2xl font-medium text-theme-light">
+      {{ currencyFormatter(balance) }}
     </strong>
 
-    <div>
-      <div>
-        <span>
-          IFSC
-        </span>
-        <span>
-          {{ ifsc }}
-        </span>
-      </div>
-      <div>
-        <span>
-          Type
-        </span>
-        <span>
-          {{ accountTypeName }}
-        </span>
-      </div>
+    <div class="absolute bottom-0 left-0 flex gap-x-12 w-full px-3 py-1 bg-theme-dark/25">
+      <BankAccountDetails label="IFSC" :value="ifsc" />
+      <BankAccountDetails label="Type" :value="accountTypeName" />
     </div>
   </div>
 </template>
