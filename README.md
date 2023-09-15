@@ -119,6 +119,14 @@ This will start the web app on a port in your local server.
     - 404 page redirect post login.
   - Sign Up Page
     - Form validations.
+    - Check valid & invalid credential
+  - Navigation Drawer
+    - Open & close for small screens
+    - Navigations from nav drawer
+  - Notifications
+    - Check notification opening for all screen sizes
+    - Check close notification action
+    - Check read all notifications action
 
 --- 
 

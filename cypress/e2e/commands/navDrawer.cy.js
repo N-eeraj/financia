@@ -34,7 +34,7 @@ const largeScreenNavDrawer = () => {
   navDrawerChecker('macbook-13', false)
 }
 
-describe('Dashboard navigations', () => {
+describe('Navigation Drawer Navigations', () => {
   it('Checks small screen', smallScreenNavDrawer)
   it('Checks large screen', largeScreenNavDrawer)
 })
