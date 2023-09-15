@@ -1,13 +1,13 @@
 <template>
   <div class="relative flex-column gap-y-3 w-72 h-44 p-3 bg-theme-grey-dark rounded-md">
     <div class="flex gap-x-3">
-      <div class="w-12 aspect-square bg-theme-light rounded-md">
-        <img src="" alt="" />
+      <div class="place-center w-12 aspect-square bg-theme-light rounded-md">
+        <img :src="bankDetails?.image" :alt="bankDetails?.name" class="w-4/5" />
       </div>
 
       <div class="flex-column">
         <small class="text-theme-grey-light text-sm">
-          {{ bankId }}
+          {{ bankDetails?.name }}
         </small>
         <span class="text-theme-light text-lg">
           {{ accountNumberFormatter(accountNumber) }}
@@ -81,4 +81,8 @@ const accountTypes = [
 ]
 
 const accountTypeName = computed(() => accountTypes.find(({ value }) => value === props.accountType)?.name)
+
+const bankDetails = computed(() => banks.find(({ id }) => id === props.bankId))
+if (!bankDetails.value)
+  throw `Invalid Bank Id ${props.bankId}`
 </script>

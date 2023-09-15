@@ -6,7 +6,7 @@
     <img src="/users/john-doe.png" class="w-14 rounded-full" />
 
     <Transition name="slide-down">
-      <div v-if="profileMenuVisibility" class="absolute top-16 right-0 flex-column gap-y-3 w-52 px-3 py-2 bg-gradient-to-bl glass-bg rounded-md border-[0.25px] border-theme-grey-light">
+      <div v-if="profileMenuVisibility" class="absolute top-16 right-0 flex-column gap-y-3 w-52 px-3 py-2 bg-gradient-to-bl glass-bg rounded-md border-[0.25px] border-theme-grey-light z-10">
         <LayoutProfileAction v-for="({ icon, text, action, classes }, index) of profileActionsData" :icon="icon" :text="text" :class="classes" :key="index" @click.stop="handleAction(action)" />
       </div>
     </Transition>
