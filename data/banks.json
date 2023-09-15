@@ -2,21 +2,21 @@
   {
     "id": 1,
     "name": "SBI",
-    "image": "/banks/sbi"
+    "image": "/banks/sbi.svg"
   },
   {
     "id": 2,
     "name": "Axis",
-    "image": "/banks/axis"
+    "image": "/banks/axis.svg"
   },
   {
     "id": 3,
     "name": "Federal",
-    "image": "/banks/federal"
+    "image": "/banks/federal.svg"
   },
   {
     "id": 4,
     "name": "ICICI",
-    "image": "/banks/icici"
+    "image": "/banks/icici.svg"
   }
 ]

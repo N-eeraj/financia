@@ -1,6 +1,6 @@
 <template>
   <Transition name="slide-down">
-    <div v-if="notificationListVisibility" class="absolute top-16 right-0 bg-gradient-to-bl glass-bg rounded-md border-[0.25px] border-theme-grey-light overflow-auto" :class="[classes]" @click.stop>
+    <div v-if="notificationListVisibility" class="absolute top-16 right-0 bg-gradient-to-bl glass-bg rounded-md border-[0.25px] border-theme-grey-light overflow-auto z-10" :class="[classes]" @click.stop>
 
       <template v-if="allNotifications.length">
         <div class="flex-column items-start gap-y-3 w-80 max-h-96 overflow-auto">
