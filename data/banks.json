@@ -2,21 +2,25 @@
   {
     "id": 1,
     "name": "SBI",
-    "image": "/banking/banks/icons/sbi.svg"
+    "image": "/banking/banks/sbi/image.png",
+    "icon": "/banking/banks/sbi/icon.svg"
   },
   {
     "id": 2,
     "name": "Axis",
-    "image": "/banking/banks/icons/axis.svg"
+    "image": "/banking/banks/axis/image.png",
+    "icon": "/banking/banks/axis/icon.svg"
   },
   {
     "id": 3,
     "name": "Federal",
-    "image": "/banking/banks/icons/federal.svg"
+    "image": "/banking/banks/federal/image.png",
+    "icon": "/banking/banks/federal/icon.svg"
   },
   {
     "id": 4,
     "name": "ICICI",
-    "image": "/banking/banks/icons/icici.svg"
+    "image": "/banking/banks/icici/image.png",
+    "icon": "/banking/banks/icici/icon.svg"
   }
 ]

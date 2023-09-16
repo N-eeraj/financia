@@ -70,5 +70,10 @@
 
 <br>
 
+- ### Bank
+  - **getBankDetails**: Used to get bank details using a bank id
+
+<br>
+
 - #### Data
   > This composable file imports & exports the required _data_ files & makes them globally available.

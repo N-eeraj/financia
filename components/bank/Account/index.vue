@@ -2,7 +2,7 @@
   <div class="relative flex-column gap-y-3 w-[300px] h-[175px] p-3 bg-theme-grey-dark rounded-md">
     <div class="flex gap-x-3">
       <div class="place-center w-12 aspect-square bg-theme-light rounded-md">
-        <img :src="bankDetails?.image" :alt="bankDetails?.name" class="w-4/5" />
+        <img :src="bankDetails?.icon" :alt="bankDetails?.name" class="w-4/5" />
       </div>
 
       <div class="flex-column">
@@ -87,7 +87,5 @@ const accountTypes = [
 
 const accountTypeName = computed(() => accountTypes.find(({ value }) => value === props.accountType)?.name)
 
-const bankDetails = computed(() => banks.find(({ id }) => id === props.bankId))
-if (!bankDetails.value)
-  throw `Invalid Bank Id ${props.bankId}`
+const bankDetails = computed(() => getBankDetails(props.bankId))
 </script>
