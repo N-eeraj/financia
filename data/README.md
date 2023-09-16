@@ -22,4 +22,4 @@
 <br>
 
 - #### Banks
-  > Consists of details of banks, including id, name & image
+  > Consists of details of banks, including id, name, image & icon.

@@ -36,6 +36,12 @@ export default {
           },
         },
       },
+      fontFamily: {
+        'bruno-ace-sc': [
+          'Bruno Ace SC',
+          'Sans-serif',
+        ]
+      },
     },
   }
 }
