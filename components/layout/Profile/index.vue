@@ -7,7 +7,7 @@
 
     <Transition name="slide-down">
       <div v-if="profileMenuVisibility" class="absolute top-16 right-0 flex-column gap-y-3 w-52 px-3 py-2 bg-gradient-to-bl glass-bg rounded-md border-[0.25px] border-theme-grey-light z-10">
-        <LayoutProfileAction v-for="({ icon, text, action, classes }, index) of profileActionsData" :icon="icon" :text="text" :class="classes" :key="index" @click.stop="handleAction(action)" />
+        <LayoutProfileAction v-for="({ icon, text, action, classes }, index) of profileActionsData" :icon="icon" :text="text" :class="classes" :key="index" @click="handleAction(action, $event)" />
       </div>
     </Transition>
 
@@ -39,11 +39,12 @@ const handleLogout = () => {
 }
 
 
-const handleAction = (action: string) => {
+const handleAction = (action: string, event: Event) => {
   switch (action) {
     case 'viewProfile':
       return handleViewProfile()
     case 'showNotifications':
+      event.stopPropagation()
       return handleShowNotifications()
     case 'showHelp':
       return handleShowHelp()

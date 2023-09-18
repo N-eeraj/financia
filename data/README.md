@@ -19,6 +19,9 @@
 - #### Profile Actions
   > Consists of actions for the profile menu, including icon, text, action slug & optional classes.
 
+- #### Quick Actions
+  > Consists of the quick actions for the dashboard home, includes icons, text & action slug.
+
 <br>
 
 - #### Banks
