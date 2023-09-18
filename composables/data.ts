@@ -3,6 +3,7 @@ import loginData from '@/data/entry/login.json'
 import navDrawerLinksData from '@/data/dashboard/nav-drawer-links.json'
 import profileActionsData from '@/data/dashboard/profile-actions.json'
 import banks from '@/data/banks.json'
+import quickActions from '@/data/dashboard/quick-actions.json'
 
 export {
   signUpData,
@@ -10,4 +11,5 @@ export {
   navDrawerLinksData,
   profileActionsData,
   banks,
+  quickActions,
 }

@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "bankId": 1,
+    "accountNumber": 1234123412341234,
+    "ifsc": "SB29302",
+    "accountType": 1,
+    "balance": 125000
+  },
+  {
+    "id": 2,
+    "bankId": 3,
+    "accountNumber": 9876987698769876,
+    "ifsc": "FED34253",
+    "accountType": 5,
+    "balance": 500000
+  },
+  {
+    "id": 3,
+    "bankId": 4,
+    "accountNumber": 5647382910192834,
+    "ifsc": "ICI7354",
+    "accountType": 2,
+    "balance": 50000
+  }
+]

@@ -1,0 +1,27 @@
+[
+  {
+    "icon": "carbon:receipt",
+    "text": "Bill Payment",
+    "action": "billPayment"
+  },
+  {
+    "icon": "lucide:smartphone-charging",
+    "text": "Recharge Now",
+    "action": "recharge"
+  },
+  {
+    "icon": "iconoir:hand-cash",
+    "text": "Check Spends",
+    "action": "spends"
+  },
+  {
+    "icon": "cil:gauge",
+    "text": "Check Credit Score",
+    "action": "creditScore"
+  },
+  {
+    "icon": "mdi:cash-sync",
+    "text": "Recent Transactions",
+    "action": "transactions"
+  }
+]

@@ -1,0 +1,34 @@
+[
+  {
+    "id": 1,
+    "type": "debit",
+    "bankId": 4,
+    "cardNumber": 1234123412341234,
+    "networkProvider": "visa",
+    "expiryDate": "12/24"
+  },
+  {
+    "id": 2,
+    "type": "credit",
+    "bankId": 2,
+    "cardNumber": 4321432143214321,
+    "networkProvider": "master-card",
+    "expiryDate": "12/36"
+  },
+  {
+    "id": 3,
+    "type": "credit",
+    "bankId": 3,
+    "cardNumber": 9871236574829138,
+    "networkProvider": "visa",
+    "expiryDate": "12/32"
+  },
+  {
+    "id": 4,
+    "type": "debit",
+    "bankId": 4,
+    "cardNumber": 9157628192836234,
+    "networkProvider": "rupay",
+    "expiryDate": "12/27"
+  }
+]

@@ -71,7 +71,17 @@
 <br>
 
 - ### Bank
-  - **getBankDetails**: Used to get bank details using a bank id
+  - **getBankDetails**: A function used to get bank details using a bank id.
+  - **allBankAccounts**: A constant with a list of all bank account details.
+  - **getAccountById**: A function used to get bank account details by id.
+
+<br>
+
+- ### Cards
+  - **allCards**: A constant with a list of all card details.
+  - **allDebitCards**: A constant with a list of all debit card details.
+  - **allCreditCards**: A constant with a list of all credit card details.
+  - **getCardById**: A function used to get card details by id.
 
 <br>
 
