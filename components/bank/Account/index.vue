@@ -1,5 +1,5 @@
 <template>
-  <div class="relative flex-column gap-y-3 w-[300px] h-[175px] p-3 bg-theme-grey-dark rounded-md">
+  <div class="relative flex-shrink-0 flex-column gap-y-3 w-[300px] h-[175px] p-3 bg-theme-grey-dark rounded-md">
     <div class="flex gap-x-3">
       <div class="place-center w-12 aspect-square bg-theme-light rounded-md">
         <img :src="bankDetails?.icon" :alt="bankDetails?.name" class="w-4/5" />

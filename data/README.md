@@ -23,3 +23,9 @@
 
 - #### Banks
   > Consists of details of banks, including id, name, image & icon.
+
+- #### Accounts
+  > Consists of the bank accounts details.
+
+- #### Cards
+  > Consists of the debit & credit cards.
