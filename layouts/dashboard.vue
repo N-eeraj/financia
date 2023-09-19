@@ -7,6 +7,9 @@
         <slot />
       </div>
     </section>
+    <Transition name="slide-down">
+      <Help v-if="showHelp" />
+    </Transition>
   </main>
 </template>
 
@@ -14,6 +17,7 @@
 const handleCloseAll = () => {
   setProfileMenu(false)
   setNotificationList(false)
+  setHelpVisibility(false)
 }
 
 onMounted(() => setNavDrawer(false))
