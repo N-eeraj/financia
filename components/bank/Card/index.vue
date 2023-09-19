@@ -1,6 +1,6 @@
 <template>
-  <div class="relative flex-shrink-0 inline-block w-[300px] h-[175px] bg-gradient-to-tr from-[#00334D] to-[#006699] rounded-md">
-    <div class="absolute top-0 left-0 w-full h-full" :style="`backdrop-filter: hue-rotate(${randomColor}deg)`" />
+  <div class="relative flex-shrink-0 inline-block w-[300px] h-[175px] bg-gradient-to-tr from-[#013] to-[#059] rounded-md">
+    <div class="absolute top-0 left-0 w-full h-full" :style="`backdrop-filter: hue-rotate(${color}deg)`" />
     <img src="/world-map.svg" class="absolute top-0 left-0 w-full h-full object-contain" />
 
     <div class="absolute w-full h-full">
@@ -76,6 +76,11 @@ const props = defineProps({
       }
     },
   },
+  color: {
+    type: Number,
+    required: false,
+    default: 0,
+  },
 })
 
 const {
@@ -84,6 +89,4 @@ const {
 } = useFormatter()
 
 const bankDetails = computed(() => getBankDetails(props.bankId))
-
-const randomColor = Math.floor(Math.random() * 12) * 30
 </script>

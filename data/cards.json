@@ -5,7 +5,8 @@
     "bankId": 4,
     "cardNumber": 1234123412341234,
     "networkProvider": "visa",
-    "expiryDate": "12/24"
+    "expiryDate": "12/24",
+    "color": 125
   },
   {
     "id": 2,
@@ -13,20 +14,22 @@
     "bankId": 2,
     "cardNumber": 4321432143214321,
     "networkProvider": "master-card",
-    "expiryDate": "12/36"
+    "expiryDate": "12/36",
+    "color": 60
   },
   {
     "id": 3,
     "type": "credit",
-    "bankId": 3,
+    "bankId": 1,
     "cardNumber": 9871236574829138,
     "networkProvider": "visa",
-    "expiryDate": "12/32"
+    "expiryDate": "12/32",
+    "color": 300
   },
   {
     "id": 4,
     "type": "debit",
-    "bankId": 4,
+    "bankId": 3,
     "cardNumber": 9157628192836234,
     "networkProvider": "rupay",
     "expiryDate": "12/27"
