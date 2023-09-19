@@ -29,6 +29,10 @@
     - **toggleProfileMenu** _(function)_: Global reference used to toggle profile menu.
     - **setProfileMenu** _(function)_: Global reference used to set profile menu to the _boolean_ argument passed.
 
+  - Help
+    - **showHelp** _(boolean)_: Global reference indicating help visibility.
+    - **setHelpVisibility** _(function)_: Global reference used to set help to the _boolean_ argument passed.
+
 <br>
 
 - #### Stores

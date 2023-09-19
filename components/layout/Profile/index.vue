@@ -25,12 +25,6 @@ const { clearUser } = userStore
 
 const handleViewProfile = () => router.push('/dashboard/profile')
 
-const handleShowNotifications = () => setNotificationList(true)
-
-const handleShowHelp = () => {
-
-}
-
 const handleLogout = () => {
   clearUser()
   setProfileMenu(false)
@@ -45,9 +39,10 @@ const handleAction = (action: string, event: Event) => {
       return handleViewProfile()
     case 'showNotifications':
       event.stopPropagation()
-      return handleShowNotifications()
+      return setNotificationList(true)
     case 'showHelp':
-      return handleShowHelp()
+      event.stopPropagation()
+      return setHelpVisibility(true)
     case 'logout':
       return handleLogout()
     default:
