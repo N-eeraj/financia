@@ -8,13 +8,13 @@
         {{ capitalize(type) }}
       </span>
 
-      <img :src="`/banking/network-providers/${networkProvider}.svg`" :alt="networkProvider" class="absolute top-3 right-3 w-16 h-8 object-contain" />
+      <img :src="`${baseURL}/banking/network-providers/${networkProvider}.svg`" :alt="networkProvider" class="absolute top-3 right-3 w-16 h-8 object-contain" />
 
       <span class="absolute top-1/2 left-1/2 w-full text-theme-light text-lg text-center font-bruno-ace-sc -translate-x-1/2 -translate-y-1/2">
         {{ splitFormatter(cardNumber) }}
       </span>
 
-      <img :src="bankDetails?.image" :alt="bankDetails?.name" class="absolute bottom-3 left-3 w-24 h-6 object-contain" />
+      <img :src="`${baseURL}/${bankDetails?.image}`" :alt="bankDetails?.name" class="absolute bottom-3 left-3 w-24 h-6 object-contain" />
 
 
       <span class="absolute bottom-3 right-3 text-theme-light">
@@ -89,4 +89,7 @@ const {
 } = useFormatter()
 
 const bankDetails = computed(() => getBankDetails(props.bankId))
+
+const runtime = useRuntimeConfig()
+const baseURL = runtime.public.baseURL
 </script>
