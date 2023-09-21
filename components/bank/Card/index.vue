@@ -1,6 +1,6 @@
 <template>
-  <div class="relative flex-shrink-0 inline-block w-[300px] h-[175px] bg-gradient-to-tr from-[#00334D] to-[#006699] rounded-md">
-    <div class="absolute top-0 left-0 w-full h-full" :style="`backdrop-filter: hue-rotate(${randomColor}deg)`" />
+  <div class="relative flex-shrink-0 inline-block w-[300px] h-[175px] bg-gradient-to-tr from-[#013] to-[#059] rounded-md">
+    <div class="absolute top-0 left-0 w-full h-full" :style="`backdrop-filter: hue-rotate(${color}deg)`" />
     <img src="/world-map.svg" class="absolute top-0 left-0 w-full h-full object-contain" />
 
     <div class="absolute w-full h-full">
@@ -8,13 +8,13 @@
         {{ capitalize(type) }}
       </span>
 
-      <img :src="`/banking/network-providers/${networkProvider}.svg`" :alt="networkProvider" class="absolute top-3 right-3 w-16 h-8 object-contain" />
+      <img :src="`${baseURL}/banking/network-providers/${networkProvider}.svg`" :alt="networkProvider" class="absolute top-3 right-3 w-16 h-8 object-contain" />
 
-      <span class="absolute top-1/2 left-1/2 w-full text-theme-light text-lg text-center font-bruno-ace-sc -translate-x-1/2 -translate-y-1/2">
+      <span class="absolute top-1/2 left-1/2 w-full text-theme-light text-lg text-center font-bruno-ace-sc word-gap -translate-x-1/2 -translate-y-1/2">
         {{ splitFormatter(cardNumber) }}
       </span>
 
-      <img :src="bankDetails?.image" :alt="bankDetails?.name" class="absolute bottom-3 left-3 w-24 h-6 object-contain" />
+      <img :src="`${baseURL}/${bankDetails?.image}`" :alt="bankDetails?.name" class="absolute bottom-3 left-3 w-24 h-6 object-contain" />
 
 
       <span class="absolute bottom-3 right-3 text-theme-light">
@@ -76,6 +76,11 @@ const props = defineProps({
       }
     },
   },
+  color: {
+    type: Number,
+    required: false,
+    default: 0,
+  },
 })
 
 const {
@@ -85,5 +90,12 @@ const {
 
 const bankDetails = computed(() => getBankDetails(props.bankId))
 
-const randomColor = Math.floor(Math.random() * 12) * 30
+const runtime = useRuntimeConfig()
+const baseURL = runtime.public.baseURL
 </script>
+
+<style scoped>
+.word-gap {
+  word-spacing: 10px;
+}
+</style>

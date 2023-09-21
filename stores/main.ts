@@ -71,6 +71,7 @@ export const useMainStore = defineStore('main', (): object => {
     ref: profileMenuVisibility,
     closeRefs: [
       notificationListVisibility,
+      showHelp,
     ],
   })
 
@@ -79,13 +80,14 @@ export const useMainStore = defineStore('main', (): object => {
     value,
     closeRefs: [
       notificationListVisibility,
+      showHelp,
     ],
   })
 
   // help toggle
   const showHelp = ref(false)
 
-  const setHelpVisibility = (value: Boolean): void => changeVisibility({
+  const setHelpVisibility = (value: boolean): void => changeVisibility({
     ref: showHelp,
     value,
     closeRefs: [

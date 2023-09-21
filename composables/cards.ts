@@ -7,6 +7,7 @@ interface CardDetails {
   cardNumber: number
   networkProvider: string
   expiryDate: string
+  color?: number
 }
 
 export const allCards: CardDetails[] = cards

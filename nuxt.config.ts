@@ -12,4 +12,9 @@ export default defineNuxtConfig({
   tailwindcss: {
     configPath: '~/tailwind.js',
   },
+  runtimeConfig: {
+    public: {
+      baseURL: process.env.NODE_ENV === 'production' ? '/financia' : '',
+    }
+  },
 })
