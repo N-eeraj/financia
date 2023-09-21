@@ -1,19 +1,46 @@
 @import url('https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&display=swap');
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 * {
-  @apply focus:border-base-blue focus:outline-none;
+  @apply scroll-smooth focus:border-base-blue focus:outline-none;
+  scrollbar-width: thin;
+  scrollbar-color: #FFF7 #000;
 }
 
-/* custom classes */
-.flex-column {
-  @apply flex flex-col;
+/* custom utility classes */
+@layer utilities  {
+  .flex-column {
+    @apply flex flex-col;
+  }
+
+  .flex-center {
+    @apply flex justify-center items-center
+  }
+
+  .place-center {
+    @apply grid place-items-center;
+  }
+
+  .glass-bg {
+    @apply from-theme-grey-dark/70 to-theme-dark/30 backdrop-blur-lg;
+  }
 }
-.flex-center {
-  @apply flex justify-center items-center
+
+::-webkit-scrollbar {
+  @apply w-2 h-2;
 }
-.place-center {
-  @apply grid place-items-center;
+
+::-webkit-scrollbar-track {
+  @apply bg-theme-grey-dark;
 }
-.glass-bg {
-  @apply from-theme-grey-dark/70 to-theme-dark/30 backdrop-blur-lg;
+
+::-webkit-scrollbar-thumb {
+  @apply bg-black rounded-md;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-theme-grey-light;
 }

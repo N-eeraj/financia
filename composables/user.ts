@@ -13,7 +13,7 @@ interface SignUpDetails {
 
 export const validateUserLogin = ({ email, password }: LoginDetails) => {
   for (let user of usersData) {
-    if (user.email !== email)
+    if (user.email.toLocaleLowerCase() !== email.toLocaleLowerCase())
       continue
     if (user.password === password) {
       const { password, ...userDetails } = user
@@ -26,7 +26,7 @@ export const validateUserLogin = ({ email, password }: LoginDetails) => {
 }
 
 export const validateUserSignUp = ({ name, email, password }: SignUpDetails) => {
-  if (usersData.some(user => user.email === email))
+  if (usersData.some(user => user.email.toLocaleLowerCase() === email.toLocaleLowerCase()))
     throw 'Email id already exists'
   const userDetails = {
     id: ++usersData[usersData.length - 1].id,

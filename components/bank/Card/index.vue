@@ -10,7 +10,7 @@
 
       <img :src="`${baseURL}/banking/network-providers/${networkProvider}.svg`" :alt="networkProvider" class="absolute top-3 right-3 w-16 h-8 object-contain" />
 
-      <span class="absolute top-1/2 left-1/2 w-full text-theme-light text-lg text-center font-bruno-ace-sc -translate-x-1/2 -translate-y-1/2">
+      <span class="absolute top-1/2 left-1/2 w-full text-theme-light text-lg text-center font-bruno-ace-sc word-gap -translate-x-1/2 -translate-y-1/2">
         {{ splitFormatter(cardNumber) }}
       </span>
 
@@ -93,3 +93,9 @@ const bankDetails = computed(() => getBankDetails(props.bankId))
 const runtime = useRuntimeConfig()
 const baseURL = runtime.public.baseURL
 </script>
+
+<style scoped>
+.word-gap {
+  word-spacing: 10px;
+}
+</style>
