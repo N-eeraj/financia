@@ -8,5 +8,8 @@
 </template>
 
 <script setup lang="ts">
-definePageMeta(authDashboard)
+definePageMeta({
+  ...authDashboard,
+  pageTitle: 'Dashboard',
+})
 </script>

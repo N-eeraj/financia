@@ -15,11 +15,6 @@ const router = useRouter()
 const { setUser } = useUserStore()
 const { image, title, subtitle, segue, link, placeholder, button } = signUpData
 
-definePageMeta({
-  visitor: true,
-  user: false,
-})
-
 interface LoginFormInput {
   [key: string]: Element | ComponentPublicInstance | null
 }
@@ -54,4 +49,9 @@ const handleSignUp = () => {
     toastify(String(error), 'error')
   }
 }
+
+definePageMeta({
+  visitor: true,
+  user: false,
+})
 </script>
