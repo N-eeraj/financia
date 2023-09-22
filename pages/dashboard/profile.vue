@@ -1,29 +1,37 @@
 <template>
   <div>
     <ProfileActionContainer :active-hash="activeTab" />
+
+    <ProfileDetails v-if="!activeTab" />
+    <ProfilePassword v-else />
+
+    <ProfileDelete v-if="deleteConfirmation" />
   </div>
 </template>
 
 <script setup lang="ts">
 const route = useRoute()
+const router = useRouter()
 
 const activeTab = ref('')
 
-const showProfile = () => activeTab.value = ''
-const showChangePassword = () => activeTab.value = '#change-password'
-const showDeleteAccount = () => console.log('showDeleteAccount')
+const deleteConfirmation = computed(() => route.hash === '#delete-account')
+
+const handleDeleteClose = () => {
+  router.replace({
+    ...route,
+    hash: activeTab.value,
+  })
+  document.removeEventListener('click', handleDeleteClose)
+}
 
 watch(
   () => route.hash,
-  (to, from) => {
-    switch (route.hash) {
-      case '#change-password':
-        return showChangePassword()
-      case '#delete-account':
-        return showDeleteAccount()
-      default:
-        return showProfile()
-    }
+  () => {
+    if (route.hash === '#delete-account')
+      document.addEventListener('click', handleDeleteClose)
+    else
+      activeTab.value = route.hash
   },
   { immediate: true }
 )
