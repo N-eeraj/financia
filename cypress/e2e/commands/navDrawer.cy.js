@@ -2,7 +2,7 @@ import { loginUserWithIndex } from '/cypress/e2e/helpers/login.cy.js'
 
 import navDrawerLinks from '/cypress/fixtures/nav-drawer-link.json'
 
-const navDrawerChecker = (viewport, hiddenNavDrawer) => {
+const navDrawerChecker = (viewport, hiddenNavDrawer, navBarTitle) => {
   cy.viewport(viewport)
   cy.get('[data-cy="nav-drawer-link"]').as('navLink')
 
@@ -12,29 +12,33 @@ const navDrawerChecker = (viewport, hiddenNavDrawer) => {
 
     cy.wait(500)
     cy.get('@navLink').contains(text).click()
+
+    if (navBarTitle)
+      cy.get('[data-cy="page-title"]').should('contain.text', text)
+
     cy.location().should(({ href }) => {
       expect(href).to.contains(path)
     })
   })
 }
 
-const smallScreenNavDrawer = () => {
+const mobileScreenNavDrawer = () => {
   loginUserWithIndex(1)
-  const smallViewports = [
-    'iphone-x',
-    'ipad-mini',
-  ]
-  smallViewports.forEach(viewport => {
-    navDrawerChecker(viewport, true)
-  })
+  navDrawerChecker('iphone-x', true, false)
 }
 
-const largeScreenNavDrawer = () => {
+const tabletScreenNavDrawer = () => {
   loginUserWithIndex(1)
-  navDrawerChecker('macbook-13', false)
+  navDrawerChecker('ipad-mini', true, true)
+}
+
+const laptopScreenNavDrawer = () => {
+  loginUserWithIndex(1)
+  navDrawerChecker('macbook-13', false, true)
 }
 
 describe('Navigation Drawer Navigations', () => {
-  it('Checks small screen', smallScreenNavDrawer)
-  it('Checks large screen', largeScreenNavDrawer)
+  it('Checks mobile screen', mobileScreenNavDrawer)
+  it('Checks tablet screen', tabletScreenNavDrawer)
+  it('Checks laptop screen', laptopScreenNavDrawer)
 })

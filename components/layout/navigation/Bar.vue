@@ -4,7 +4,7 @@
       <button class="lg:hidden" :class="navDrawerVisibility && 'max-md:z-10 md:hidden'" data-cy="nav-toggle" @click="toggleNavDrawer">
         <Icon :name="navDrawerVisibility ? 'ion:close' : 'eva:menu-outline'" class="text-theme-light text-6xl max-md:relative" />
       </button>
-      <span class="text-theme-grey-light text-3xl max-md:hidden">
+      <span class="text-theme-grey-light text-3xl max-md:hidden" data-cy="page-title">
         {{ pageTitle }}
       </span>
     </div>
