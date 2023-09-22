@@ -13,11 +13,6 @@ const { setUser } = useUserStore()
 const router = useRouter()
 const { image, title, subtitle, segue, link, placeholder, button } = loginData
 
-definePageMeta({
-  visitor: true,
-  user: false,
-})
-
 type TemplateRef = Element | ComponentPublicInstance | null
 interface LoginFormInput {
   email: TemplateRef
@@ -44,4 +39,9 @@ const handleLogin = () => {
     toastify(String(error), 'error')
   }
 }
+
+definePageMeta({
+  visitor: true,
+  user: false,
+})
 </script>

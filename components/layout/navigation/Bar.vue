@@ -5,7 +5,7 @@
         <Icon :name="navDrawerVisibility ? 'ion:close' : 'eva:menu-outline'" class="text-theme-light text-6xl max-md:relative" />
       </button>
       <span class="text-theme-grey-light text-3xl max-md:hidden">
-        Dashboard
+        {{ pageTitle }}
       </span>
     </div>
 
@@ -15,3 +15,8 @@
     </div>
   </div>
 </template>
+
+<script setup lang="ts">
+const route = useRoute()
+const pageTitle = computed(() => route.meta.pageTitle || '')
+</script>
