@@ -1,9 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&display=swap');
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 * {
   @apply scroll-smooth focus:border-base-blue focus:outline-none;
   scrollbar-width: thin;
@@ -11,22 +7,21 @@
 }
 
 /* custom utility classes */
-@layer utilities  {
-  .flex-column {
-    @apply flex flex-col;
-  }
 
-  .flex-center {
-    @apply flex justify-center items-center
-  }
+.flex-column {
+  @apply flex flex-col;
+}
 
-  .place-center {
-    @apply grid place-items-center;
-  }
+.flex-center {
+  @apply flex justify-center items-center
+}
 
-  .glass-bg {
-    @apply from-theme-grey-dark/70 to-theme-dark/30 backdrop-blur-lg;
-  }
+.place-center {
+  @apply grid place-items-center;
+}
+
+.glass-bg {
+  @apply from-theme-grey-dark/70 to-theme-dark/30 backdrop-blur-lg;
 }
 
 ::-webkit-scrollbar {

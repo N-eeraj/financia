@@ -1,5 +1,5 @@
 <template>
-  <div class="flex justify-between w-full">
+  <div class="flex justify-between w-full px-3">
     <div class="flex items-center gap-x-3">
       <button class="lg:hidden" :class="navDrawerVisibility && 'max-md:z-10 md:hidden'" data-cy="nav-toggle" @click="toggleNavDrawer">
         <Icon :name="navDrawerVisibility ? 'ion:close' : 'eva:menu-outline'" class="text-theme-light text-6xl max-md:relative" />
