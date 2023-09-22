@@ -3,7 +3,7 @@
     <LayoutNavigationDrawer class="z-10" />
     <section class="w-full">
       <LayoutNavigationBar />
-      <div class="h-[calc(100vh-124px)] overflow-y-auto">
+      <div class="w-[calc(100vw-480px)] h-[calc(100vh-124px)] overflow-y-auto">
         <slot />
       </div>
     </section>
