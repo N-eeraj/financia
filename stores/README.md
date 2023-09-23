@@ -77,6 +77,8 @@
     }
     ```
   - **authenticated** _(boolean)_: Indicates if user is authenticated or not.
+  - **profilePicture** _(string)_: Current profile picture of user.
   - **setUser** _(function)_: Used to set _user_, expects single argument of type _UserDetails_.
   `setUser(user)`
   - **clearUser** _(function)_: Used to clear _user_.
+  - **setProfilePicture** _(function)_: Used to set user's profile picture, expects single string argument.
