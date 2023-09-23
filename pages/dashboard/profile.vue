@@ -1,5 +1,5 @@
 <template>
-  <div class="flex-column gap-y-6">
+  <div class="flex-column gap-y-6 md:gap-y-12">
     <ProfileActionContainer :active-hash="activeTab" />
 
     <ProfilePassword v-if="activeTab" />

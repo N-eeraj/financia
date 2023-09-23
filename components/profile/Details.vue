@@ -1,11 +1,11 @@
 <template>
-  <div class="flex-column items-center gap-y-12 w-full">
-    <div class="relative w-48 aspect-square">
+  <div class="flex-column md:!flex-row justify-center items-center md:gap-x-16 gap-y-12 w-full">
+    <div class="relative w-48 md:w-1/4 md:min-w-[200px] aspect-square">
       <img :src="profilePicture || `${baseURL}/users/john-doe.png`" class="w-full h-full rounded-full" />
       <Icon name="mdi-camera" size="48" class="absolute right-0 bottom-0 p-3 bg-base-green text-theme-light rounded-full" />
     </div>
 
-    <form class="flex-column items-end gap-y-8 w-full max-w-full" @submit="handleSubmit">
+    <form class="flex-column items-center md:items-end gap-y-8 w-full md:w-1/2 max-w-full md:max-w-md" @submit="handleSubmit">
       <BaseInput v-model="form.name" :ref="el => formInput.name = el" :validator="requiredValidation" placeholder="Full Name" variant="clear" dark class="w-full" />
       <BaseInput v-model="form.email" :ref="el => formInput.email = el" :validator="requiredValidation" placeholder="Email" variant="clear" dark class="w-full" />
       <BaseInput v-model="form.phone" :ref="el => formInput.phone = el" placeholder="Phone Number" variant="clear" dark class="w-full" />
