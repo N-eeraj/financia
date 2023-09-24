@@ -132,7 +132,7 @@ const togglePasswordVisibility = () => showPassword.value = !showPassword.value
 const errorMessage = ref(null)
 const validate = () => {
   if (!props.validator) return
-  const validation = props.validator(props.modelValue)
+  const validation = props.validator(props.modelValue) || { error: false }
   errorMessage.value = validation.error ? validation.message : null   
 }
 const currentError = computed(() => props.error || errorMessage.value)

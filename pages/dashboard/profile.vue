@@ -1,9 +1,9 @@
 <template>
-  <div>
+  <div class="flex-column gap-y-6 md:gap-y-12">
     <ProfileActionContainer :active-hash="activeTab" />
 
-    <ProfileDetails v-if="!activeTab" />
-    <ProfilePassword v-else />
+    <ProfilePassword v-if="activeTab" />
+    <ProfileDetails v-else />
 
     <ProfileDelete v-if="deleteConfirmation" />
   </div>

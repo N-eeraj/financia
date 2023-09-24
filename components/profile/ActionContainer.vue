@@ -31,7 +31,7 @@ const actions = [
     text: 'Password',
     classes: '!text-theme-dark',
     hash: '#change-password',
-    activeClasses: 'bg-base-blue',
+    activeClasses: '!bg-base-blue',
   },
   {
     text: 'Delete Account',
