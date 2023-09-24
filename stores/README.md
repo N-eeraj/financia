@@ -45,7 +45,10 @@
   - **showHelp** _(boolean)_: Indicates if help is shown or hidden.
   - **setHelpVisibility** _(function)_: Used to set the showHelp to the single _boolean_ argument passed.
   `setHelpVisibility(true)`
-  
+
+  <br>
+
+  - **handleCloseAllDashboardPopUp** _(function)_: Used to close all dashboard layout pop-ups.
 
   <br>
   <br>

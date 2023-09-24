@@ -23,7 +23,7 @@ const changeVisibility = ({ ref, value, closeRefs }: VisibilityChange): void => 
   closeRefs?.forEach(closeRef => closeRef.value = false)
 }
 
-export const useMainStore = defineStore('main', (): object => {
+export const useMainStore = defineStore('main', () => {
 
   // nav drawer
   const navDrawerVisibility = ref(false)
@@ -96,6 +96,11 @@ export const useMainStore = defineStore('main', (): object => {
     ],
   })
 
+  const handleCloseAllDashboardPopUp = (): void => {
+    [setNotificationList, setProfileMenu, setHelpVisibility]
+      .forEach(closeFunction => closeFunction(false))
+  }
+
   return {
     navDrawerVisibility,
     notificationListVisibility,
@@ -112,5 +117,6 @@ export const useMainStore = defineStore('main', (): object => {
     toggleProfileMenu,
     setProfileMenu,
     setHelpVisibility,
+    handleCloseAllDashboardPopUp,
   }
 })

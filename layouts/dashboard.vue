@@ -1,5 +1,5 @@
 <template>
-  <main class="w-full h-screen p-8 bg-theme-dark lg:flex lg:gap-x-8" @click="handleCloseAll">
+  <main class="w-full h-screen p-8 bg-theme-dark lg:flex lg:gap-x-8" @click="handleCloseAllDashboardPopUp">
     <LayoutNavigationDrawer class="z-10" />
     <section class="flex-column gap-y-6 w-full">
       <LayoutNavigationBar />
@@ -7,18 +7,11 @@
         <slot />
       </div>
     </section>
-    <Transition name="slide-down">
-      <Help v-if="showHelp" />
-    </Transition>
+
+    <Help v-if="showHelp" />
   </main>
 </template>
 
 <script setup lang="ts">
-const handleCloseAll = () => {
-  setProfileMenu(false)
-  setNotificationList(false)
-  setHelpVisibility(false)
-}
-
 onMounted(() => setNavDrawer(false))
 </script>
