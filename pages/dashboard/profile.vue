@@ -5,7 +5,7 @@
     <ProfilePassword v-if="activeTab" />
     <ProfileDetails v-else />
 
-    <ProfileDelete v-if="deleteConfirmation" />
+    <ProfileDelete />
   </div>
 </template>
 
@@ -14,8 +14,6 @@ const route = useRoute()
 const router = useRouter()
 
 const activeTab = ref('')
-
-const deleteConfirmation = computed(() => route.hash === '#delete-account')
 
 const handleDeleteClose = () => {
   router.replace({

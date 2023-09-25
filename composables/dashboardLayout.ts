@@ -17,6 +17,7 @@ const {
   toggleProfileMenu,
   setProfileMenu,
   setHelpVisibility,
+  handleCloseAllDashboardPopUp,
 } = mainStore
 
 export {
@@ -31,4 +32,5 @@ export {
   toggleProfileMenu,
   setProfileMenu,
   setHelpVisibility,
+  handleCloseAllDashboardPopUp,
 }

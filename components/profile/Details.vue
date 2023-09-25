@@ -1,6 +1,6 @@
 <template>
   <div class="flex-column md:!flex-row justify-center items-center md:gap-x-16 gap-y-12 w-full">
-    <div class="relative w-48 md:w-1/4 md:min-w-[200px] aspect-square">
+    <div class="relative w-48 md:w-1/4 md:min-w-[180px] md:max-w-[240px] aspect-square">
       <img :src="profilePicture || `${baseURL}/users/john-doe.png`" class="w-full h-full rounded-full" />
       <Icon name="mdi-camera" size="48" class="absolute right-0 bottom-0 p-3 bg-base-green text-theme-light rounded-full" />
     </div>
