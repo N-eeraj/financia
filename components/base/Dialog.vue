@@ -4,7 +4,7 @@
 
   <Transition name="slide-up">
     <!-- dialog -->
-    <div v-if="showDialog" class="screen-center flex-column gap-y-5 w-80 md:w-[480px] p-10 glass-bg border border-theme-light rounded-md z-50" @click.stop>
+    <div v-if="show" class="screen-center flex-column gap-y-5 w-80 md:w-[480px] p-10 glass-bg border border-theme-light rounded-md z-50" @click.stop>
 
       <!-- title -->
       <strong class="text-theme-light text-3xl font-semibold">
@@ -30,6 +30,10 @@
 
 <script setup lang="ts">
 defineProps({
+  show: {
+    type: Boolean,
+    required: true,
+  },
   title: {
     type: String,
     required: false,
@@ -41,9 +45,4 @@ defineProps({
     default: false,
   }
 })
-
-const showDialog = ref(false)
-
-onMounted(() => showDialog.value = true)
-onBeforeUnmount(() => showDialog.value = false)
 </script>

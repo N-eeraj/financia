@@ -8,7 +8,7 @@
       </div>
     </section>
 
-    <Help v-if="showHelp" />
+    <Help />
   </main>
 </template>
 

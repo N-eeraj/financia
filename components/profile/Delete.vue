@@ -1,5 +1,5 @@
 <template>
-  <BaseDialog title="Danger Zone">
+  <BaseDialog :show="deleteConfirmation" title="Danger Zone">
     Once you delete this account, there is no going back. Please be certain !
 
     <template #actions>
@@ -9,3 +9,9 @@
     </template>
   </BaseDialog>
 </template>
+
+<script setup lang="ts">
+const route = useRoute()
+
+const deleteConfirmation = computed(() => route.hash === '#delete-account')
+</script>
