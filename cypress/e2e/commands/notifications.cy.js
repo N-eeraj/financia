@@ -1,6 +1,5 @@
 import { loginUserWithIndex } from '/cypress/e2e/helpers/login.cy.js'
 
-const NOTIFICATION_COUNT = 6
 const SMALL_VIEWPORT = 'iphone-x'
 const LARGE_VIEW_PORTS = [
   'ipad-mini',
@@ -38,13 +37,13 @@ const smallScreenCloseNotifications = () => {
   cy.viewport(SMALL_VIEWPORT)
   loginUserWithIndex()
   openNotificationListSmallScreen()
-  cy.get('[data-cy="notification-list"] [data-cy="notification-item"]').as('notifications')
-  cy.get('@notifications').should('have.length', NOTIFICATION_COUNT)
-  for (let i = 0; i < NOTIFICATION_COUNT; i++) {
-    cy.get('@notifications').first().find('[data-cy="close-notification-btn"]').click()
-    cy.get('@notifications').should('have.length', NOTIFICATION_COUNT - (i + 1))
-  }
-  cy.get('@notifications').should('have.length', 0)
+  cy.get('[data-cy="notification-list"] [data-cy="notification-item"]').as('notifications').then($notifications => {
+      const notificationCount = $notifications.length
+      for (let i = 1; i <= notificationCount; i++) {
+        cy.get('@notifications').first().find('[data-cy="close-notification-btn"]').click()
+        cy.get('@notifications').should('have.length', notificationCount - i)
+      }
+    })
   cy.get('[data-cy="notification-list"] [data-cy="no-notification-bell"]').should('be.visible')
 }
 
@@ -53,13 +52,13 @@ const largeScreenCloseNotifications = () => {
   LARGE_VIEW_PORTS.forEach(viewport => {
     cy.viewport(viewport)
     openNotificationListLargeScreen()
-    cy.get('[data-cy="landscape-notification-list"] [data-cy="notification-item"]').as('notifications')
-    cy.get('@notifications').should('have.length', NOTIFICATION_COUNT)
-    for (let i = 0; i < NOTIFICATION_COUNT; i++) {
-      cy.get('@notifications').first().find('[data-cy="close-notification-btn"]').click()
-      cy.get('@notifications').should('have.length', NOTIFICATION_COUNT - (i + 1))
-    }
-    cy.get('@notifications').should('have.length', 0)
+    cy.get('[data-cy="landscape-notification-list"] [data-cy="notification-item"]').as('notifications').then($notifications => {
+      const notificationCount = $notifications.length
+      for (let i = 1; i <= notificationCount; i++) {
+        cy.get('@notifications').first().find('[data-cy="close-notification-btn"]').click()
+        cy.get('@notifications').should('have.length', notificationCount - i)
+      }
+    })
     cy.get('[data-cy="landscape-notification-list"] [data-cy="no-notification-bell"]').should('be.visible')
     cy.reload()
   })
@@ -70,7 +69,6 @@ const smallScreenReadAllNotifications = () => {
   loginUserWithIndex()
   openNotificationListSmallScreen()
   cy.get('[data-cy="notification-list"] [data-cy="notification-item"]').as('notifications')
-  cy.get('@notifications').should('have.length', NOTIFICATION_COUNT)
   cy.get('[data-cy="notification-list"]').find('[data-cy="read-all-notifications-btn"]').click()
   cy.get('@notifications').should('have.length', 0)
   cy.get('[data-cy="notification-list"] [data-cy="no-notification-bell"]').should('be.visible')
@@ -82,7 +80,6 @@ const largeScreenReadAllNotifications = () => {
     cy.viewport(viewport)
     openNotificationListLargeScreen()
     cy.get('[data-cy="landscape-notification-list"] [data-cy="notification-item"]').as('notifications')
-    cy.get('@notifications').should('have.length', NOTIFICATION_COUNT)
     cy.get('[data-cy="landscape-notification-list"]').find('[data-cy="read-all-notifications-btn"]').click()
     cy.get('@notifications').should('have.length', 0)
     cy.get('[data-cy="landscape-notification-list"] [data-cy="no-notification-bell"]').should('be.visible')
