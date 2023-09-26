@@ -25,16 +25,13 @@
   opacity: 0;
 }
 
-/* slide up */
-.slide-up-enter-active {
-  transition: top 250ms ease-in-out, opacity 400ms ease-in-out;
-}
-.slide-up-leave-active {
-  transition: top 400ms ease-in-out, opacity 250ms ease-in-out;
+/* fade */
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 400ms ease-in-out;
 }
 
-.slide-up-enter-from,
-.slide-up-leave-to {
-  top: 100vh;
+.fade-enter-from,
+.fade-leave-to {
   opacity: 0;
 }
