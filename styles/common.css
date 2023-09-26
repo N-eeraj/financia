@@ -28,6 +28,11 @@
   @apply fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2;
 }
 
+.full-screen {
+  @apply fixed top-0 left-0 w-screen h-screen;
+}
+
+
 ::-webkit-scrollbar {
   @apply w-2 h-2;
 }
