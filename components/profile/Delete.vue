@@ -1,5 +1,5 @@
 <template>
-  <BaseDialog :show="deleteConfirmation" title="Danger Zone">
+  <BaseDialog :show="deleteConfirmation" title="Danger Zone" data-cy="delete-modal">
     Once you delete this account, there is no going back. Please be certain !
 
     <template #actions>

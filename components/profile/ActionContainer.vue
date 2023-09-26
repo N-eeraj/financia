@@ -1,6 +1,6 @@
 <template>
-  <div class="flex w-fit max-w-full bg-theme-light rounded-lg overflow-x-auto">
-    <BaseButton v-for="({ text, classes, hash, activeClasses }, index) in actions" variant="text" class="flex-shrink-0 px-5 md:px-8 font-medium" :class="getClasses(classes, hash, activeClasses)" :key="index" @click="handleClick(hash, $event)">
+  <div class="flex w-fit max-w-full bg-theme-light rounded-lg overflow-x-auto" data-cy="profile-action-container">
+    <BaseButton v-for="({ text, classes, hash, activeClasses }, index) in actions" variant="text" class="flex-shrink-0 px-5 md:px-8 font-medium" :class="getClasses(classes, hash, activeClasses)" :key="index" data-cy="action" @click="handleClick(hash, $event)">
       {{ text }}
     </BaseButton>
   </div>
