@@ -3,6 +3,11 @@
   "login": "/login",
   "signUp": "/sign-up",
   "dashboard": {
-    "home": "/dashboard"
+    "home": "/dashboard",
+    "profile": {
+      "myProfile": "/dashboard/profile",
+      "changePassword": "/dashboard/profile#change-password",
+      "deleteAccount": "/dashboard/profile#delete-account"
+    }
   }
 }

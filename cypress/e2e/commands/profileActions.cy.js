@@ -1,4 +1,7 @@
+import { dashboard } from '/cypress/fixtures/url.json'
 import { loginUserWithIndex } from '/cypress/e2e/helpers/login.cy.js'
+
+const { myProfile, changePassword, deleteAccount } = dashboard.profile
 
 const visitProfilePage = () => {
   loginUserWithIndex()
@@ -16,8 +19,37 @@ const checkActionButtons = () => {
   cy.get('[data-cy="my-profile-tab"]').should('be.visible')
   cy.get('@changePassword').click()
   cy.get('[data-cy="change-password-tab"]').should('be.visible')
+  cy.get('@deleteAccount').click()
+  cy.get('[data-cy="delete-modal"]').should('be.visible')
+  cy.get('[data-cy="delete-modal"]').click(0, 0)
+  cy.get('[data-cy="delete-modal"]').should('not.be.visible')
 }
 
-describe('Profile Page', () => {
+const checkActionURL = () => {
+  loginUserWithIndex()
+  cy.visit(myProfile)
+  cy.get('[data-cy="my-profile-tab"]').should('be.visible')
+  cy.visit(changePassword)
+  cy.get('[data-cy="change-password-tab"]').should('be.visible')
+  cy.visit(deleteAccount)
+  cy.get('[data-cy="delete-modal"]').should('be.visible')
+}
+
+const checkActionTabs = () => {
+  visitProfilePage()
+  cy.get('[data-cy="my-profile-tab"]').should('be.visible')
+  cy.get('@deleteAccount').click()
+  cy.get('[data-cy="my-profile-tab"]').should('be.visible')
+  cy.get('[data-cy="delete-modal"]').should('be.visible')
+  cy.get('[data-cy="delete-modal"]').click(0, 0)
+  cy.get('@changePassword').click()
+  cy.get('@deleteAccount').click()
+  cy.get('[data-cy="change-password-tab"]').should('be.visible')
+  cy.get('[data-cy="delete-modal"]').should('be.visible')
+}
+
+describe('Profile Page Actions', () => {
   it('Check profile action buttons', checkActionButtons)
+  it('Check action tabs & delete modal via URL', checkActionURL)
+  it('Check action tabs along modal via URL', checkActionTabs)
 })
