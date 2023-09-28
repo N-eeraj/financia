@@ -7,8 +7,6 @@
 </template>
 
 <script setup lang="ts">
-import { NavigationFailure } from '.nuxt/vue-router'
-
 const props = defineProps({
   activeHash: {
     type: String,

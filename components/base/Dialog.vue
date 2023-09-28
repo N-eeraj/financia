@@ -1,5 +1,5 @@
 <template>
-  <div class="full-screen" :class="show ? 'z-50' : ' -z-50 duration-1000'">
+  <div :class="show ? 'z-50' : ' -z-50 duration-1000'">
     <!-- overlay -->
     <div v-if="overlay && show" class="full-screen bg-gradient-to-bl glass-bg" />
 

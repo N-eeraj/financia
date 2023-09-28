@@ -5,6 +5,7 @@ interface UserDetails {
   id: number
   name: string
   email: string
+  phone?: string
 }
 
 export const useUserStore = defineStore('user', () => {

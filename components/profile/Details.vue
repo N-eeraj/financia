@@ -21,7 +21,7 @@
 import { storeToRefs } from 'pinia'
 
 const userStore = useUserStore()
-const { profilePicture } = storeToRefs(userStore)
+const { user, profilePicture } = storeToRefs(userStore)
 
 type TemplateRef = Element | ComponentPublicInstance | null
 interface ProfileFormInput {
@@ -50,4 +50,10 @@ const handleSubmit = (event: Event) => {
   if (!validateForm(formInput)) return
   console.log('form Submit')
 }
+
+onMounted(() => {
+  form.name = user.value?.name || ''
+  form.email = user.value?.email || ''
+  form.phone = user.value?.phone || ''
+})
 </script>
