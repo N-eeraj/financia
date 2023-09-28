@@ -6,6 +6,7 @@ interface UserDetails {
   name: string
   email: string
   phone?: string
+  profilePicture?: string
 }
 
 export const useUserStore = defineStore('user', () => {
@@ -26,16 +27,10 @@ export const useUserStore = defineStore('user', () => {
 
   const authenticated = computed(() => Boolean(user.value))
 
-  const profilePicture = ref('')
-
-  const setProfilePicture = (url: string) => profilePicture.value = url
-
   return {
     user,
     authenticated,
-    profilePicture,
     setUser,
     clearUser,
-    setProfilePicture,
   }
 })

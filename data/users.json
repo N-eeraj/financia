@@ -4,7 +4,8 @@
     "name": "Admin",
     "email": "admin@test.com",
     "password": "Admin@123",
-    "phone": "0123456789"
+    "phone": "0123456789",
+    "profilePicture": "https://conference.vueschool.io/storage/FRuSH6433nMeal3mhNbYhnwLSqqZgK9k4S5k55vZ.jpg"
   },
   {
     "id": 2,
