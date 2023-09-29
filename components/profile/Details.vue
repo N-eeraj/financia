@@ -1,8 +1,11 @@
 <template>
   <div class="flex-column md:!flex-row justify-center items-center md:gap-x-16 gap-y-12 w-full">
     <div class="relative w-48 md:w-1/4 md:min-w-[180px] md:max-w-[240px] aspect-square">
-      <img :src="profilePicture || `${baseURL}/users/john-doe.png`" class="w-full h-full rounded-full" />
-      <Icon name="mdi-camera" size="48" class="absolute right-0 bottom-0 p-3 bg-base-green text-theme-light rounded-full" />
+      <img :src="form.profilePicture" class="w-full h-full object-cover rounded-full" />
+      <label for="profilePictureInput">
+        <Icon name="mdi-camera" size="48" class="absolute right-0 bottom-0 p-3 bg-base-green text-theme-light rounded-full cursor-pointer" />
+      </label>
+      <input type="file" accept="image/*" id="profilePictureInput" class="hidden" @change="handleFileInput">
     </div>
 
     <form class="flex-column items-center md:items-end gap-y-8 w-full md:w-1/2 max-w-full md:max-w-md" @submit="handleSubmit">
@@ -21,7 +24,7 @@
 import { storeToRefs } from 'pinia'
 
 const userStore = useUserStore()
-const { profilePicture } = storeToRefs(userStore)
+const { user } = storeToRefs(userStore)
 
 type TemplateRef = Element | ComponentPublicInstance | null
 interface ProfileFormInput {
@@ -43,6 +46,7 @@ const form = reactive({
   name: '',
   email: '',
   phone: '',
+  profilePicture: ''
 })
 
 const handleSubmit = (event: Event) => {
@@ -50,4 +54,16 @@ const handleSubmit = (event: Event) => {
   if (!validateForm(formInput)) return
   console.log('form Submit')
 }
+
+const handleFileInput = ({ target }: any) => {
+  if (target.files.length)
+    form.profilePicture = URL.createObjectURL(target.files[0])
+}
+
+onMounted(() => {
+  form.name = user.value?.name || ''
+  form.email = user.value?.email || ''
+  form.phone = user.value?.phone || ''
+  form.profilePicture = user.value?.profilePicture || `${baseURL}/users/john-doe.png`
+})
 </script>

@@ -33,6 +33,7 @@
 }
 
 
+/* scrollbar styles */
 ::-webkit-scrollbar {
   @apply w-2 h-2;
 }

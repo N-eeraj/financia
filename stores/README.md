@@ -77,6 +77,8 @@
       id: number
       name: string
       email: string
+      phone?: string
+      profilePicture?: string
     }
     ```
   - **authenticated** _(boolean)_: Indicates if user is authenticated or not.
