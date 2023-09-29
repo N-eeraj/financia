@@ -20,9 +20,9 @@ const checkActionButtons = () => {
   cy.get('@changePassword').click()
   cy.get('[data-cy="change-password-tab"]').should('be.visible')
   cy.get('@deleteAccount').click()
-  cy.get('[data-cy="delete-modal"]').should('be.visible')
-  cy.get('[data-cy="delete-modal"]').click(0, 0)
-  cy.get('[data-cy="delete-modal"]').should('not.be.visible')
+  cy.get('[data-cy="delete-modal"]').find('[data-cy="modal"]').should('be.visible')
+  cy.get('[data-cy="layout"]').click(0, 0)
+  cy.get('[data-cy="delete-modal"]').find('[data-cy="modal"]').should('not.be.visible')
 }
 
 const checkActionURL = () => {
@@ -32,7 +32,7 @@ const checkActionURL = () => {
   cy.visit(changePassword)
   cy.get('[data-cy="change-password-tab"]').should('be.visible')
   cy.visit(deleteAccount)
-  cy.get('[data-cy="delete-modal"]').should('be.visible')
+  cy.get('[data-cy="delete-modal"]').find('[data-cy="modal"]').should('be.visible')
 }
 
 const checkActionTabs = () => {
@@ -40,12 +40,12 @@ const checkActionTabs = () => {
   cy.get('[data-cy="my-profile-tab"]').should('be.visible')
   cy.get('@deleteAccount').click()
   cy.get('[data-cy="my-profile-tab"]').should('be.visible')
-  cy.get('[data-cy="delete-modal"]').should('be.visible')
-  cy.get('[data-cy="delete-modal"]').click(0, 0)
+  cy.get('[data-cy="delete-modal"]').find('[data-cy="modal"]').should('be.visible')
+  cy.get('[data-cy="layout"]').click(0, 0)
   cy.get('@changePassword').click()
   cy.get('@deleteAccount').click()
   cy.get('[data-cy="change-password-tab"]').should('be.visible')
-  cy.get('[data-cy="delete-modal"]').should('be.visible')
+  cy.get('[data-cy="delete-modal"]').find('[data-cy="modal"]').should('be.visible')
 }
 
 describe('Profile Page Actions', () => {

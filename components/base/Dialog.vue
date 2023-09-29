@@ -5,7 +5,7 @@
 
     <Transition name="fade">
       <!-- dialog -->
-      <div v-if="show" class="screen-center flex-column gap-y-5 w-80 md:w-[480px] p-10 glass-bg border border-theme-light rounded-md" @click.stop>
+      <div v-if="show" class="screen-center flex-column gap-y-5 w-80 md:w-[480px] p-10 glass-bg border border-theme-light rounded-md" data-cy="modal" @click.stop>
 
         <!-- title -->
         <strong class="text-theme-light text-3xl font-semibold">
