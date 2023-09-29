@@ -52,7 +52,7 @@ const form = reactive({
 const handleSubmit = (event: Event) => {
   event.preventDefault()
   if (!validateForm(formInput)) return
-  console.log('form Submit')
+  updateUser(form)
 }
 
 const handleFileInput = ({ target }: any) => {

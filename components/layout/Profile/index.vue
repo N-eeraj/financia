@@ -3,7 +3,7 @@
     <span class="text-theme-light text-xl max-md:hidden">
       {{ user?.name }}
     </span>
-    <img :src="user?.profilePicture || `${baseURL}/users/john-doe.png`" class="w-14 rounded-full" />
+    <img :src="user?.profilePicture || `${baseURL}/users/john-doe.png`" class="w-14 aspect-square object-cover rounded-full" />
 
     <Transition name="slide-down">
       <div v-if="profileMenuVisibility" class="absolute top-16 right-0 flex-column gap-y-3 w-52 px-3 py-2 bg-gradient-to-bl glass-bg rounded-md border-[0.25px] border-theme-grey-light z-10">

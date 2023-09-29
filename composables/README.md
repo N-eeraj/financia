@@ -62,6 +62,16 @@
     }
     ```
     Expects a single argument of type SignUpDetails.
+  - **updateUser**: This function is used to update user.
+    ```
+    UpdateDetails {
+      name: string
+      email: string
+      phone: string
+      profilePicture: string
+    }
+    ```
+  Expects a single argument of type updateUser.
 
 <br>
 
@@ -71,6 +81,7 @@
   - **requiredValidation**: Returns true if the argument value is truthy.
   - **nameValidation**: Returns true if the _name_ argument is valid.
   - **emailValidation**: Returns true if the _email_ argument passes regex test.
+  - **phoneValidation**: Returns true if the _phone number_ argument passes regex test.
   - **passwordValidation**: Returns true if the _password_ argument passes the password validations.
   - **confirmValidation**: Returns true if the first & second arguments are equal. The function also accepts a third argument which is sets the error message.
 

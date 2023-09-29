@@ -1,4 +1,14 @@
+import { useUserStore } from '@/stores/user'
+
 import usersData from '@/data/users.json'
+
+interface UserDetails {
+  id: number
+  name: string
+  email: string
+  phone?: string
+  profilePicture?: string
+}
 
 interface LoginDetails {
   email: string
@@ -11,7 +21,14 @@ interface SignUpDetails {
   password: string
 }
 
-export const validateUserLogin = ({ email, password }: LoginDetails) => {
+interface UpdateDetails {
+  name: string
+  email: string
+  phone: string
+  profilePicture: string
+}
+
+export const validateUserLogin = ({ email, password }: LoginDetails): UserDetails  => {
   for (let user of usersData) {
     if (user.email.toLocaleLowerCase() !== email.toLocaleLowerCase())
       continue
@@ -25,7 +42,7 @@ export const validateUserLogin = ({ email, password }: LoginDetails) => {
   throw 'User Not Found'
 }
 
-export const validateUserSignUp = ({ name, email, password }: SignUpDetails) => {
+export const validateUserSignUp = ({ name, email, password }: SignUpDetails): UserDetails => {
   if (usersData.some(user => user.email.toLocaleLowerCase() === email.toLocaleLowerCase()))
     throw 'Email id already exists'
   const userDetails = {
@@ -35,4 +52,17 @@ export const validateUserSignUp = ({ name, email, password }: SignUpDetails) => 
   }
   usersData.push({ ...userDetails, password })
   return userDetails
+}
+
+export const updateUser = (formData: UpdateDetails): void => {
+  const { user, setUser } = useUserStore()
+  const userIndex = usersData.findIndex(({ id }) => user?.id === id)
+  if (userIndex === -1) throw 'User Not Found'
+  let userDetails = usersData[userIndex]
+  userDetails = {
+    ...userDetails,
+    ...formData,
+  }
+  usersData[userIndex] = userDetails
+  setUser(userDetails)
 }
