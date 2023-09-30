@@ -8,6 +8,7 @@ const regex = {
   digit: /\d/,
   lowercase: /[a-z]/,
   uppercase: /[A-Z]/,
+  phoneNumber: /^[\+]?[(]?\d{3}[)]?[-\s\.]?\d{3}[-\s\.]?\d{4,6}$/,
 }
 
 // helper function to structure validation errors
@@ -50,6 +51,14 @@ export const emailValidation = (email: string): ValidationRepsonse => {
 
     if (!regex.email.test(email))
       return validationError('Please enter a valid email')
+
+  return { error: false }
+}
+
+export const phoneValidation = (phoneNumber: string): ValidationRepsonse => {
+  if (!phoneNumber) return { error: false }
+  if (!regex.phoneNumber.test(phoneNumber))
+    return validationError('Please enter a valid phone number')
 
   return { error: false }
 }
