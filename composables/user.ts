@@ -28,6 +28,18 @@ interface UpdateDetails {
   profilePicture: string
 }
 
+interface PasswordUpdate {
+  password: string
+  newPassword: string
+}
+
+const getCurrentUserIndex = (): number => {
+  const { user } = useUserStore()
+  const userIndex = usersData.findIndex(({ id }) => user?.id === id)
+  if (userIndex === -1) throw 'User Not Found'
+  return userIndex
+}
+
 export const validateUserLogin = ({ email, password }: LoginDetails): UserDetails  => {
   for (let user of usersData) {
     if (user.email.toLocaleLowerCase() !== email.toLocaleLowerCase())
@@ -54,15 +66,29 @@ export const validateUserSignUp = ({ name, email, password }: SignUpDetails): Us
   return userDetails
 }
 
-export const updateUser = (formData: UpdateDetails): void => {
-  const { user, setUser } = useUserStore()
-  const userIndex = usersData.findIndex(({ id }) => user?.id === id)
-  if (userIndex === -1) throw 'User Not Found'
-  let userDetails = usersData[userIndex]
-  userDetails = {
-    ...userDetails,
+export const updateUserDetails = (formData: UpdateDetails): void => {
+  const userIndex = getCurrentUserIndex()
+  const userDetails = {
+    ...usersData[userIndex],
     ...formData,
   }
   usersData[userIndex] = userDetails
+  const { setUser } = useUserStore()
   setUser(userDetails)
+}
+
+export const updateUserPassword = ({ password, newPassword }: PasswordUpdate) => {
+  const userIndex = getCurrentUserIndex()
+  const userDetails = usersData[userIndex]
+  if (userDetails.password !== password)
+    return {
+      success: false,
+      message: 'Incorrect Password',
+    }
+  userDetails.password = newPassword
+  usersData[userIndex] = userDetails
+  return {
+    success: true,
+    message: 'Successfully Updated Password',
+  }
 }

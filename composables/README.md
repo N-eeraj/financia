@@ -62,7 +62,7 @@
     }
     ```
     Expects a single argument of type SignUpDetails.
-  - **updateUser**: This function is used to update user.
+  - **updateUserDetails**: Function is used to update user.
     ```
     UpdateDetails {
       name: string
@@ -71,7 +71,15 @@
       profilePicture: string
     }
     ```
-  Expects a single argument of type updateUser.
+  Expects a single argument of type UpdateDetails.
+  - **updateUserPassword**: Function used to change user password.
+  ```
+  PasswordUpdate {
+    password: string
+    newPassword: string
+  }
+  ```
+  Expects a single argument of type PasswordUpdate.
 
 <br>
 
