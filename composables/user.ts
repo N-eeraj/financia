@@ -92,3 +92,8 @@ export const updateUserPassword = ({ password, newPassword }: PasswordUpdate) =>
     message: 'Successfully Updated Password',
   }
 }
+
+export const deleteUser = () => {
+  const userIndex = getCurrentUserIndex()
+  usersData.splice(userIndex, 1)
+}
