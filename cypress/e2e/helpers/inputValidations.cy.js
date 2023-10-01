@@ -113,3 +113,7 @@ export const checkRequiredInputCount = ({ submitSelector, requiredInputsCount })
   cy.get(`button[data-cy="${submitSelector}"]`).click()
   cy.get('[data-cy="error-msg"]').should('have.length', requiredInputsCount)
 }
+
+export const checkInputValue = ({ inputSelector, value }) => {
+  cy.get(`[data-cy="${inputSelector}"]`).find('[data-cy="input"]').should('have.value', value || '')
+}

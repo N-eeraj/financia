@@ -1,5 +1,4 @@
 import { validCredentials } from '/cypress/fixtures/entry-form/login.json'
-
 import { login } from '/cypress/fixtures/url.json'
 
 export const loginUserWithIndex = (index = 0) => {

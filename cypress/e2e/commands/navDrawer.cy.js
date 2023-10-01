@@ -1,5 +1,4 @@
 import { loginUserWithIndex } from '/cypress/e2e/helpers/login.cy.js'
-
 import navDrawerLinks from '/cypress/fixtures/nav-drawer-link.json'
 
 const navDrawerChecker = (viewport, hiddenNavDrawer, navBarTitle) => {

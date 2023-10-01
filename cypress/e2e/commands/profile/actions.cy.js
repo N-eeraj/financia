@@ -3,7 +3,7 @@ import { loginUserWithIndex } from '/cypress/e2e/helpers/login.cy.js'
 
 const { myProfile, changePassword, deleteAccount } = dashboard.profile
 
-const visitProfilePage = () => {
+export const visitProfilePage = () => {
   loginUserWithIndex()
   cy.get('[data-cy="profile-button"]').click()
   cy.get('[data-cy="profile-action"]').contains('Profile').click()
