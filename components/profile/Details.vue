@@ -9,8 +9,8 @@
     </div>
 
     <form class="flex-column items-center md:items-end gap-y-8 w-full md:w-1/2 max-w-full md:max-w-md" @submit="handleSubmit">
-      <BaseInput v-model="form.name" :ref="el => formInput.name = el" :validator="requiredValidation" placeholder="Full Name" variant="clear" dark class="w-full" />
-      <BaseInput v-model="form.email" :ref="el => formInput.email = el" :validator="requiredValidation" placeholder="Email" variant="clear" dark class="w-full" />
+      <BaseInput v-model="form.name" :ref="el => formInput.name = el" :validator="nameValidation" placeholder="Full Name" variant="clear" dark class="w-full" />
+      <BaseInput v-model="form.email" :ref="el => formInput.email = el" :validator="emailValidation" placeholder="Email" variant="clear" dark class="w-full" />
       <BaseInput v-model="form.phone" :ref="el => formInput.phone = el" :validator="phoneValidation" placeholder="Phone Number" variant="clear" dark class="w-full" />
 
       <BaseButton variant="gradient" color="blue" dark>
