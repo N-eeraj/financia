@@ -13,7 +13,7 @@
       <BaseInput v-model="form.email" :ref="el => formInput.email = el" :validator="emailValidation" placeholder="Email" variant="clear" dark class="w-full" data-cy="email" />
       <BaseInput v-model="form.phone" :ref="el => formInput.phone = el" :validator="phoneValidation" placeholder="Phone Number" variant="clear" dark class="w-full" data-cy="phone" />
 
-      <BaseButton variant="gradient" color="blue" dark>
+      <BaseButton variant="gradient" color="blue" dark data-cy="save-btn">
         Save
       </BaseButton>
     </form>
