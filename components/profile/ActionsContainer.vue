@@ -17,6 +17,7 @@ const props = defineProps({
 
 const route = useRoute()
 const router = useRouter()
+const { setHelpVisibility } = useMainStore()
 
 const actions = [
   {
@@ -44,8 +45,10 @@ const getClasses = (classes: string, hash: string, activeClasses?: string): stri
   ].join(' ')
 
 const handleClick = (hash: string, event: Event): void => {
-  if (hash === '#delete-account')
+  if (hash === '#delete-account') {
     event.stopPropagation()
+    setHelpVisibility(false)
+  }
   router.replace({
     ...route,
     hash,
