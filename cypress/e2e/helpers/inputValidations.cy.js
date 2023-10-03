@@ -17,13 +17,14 @@ export const checkEmptyValidation = (selector) => {
   checkErrorMessage('This field is required')
 }
 
-export const checkInvalidInput = ({ selector, input, errorMsg }) => {
+export const checkInvalidInput = ({ selector, input, errorMsg, emptyCheck = true }) => {
   aliasInput(selector)
   cy.get('@inputField').type(input)
   cy.get('@inputField').blur()
   checkErrorMessage(errorMsg)
   cy.get('@inputField').clear()
-  checkEmptyValidation(selector)
+  if (emptyCheck)
+    checkEmptyValidation(selector)
 }
 
 export const checkMinMaxInputLength = ({ selector, min, max }) => {
@@ -53,13 +54,14 @@ export const checkMinMaxInputLength = ({ selector, min, max }) => {
   }
 }
 
-export const checkValidInput = ({ selector, input }) => {
+export const checkValidInput = ({ selector, input, emptyCheck = true }) => {
   aliasInput(selector)
   cy.get('@inputField').type(input)
   cy.get('@inputField').blur()
   shouldHaveNoError()
   cy.get('@inputField').clear()
-  checkEmptyValidation(selector)
+  if (emptyCheck)
+    checkEmptyValidation(selector)
 }
 
 export const checkMatchingInputs = ({ inputSelector, confirmInputSelector, missMatchMsg }) => {

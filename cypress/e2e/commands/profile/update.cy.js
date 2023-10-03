@@ -11,11 +11,15 @@ import {
   checkMinMaxInputLength,
 } from '/cypress/e2e/helpers/inputValidations.cy.js'
 
-
 import {
   invalidEmails,
   validEmails,
 } from '/cypress/fixtures/entry-form/emails.json'
+
+import {
+  invalidPhoneNumbers,
+  validPhoneNumbers,
+} from '/cypress/fixtures/phone-numbers.json'
 
 // helper function to visit sign-up page and alias form input fields
 const updateFormInit = (userIndex = 0) => {
@@ -104,6 +108,34 @@ const checkValidEmailInputs = () => {
   })
 }
 
+const checkInvalidPhoneNumberInputs = () => {
+  updateFormInit()
+  invalidPhoneNumbers.forEach(phoneNumber => {
+    cy.reload()
+    clearForm()
+    checkInvalidInput({
+      selector: 'phone',
+      input: phoneNumber,
+      errorMsg: 'Please enter a valid phone number',
+      emptyCheck: false,
+    })
+  })
+}
+
+const checkValidPhoneNumberInputs = () => {
+  updateFormInit()
+  validPhoneNumbers.forEach(phoneNumber => {
+    cy.reload()
+    clearForm()
+    checkValidInput({
+      selector: 'phone',
+      input: phoneNumber,
+      emptyCheck: false,
+    })
+  })
+}
+
+
 describe('User Details', () => {
   it('Checks current user details', checkCurrentUserDetails)
 })
@@ -114,5 +146,6 @@ describe('User Update Validations', () => {
   it('Checks length requirement for name input', checkNameInputLength)
   it('Checks invalid email errors', checkInvalidEmailInputs)
   it('Checks valid emails', checkValidEmailInputs)
+  it('Checks invalid phone number errors', checkInvalidPhoneNumberInputs)
+  it('Checks valid phone number', checkValidPhoneNumberInputs)
 })
-
