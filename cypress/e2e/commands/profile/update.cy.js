@@ -1,6 +1,7 @@
 import { dashboard } from '/cypress/fixtures/url.json'
 import { validCredentials } from '/cypress/fixtures/entry-form/login.json'
 import { loginUserWithIndex } from '/cypress/e2e/helpers/login.cy.js'
+import { logoutUser } from '/cypress/e2e/helpers/login.cy.js'
 
 import {
   checkInputValue,
@@ -135,6 +136,29 @@ const checkValidPhoneNumberInputs = () => {
   })
 }
 
+const checkUserNameUpdate = () => {
+  updateFormInit()
+  clearForm()
+  const name = 'New Admin'
+  const email = 'new@email.com'
+  const phone = '9876543210'
+  cy.get('@nameInputField').type(name)
+  cy.get('@emailInputField').type(email)
+  cy.get('@phoneInputField').type(phone)
+  checkInputValue({
+    inputSelector: 'name',
+    value: name,
+  })
+  checkInputValue({
+    inputSelector: 'email',
+    value: email,
+  })
+  checkInputValue({
+    inputSelector: 'phone',
+    value: phone,
+  }) 
+}
+
 
 describe('User Details', () => {
   it('Checks current user details', checkCurrentUserDetails)
@@ -148,4 +172,8 @@ describe('User Update Validations', () => {
   it('Checks valid emails', checkValidEmailInputs)
   it('Checks invalid phone number errors', checkInvalidPhoneNumberInputs)
   it('Checks valid phone number', checkValidPhoneNumberInputs)
+})
+
+describe('Update User', () => {
+  it('Checks user update', checkUserNameUpdate)
 })
