@@ -9,6 +9,12 @@ export const loginUserWithIndex = (index = 0) => {
   cy.get('button[data-cy="login-button"]').click()
 }
 
+export const loginUserWithCredentials = ({ email, password }) => {
+  cy.get('[data-cy="email-input"]').find('[data-cy="input"]').type(email)
+  cy.get('[data-cy="password-input"]').find('[data-cy="input"]').type(password)
+  cy.get('button[data-cy="login-button"]').click()
+}
+
 export const logoutUser = (userName) => {
   cy.get('[data-cy="profile-button"]').as('profile-button')
   if (userName)

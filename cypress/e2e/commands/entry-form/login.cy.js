@@ -83,9 +83,8 @@ const checkInvalidLogins = () => {
 const checkLoginLogout = () => {
   cy.visit(login)
   validCredentials.forEach(({ email, password, name }) => {
-    cy.get('[data-cy="email-input"]').find('[data-cy="input"]').type(email)
-    cy.get('[data-cy="password-input"]').find('[data-cy="input"]').type(password)
-    cy.get('button[data-cy="login-button"]').click()
+    cy.visit(login)
+    loginUserWithCredentials({ email, password })
     cy.wait(500)
     cy.location().should(({ href }) => {
       expect(href).to.contains(dashboard.home)

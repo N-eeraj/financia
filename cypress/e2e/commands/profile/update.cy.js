@@ -1,7 +1,11 @@
 import { dashboard } from '/cypress/fixtures/url.json'
 import { validCredentials } from '/cypress/fixtures/entry-form/login.json'
-import { loginUserWithIndex } from '/cypress/e2e/helpers/login.cy.js'
 import { logoutUser } from '/cypress/e2e/helpers/login.cy.js'
+
+import {
+  loginUserWithIndex,
+  loginUserWithCredentials
+} from '/cypress/e2e/helpers/login.cy.js'
 
 import {
   checkInputValue,
@@ -136,7 +140,7 @@ const checkValidPhoneNumberInputs = () => {
   })
 }
 
-const checkUserNameUpdate = () => {
+const checkUserUpdate = () => {
   updateFormInit()
   clearForm()
   const name = 'New Admin'
@@ -156,7 +160,34 @@ const checkUserNameUpdate = () => {
   checkInputValue({
     inputSelector: 'phone',
     value: phone,
-  }) 
+  })
+  cy.get('[data-cy="save-btn"]').click()
+  cy.get('[data-cy="profile-button"]').find('[data-cy="user-name"]').should('have.text', name)
+}
+
+const checkUserSignInUpdate = () => {
+  const { email: oldEmail, password } = validCredentials[Math.floor(Math.random() * validCredentials.length)]
+  const newEmail = 'new@email.com'
+  updateFormInit()
+  cy.get('@emailInputField').clear()
+  cy.get('@emailInputField').type(`${newEmail}{enter}`)
+  cy.wait(500)
+  logoutUser()
+  loginUserWithCredentials({
+    email: oldEmail,
+    password
+  })
+  cy.get('[data-testid="toast-content"]').last().should('have.text', 'User Not Found')
+  cy.get('[data-cy="email-input"]').find('[data-cy="input"]').clear()
+  cy.get('[data-cy="password-input"]').find('[data-cy="input"]').clear()
+  loginUserWithCredentials({
+    email: newEmail,
+    password
+  })
+  cy.wait(500)
+  cy.location().should(({ href }) => {
+    expect(href).to.contains(dashboard.home)
+  })
 }
 
 
@@ -175,5 +206,6 @@ describe('User Update Validations', () => {
 })
 
 describe('Update User', () => {
-  it('Checks user update', checkUserNameUpdate)
+  it('Checks user update', checkUserUpdate)
+  it('Checks user sign in update', checkUserSignInUpdate)
 })
