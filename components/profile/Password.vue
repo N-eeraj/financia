@@ -1,8 +1,8 @@
 <template>
   <form class="flex-column items-center md:items-start gap-y-8 w-full md:w-1/2 max-w-full md:max-w-md" @submit="handleSubmit">
-    <BaseInput v-model="form.password" :ref="el => formInput.password = el" type="password" :validator="requiredValidation" :error="passwordError" placeholder="Password" variant="clear" dark class="w-full" />
-    <BaseInput v-model="form.newPassword" :ref="el => formInput.newPassword = el" type="password" :validator="passwordValidation" placeholder="New Password" variant="clear" dark class="w-full" @change="handlePasswordChange" />
-    <BaseInput v-model="form.confirmPassword" :ref="el => formInput.confirmPassword = el" type="password" :validator="handlePasswordConfirmation" placeholder="Confirm Password" variant="clear" dark class="w-full" />
+  <BaseInput v-model="form.password" :ref="el => formInput.password = el" type="password" :validator="requiredValidation" :error="passwordError" placeholder="Password" variant="clear" dark class="w-full" data-cy="password" />
+    <BaseInput v-model="form.newPassword" :ref="el => formInput.newPassword = el" type="password" :validator="passwordValidation" placeholder="New Password" variant="clear" dark class="w-full" data-cy="new-password" @change="handlePasswordChange" />
+  <BaseInput v-model="form.confirmPassword" :ref="el => formInput.confirmPassword = el" type="password" :validator="handlePasswordConfirmation" placeholder="Confirm Password" variant="clear" dark class="w-full" data-cy="confirm-password" />
 
     <BaseButton variant="gradient" color="blue" dark>
       Update

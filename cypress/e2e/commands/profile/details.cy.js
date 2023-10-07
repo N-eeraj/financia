@@ -26,7 +26,7 @@ import {
   validPhoneNumbers,
 } from '/cypress/fixtures/phone-numbers.json'
 
-// helper function to visit sign-up page and alias form input fields
+// helper function to visit profile update page and alias form input fields
 const updateFormInit = (userIndex = 0) => {
   loginUserWithIndex(userIndex)
   cy.visit(dashboard.profile.myProfile)
