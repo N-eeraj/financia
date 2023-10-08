@@ -175,7 +175,7 @@ const checkUserSignInUpdate = () => {
   logoutUser()
   loginUserWithCredentials({
     email: oldEmail,
-    password
+    password,
   })
   cy.get('[data-testid="toast-content"]').last().should('have.text', 'User Not Found')
   cy.get('[data-cy="email-input"]').find('[data-cy="input"]').clear()
