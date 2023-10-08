@@ -49,7 +49,18 @@ const checkValidPasswordInputs = () => {
   })
 }
 
+const checkPasswordsMatch = () => {
+  passwordFormInit()
+  checkMatchingInputs({
+    inputSelector: 'new-password',
+    confirmInputSelector: 'confirm-password',
+    missMatchMsg: 'The passwords doesn\'t match',
+  })
+}
+
+
 describe('New Password Validations', () => {
   it('Checks invalid password errors', checkInvalidPasswordInputs)
   it('Checks valid password', checkValidPasswordInputs)
+  it('Checks password matching', checkPasswordsMatch)
 })
