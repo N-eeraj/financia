@@ -182,7 +182,7 @@ const checkUserSignInUpdate = () => {
   cy.get('[data-cy="password-input"]').find('[data-cy="input"]').clear()
   loginUserWithCredentials({
     email: newEmail,
-    password
+    password,
   })
   cy.wait(500)
   cy.location().should(({ href }) => {

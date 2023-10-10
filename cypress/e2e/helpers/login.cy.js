@@ -19,6 +19,6 @@ export const logoutUser = (userName) => {
   cy.get('[data-cy="profile-button"]').as('profile-button')
   if (userName)
     cy.get('@profile-button').find('[data-cy="user-name"]').should('have.text', userName)
-  cy.get('@profile-button').click()
+  cy.get('@profile-button').click({ force: true })
   cy.get('[data-cy="profile-action"]').contains('Logout').click()
 }

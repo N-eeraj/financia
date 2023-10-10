@@ -18,6 +18,9 @@ import {
   loginUserWithCredentials
 } from '/cypress/e2e/helpers/login.cy.js'
 
+import { logoutUser } from '/cypress/e2e/helpers/login.cy.js'
+
+
 // helper function to visit password update page and alias form input fields
 const passwordFormInit = (userIndex = 0) => {
   loginUserWithIndex(userIndex)
@@ -79,11 +82,41 @@ const checkInvalidPassword = () => {
   passwordFormInit(randomUser)
   const { password } = validCredentials[randomUser]
   cy.get('@passwordInput').type(`${password} `)
-  const newPassword = validCredentials[Math.floor(Math.random() * validCredentials.length)].password
+  const newPassword = `${validCredentials[randomUser].password} `
   cy.get('@newPassword').type(newPassword)
   cy.get('@confirmPassword').type(newPassword)
   cy.get('[data-cy="update-btn"]').click()
   cy.get('[data-cy="password"]').find('[data-cy="error-msg"]').should('exist')
+}
+
+const checkPasswordUpdate = () => {
+  const randomUser = Math.floor(Math.random() * validCredentials.length)
+  passwordFormInit(randomUser)
+  const { email, password: oldPassword } = validCredentials[randomUser]
+  cy.get('@passwordInput').type(oldPassword)
+  const newPassword = `${validCredentials[randomUser].password} `
+  cy.get('@newPassword').type(newPassword)
+  cy.get('@confirmPassword').type(newPassword)
+  cy.get('[data-cy="update-btn"]').click()
+  cy.get('[data-cy="password"]').find('[data-cy="error-msg"]').should('not.exist')
+  cy.get('[data-testid="toast-content"]').last().should('have.text', 'Successfully Updated Password')
+  cy.wait(500)
+  logoutUser()
+  loginUserWithCredentials({
+    email,
+    password: oldPassword,
+  })
+  cy.get('[data-testid="toast-content"]').last().should('have.text', 'Incorrect Password')
+  cy.get('[data-cy="email-input"]').find('[data-cy="input"]').clear()
+  cy.get('[data-cy="password-input"]').find('[data-cy="input"]').clear()
+  loginUserWithCredentials({
+    email,
+    password: newPassword,
+  })
+  cy.wait(500)
+  cy.location().should(({ href }) => {
+    expect(href).to.contains(dashboard.home)
+  })
 }
 
 
@@ -93,4 +126,5 @@ describe('New Password Validations', () => {
   it('Checks valid password', checkValidPasswordInputs)
   it('Checks password matching', checkPasswordsMatch)
   it('Checks with invalid password', checkInvalidPassword)
+  it('Checks with password update', checkPasswordUpdate)
 })
