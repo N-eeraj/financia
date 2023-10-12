@@ -3,7 +3,7 @@
     Once you delete this account, there is no going back. Please be certain !
 
     <template #actions>
-      <BaseButton variant="outlined" class="bg-gradient-to-bl glass-bg !text-red-500 !border-red-500" @click="handleDeleteAccount">
+      <BaseButton variant="outlined" class="bg-gradient-to-bl glass-bg !text-red-500 !border-red-500" data-cy="delete-btn" @click="handleDeleteAccount">
         Delete Account
       </BaseButton>
     </template>
