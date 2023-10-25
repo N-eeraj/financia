@@ -5,8 +5,7 @@
 </template>
 
 <script setup lang="ts">
-
-const handleBillPayment = () => {}
+const router = useRouter()
 
 const handleRecharge = () => {}
 
@@ -19,7 +18,8 @@ const handleTransactions = () => {}
 const handleAction = (action: string) => {
   switch (action) {
     case 'billPayment':
-      return handleBillPayment()
+      router.push('/dashboard/bill-payment')
+      break
     case 'recharge':
       return handleRecharge()
     case 'spends':

@@ -171,7 +171,7 @@ const checkUserSignInUpdate = () => {
   updateFormInit()
   cy.get('@emailInputField').clear()
   cy.get('@emailInputField').type(`${newEmail}{enter}`)
-  cy.wait(500)
+  cy.wait(1000)
   logoutUser()
   loginUserWithCredentials({
     email: oldEmail,

@@ -7,6 +7,7 @@ import {
 
 import {
   loginUserWithIndex,
+  loginUserWithCredentials,
   logoutUser
 } from '/cypress/e2e/helpers/login.cy.js'
 

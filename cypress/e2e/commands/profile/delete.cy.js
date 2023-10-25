@@ -32,7 +32,6 @@ const cancelDelete = () => {
 const accountDelete = () => {
   const credentials = deleteAccountInit()
   cy.get('[data-cy="delete-btn"]').click()
-  logoutUser()
   loginUserWithCredentials(credentials)
   cy.get('[data-testid="toast-content"]').last().should('have.text', 'User Not Found')
 }

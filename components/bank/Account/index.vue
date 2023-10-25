@@ -59,7 +59,7 @@ const props = defineProps({
 
 const {
   currencyFormatter,
-  hiddenFormatter
+  hiddenFormatter,
 } = useFormatter()
 
 const accountTypes = [
