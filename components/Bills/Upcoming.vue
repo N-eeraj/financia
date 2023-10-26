@@ -5,7 +5,7 @@
     </span>
 
     <div class="flex gap-x-6 overflow-x-auto">
-      <BillsDue v-for="i of 3" class="flex-shrink-0" />
+      <BillsDue v-for="({ id, billName, daysLeft, amount }) of bills" :bill-name="billName" :days-left="daysLeft" :amount="amount" class="flex-shrink-0" :key="id" />
     </div>
   </section>
 </template>
