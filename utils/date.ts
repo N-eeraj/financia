@@ -4,7 +4,7 @@ export const timePassed = (date: Date): string => {
 
   // under a minute
   if (timeElapsed < 60)
-  return 'Just Now'
+    return 'Just Now'
   
   // time in minutes
   timeElapsed = Math.floor(timeElapsed / 60)
@@ -19,4 +19,14 @@ export const timePassed = (date: Date): string => {
   // time in days
   timeElapsed = Math.floor(timeElapsed / 24)
   return `${timeElapsed} Day${timeElapsed > 1 ? 's' : ''} ago`
+}
+
+export const timeLeft = (daysLeft: number): string => {
+  if (!daysLeft)
+    return 'Today'
+  if (daysLeft === 1)
+    return 'Tomorrow'
+  if (daysLeft < 7)
+    return `in ${daysLeft} days`
+  return `in ${Math.ceil(daysLeft / 7)} weeks`
 }

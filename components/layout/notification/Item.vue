@@ -8,7 +8,6 @@
     </span>
     <small class="w-full text-end text-theme-grey-light text-xs">
       {{ formattedDate }}
-      <!-- {{ time }} -->
     </small>
     <button class="absolute top-3 right-3" data-cy="close-notification-btn" @click="readNotification(id)">
       <Icon name="majesticons:close" size="24" class="text-theme-light" />

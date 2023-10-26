@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "billName": "Electricity Bill",
+    "daysLeft": 0,
+    "amount": 3200
+  },
+  {
+    "id": 2,
+    "billName": "Water Bill",
+    "daysLeft": 3,
+    "amount": 800
+  },
+  {
+    "id": 3,
+    "billName": "Credit Card Bill",
+    "daysLeft": 10,
+    "amount": 800
+  }
+]
