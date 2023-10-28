@@ -32,5 +32,5 @@ const props = defineProps({
   },
 })
 const { currencyFormatter } = useFormatter()
-const formattedDate = computed(() => timeLeft((props.daysLeft)))
+const formattedDate = computed(() => timeLeft(props.daysLeft))
 </script>
