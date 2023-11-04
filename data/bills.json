@@ -13,8 +13,58 @@
   },
   {
     "id": 3,
-    "billName": "Credit Card Bill",
+    "billName": "ICICI Credit Card",
     "daysLeft": 10,
     "amount": 800
+  },
+  {
+    "id": 4,
+    "billName": "Cable Bill",
+    "amount": 300
+  },
+  {
+    "id": 5,
+    "billName": "SBI Credit Card",
+    "amount": 3000
+  },
+  {
+    "id": 4,
+    "billName": "Cable Bill",
+    "amount": 300
+  },
+  {
+    "id": 5,
+    "billName": "SBI Credit Card",
+    "amount": 3000
+  },
+  {
+    "id": 4,
+    "billName": "Cable Bill",
+    "amount": 300
+  },
+  {
+    "id": 5,
+    "billName": "SBI Credit Card",
+    "amount": 3000
+  },
+  {
+    "id": 4,
+    "billName": "Cable Bill",
+    "amount": 300
+  },
+  {
+    "id": 5,
+    "billName": "SBI Credit Card",
+    "amount": 3000
+  },
+  {
+    "id": 4,
+    "billName": "Cable Bill",
+    "amount": 300
+  },
+  {
+    "id": 5,
+    "billName": "SBI Credit Card",
+    "amount": 3000
   }
 ]
