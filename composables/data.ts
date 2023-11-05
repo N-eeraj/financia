@@ -7,7 +7,7 @@ import quickActions from '@/data/dashboard/quick-actions.json'
 import bills from '@/data/bills.json'
 
 const billsDue = bills.filter(({ daysLeft }) => daysLeft !== undefined)
-const billsPaid = bills.filter(({ daysLeft }) => daysLeft === undefined)
+const billsPaid = bills.filter(({ paidOn }) => !!paidOn)
 
 export {
   signUpData,

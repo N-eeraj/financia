@@ -20,51 +20,19 @@
   {
     "id": 4,
     "billName": "Cable Bill",
+    "paidOn": "12-10-23",
     "amount": 300
   },
   {
     "id": 5,
     "billName": "SBI Credit Card",
+    "paidOn": "12-10-23",
     "amount": 3000
   },
   {
-    "id": 4,
-    "billName": "Cable Bill",
-    "amount": 300
-  },
-  {
-    "id": 5,
-    "billName": "SBI Credit Card",
-    "amount": 3000
-  },
-  {
-    "id": 4,
-    "billName": "Cable Bill",
-    "amount": 300
-  },
-  {
-    "id": 5,
-    "billName": "SBI Credit Card",
-    "amount": 3000
-  },
-  {
-    "id": 4,
-    "billName": "Cable Bill",
-    "amount": 300
-  },
-  {
-    "id": 5,
-    "billName": "SBI Credit Card",
-    "amount": 3000
-  },
-  {
-    "id": 4,
-    "billName": "Cable Bill",
-    "amount": 300
-  },
-  {
-    "id": 5,
-    "billName": "SBI Credit Card",
-    "amount": 3000
+    "id": 6,
+    "billName": "Electricity Bill",
+    "paidOn": "11-10-23",
+    "amount": 2482
   }
 ]
