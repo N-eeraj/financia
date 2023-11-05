@@ -1,5 +1,5 @@
 <template>
-  <section class="flex-column gap-y-4">
+  <section class="inline-flex flex-col gap-y-4">
     <span class="text-theme-grey-light text-lg">
       Recharge & Pay Bills
     </span>
