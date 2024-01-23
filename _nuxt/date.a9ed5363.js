@@ -1,0 +1,1 @@
+const o=t=>{let r=Math.floor((new Date().getTime()-t.getTime())/1e3);return r<60?"Just Now":(r=Math.floor(r/60),r<60?`${r} Minute${r>1?"s":""} ago`:(r=Math.floor(r/60),r<24?`${r} Hour${r>1?"s":""} ago`:(r=Math.floor(r/24),`${r} Day${r>1?"s":""} ago`)))},n=t=>t?t===1?"Tomorrow":t<7?`in ${t} days`:`in ${Math.ceil(t/7)} weeks`:"Today";export{o as a,n as t};

@@ -1,0 +1,1 @@
+import{_ as t}from"./_plugin-vue_export-helper.c27b6911.js";import{o as r,c as o,m as n}from"./entry.775ef5a6.js";const s={},a={class:"w-full min-h-screen bg-gradient-to-b from-gradient-start to-gradient-end"};function c(e,d){return r(),o("main",a,[n(e.$slots,"default")])}const _=t(s,[["render",c]]);export{_ as default};
